@@ -3,19 +3,16 @@ import { useState, useEffect, useRef } from "react";
 const logoImg = "/FrontPage-logo.webp";
 
 const SERVICES = [
-  { id: 1,  cat: "⚡ Електро", icon: "⚡", name: "Монтаж на полюлей",         price: 45,  unit: "фикс.",    time: "1 ч",    popular: true  },
-  { id: 2,  cat: "⚡ Електро", icon: "⚡", name: "Смяна на контакт",           price: 19,  unit: "фикс.",    time: "30 мин", popular: false },
-  { id: 11, cat: "⚡ Електро", icon: "⚡", name: "Смяна на ключ",              price: 45,  unit: "фикс.",    time: "30 мин", popular: false },
-  { id: 3,  cat: "⚡ Електро", icon: "⚡", name: "Монтаж на климатик",         price: 120, unit: "фикс.",    time: "2-3 ч",  popular: true  },
-  { id: 4,  cat: "🔧 ВиК",    icon: "🔧", name: "Ремонт на казанче",          price: 35,  unit: "фикс.",    time: "1 ч",    popular: true  },
-  { id: 5,  cat: "🔧 ВиК",    icon: "🔧", name: "Монтаж миялна машина",       price: 90,  unit: "фикс.",    time: "1.5 ч",  popular: true  },
-  { id: 6,  cat: "🔧 ВиК",    icon: "🔧", name: "Смяна на смесител",          price: 25,  unit: "фикс.",    time: "1 ч",    popular: false },
-  { id: 12, cat: "🔧 ВиК",    icon: "🔧", name: "Смяна на сифон",             price: 25,  unit: "фикс.",    time: "45 мин", popular: false },
-  { id: 7,  cat: "🏠 Монтаж", icon: "🏠", name: "Сглобяване мебели IKEA",    price: 30,  unit: "час",      time: "2-4 ч",  popular: true  },
-  { id: 8,  cat: "🏠 Монтаж", icon: "🏠", name: "Закачване на рафтове",       price: 20,  unit: "държач",   time: "30 мин", popular: false },
-  { id: 13, cat: "🏠 Монтаж", icon: "🏠", name: "Монтаж на TV стойка",        price: 30,  unit: "фикс.",    time: "30 мин", popular: false },
-  { id: 9,  cat: "🚗 Гуми",   icon: "🚗", name: "Смяна гуми до адрес 15\"",  price: 65,  unit: "4 гуми",   time: "30 мин", popular: true  },
-  { id: 10, cat: "🚗 Гуми",   icon: "🚗", name: "Смяна гуми до адрес 17\"",  price: 90,  unit: "4 гуми",   time: "45 мин", popular: false },
+  { id: 1, cat: "⚡ Електро", icon: "⚡", name: "Монтаж на полюлей", price: 50, unit: "фикс.", time: "1 ч", popular: true },
+  { id: 2, cat: "⚡ Електро", icon: "⚡", name: "Смяна на контакт / ключ", price: 25, unit: "фикс.", time: "30 мин", popular: false },
+  { id: 3, cat: "⚡ Електро", icon: "⚡", name: "Монтаж на климатик", price: 120, unit: "фикс.", time: "2-3 ч", popular: true },
+  { id: 4, cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на казанче", price: 60, unit: "фикс.", time: "1 ч", popular: true },
+  { id: 5, cat: "🔧 ВиК", icon: "🔧", name: "Монтаж миялна машина", price: 100, unit: "фикс.", time: "1.5 ч", popular: true },
+  { id: 6, cat: "🔧 ВиК", icon: "🔧", name: "Смяна на смесител", price: 60, unit: "фикс.", time: "1 ч", popular: false },
+  { id: 7, cat: "🏠 Монтаж", icon: "🏠", name: "Сглобяване мебели IKEA", price: 80, unit: "фикс.", time: "2-4 ч", popular: true },
+  { id: 8, cat: "🏠 Монтаж", icon: "🏠", name: "Закачване на рафтове", price: 35, unit: "фикс.", time: "30 мин", popular: false },
+  { id: 9, cat: "🚗 Гуми", icon: "🚗", name: "Смяна гуми до адрес 15\"", price: 65, unit: "4 гуми", time: "30 мин", popular: true },
+  { id: 10, cat: "🚗 Гуми", icon: "🚗", name: "Смяна гуми до адрес 17\"", price: 90, unit: "4 гуми", time: "45 мин", popular: false },
 ];
 
 const REVIEWS = [
@@ -38,22 +35,11 @@ const TRUST = [
   { icon: "⏰", title: "Точен час", desc: "Не 'между 9 и 17 ч.' - идваме в точния уговорен час." },
 ];
 
-const GALLERY = [
-  { src: "/Монтаж_полюлей.jpg",  label: "Монтаж полилей"    },
-  { src: "/Монтаж_полюлей1.jpg", label: "Монтаж полилей"    },
-  { src: "/Монтаж_контакт.jpg",  label: "Смяна контакт"     },
-  { src: "/Монтаж_контакт1.jpg", label: "Монтаж контакт"    },
-  { src: "/Монтаж_миялна.jpg",   label: "Монтаж миялна"     },
-  { src: "/Монтаж_пералня.jpg",  label: "Монтаж пералня"    },
-  { src: "/Монтаж_смесител.jpg", label: "Смяна смесител"    },
-  { src: "/Монтаж_сифон.jpg",    label: "Монтаж сифон"      },
-  { src: "/Монтаж_мебели1.jpg",  label: "Сглобяване мебели" },
-  { src: "/Монтаж_спалня1.jpg",  label: "Монтаж спалня"     },
-  { src: "/Монтаж_спалня2.jpg",  label: "Сглобяване легло"  },
-  { src: "/лепене_тапети.jpg",   label: "Лепене тапети"     },
-];
-
 const CATS = ["Всички", "⚡ Електро", "🔧 ВиК", "🏠 Монтаж", "🚗 Гуми"];
+
+// Heights: desktop sticky bar = 54px, mobile sticky bar = 64px + safe-area
+const STICKY_H_DESKTOP = 54;
+const STICKY_H_MOBILE = 64;
 
 export default function App() {
   const [activeCat, setActiveCat] = useState("Всички");
@@ -65,6 +51,7 @@ export default function App() {
   const [booked, setBooked] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showAllReviews, setShowAllReviews] = useState(false);
   const bookRef = useRef(null);
 
   useEffect(() => {
@@ -112,9 +99,18 @@ export default function App() {
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: ${G.bg}; color: ${G.text}; overflow-x: hidden; }
-    ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: ${G.bg}; } ::-webkit-scrollbar-thumb { background: ${G.accent}; border-radius: 3px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: ${G.bg};
+      color: ${G.text};
+      overflow-x: hidden;
+      padding-bottom: ${STICKY_H_DESKTOP}px;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: ${G.bg}; }
+    ::-webkit-scrollbar-thumb { background: ${G.accent}; border-radius: 3px; }
 
+    /* ─── NAVBAR ─── */
     .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s; }
     .navbar.scrolled { background: rgba(12,10,7,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid ${G.border}; padding: 12px 40px; }
     .logo { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 900; color: ${G.white}; letter-spacing: -0.5px; }
@@ -126,6 +122,7 @@ export default function App() {
     .nav-cta:hover { background: ${G.accentLight}; transform: translateY(-1px); }
     .phone-link { font-size: 14px; color: ${G.text}; font-weight: 600; letter-spacing: 0.5px; }
 
+    /* ─── HERO ─── */
     .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 0 40px; }
     .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(232,114,42,0.12) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 20% 80%, rgba(232,114,42,0.06) 0%, transparent 60%); }
     .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(${G.border} 1px, transparent 1px), linear-gradient(90deg, ${G.border} 1px, transparent 1px); background-size: 60px 60px; opacity: 0.3; }
@@ -143,17 +140,18 @@ export default function App() {
     .btn-secondary { background: transparent; color: ${G.text}; border: 1px solid ${G.border}; padding: 16px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
     .btn-secondary:hover { border-color: ${G.accent}; color: ${G.accent}; }
     .hero-stats { display: flex; gap: 36px; }
-    .stat { }
     .stat-num { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 800; color: ${G.white}; }
     .stat-label { font-size: 12px; color: ${G.textMuted}; font-weight: 500; margin-top: 2px; }
     .hero-logo-wrap { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 480px; pointer-events: none; user-select: none; }
     .hero-logo-img { width: 100%; height: auto; opacity: 0.88; filter: drop-shadow(0 0 60px rgba(232,114,42,0.25)); }
 
+    /* ─── SECTIONS ─── */
     .section { padding: 90px 40px; max-width: 1200px; margin: 0 auto; }
     .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: ${G.accent}; margin-bottom: 12px; }
     .section-title { font-family: 'Poppins', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: ${G.white}; margin-bottom: 14px; line-height: 1.15; }
     .section-sub { font-size: 16px; color: ${G.textSec}; line-height: 1.7; max-width: 520px; }
 
+    /* ─── HOW IT WORKS ─── */
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 50px; }
     .step-card { background: ${G.card}; border: 1px solid ${G.border}; border-radius: 14px; padding: 32px; position: relative; overflow: hidden; transition: border-color 0.2s; }
     .step-card:hover { border-color: rgba(232,114,42,0.4); }
@@ -163,8 +161,8 @@ export default function App() {
     .step-icon { font-size: 32px; margin-bottom: 16px; display: block; }
     .step-title { font-size: 18px; font-weight: 700; color: ${G.white}; margin-bottom: 10px; }
     .step-desc { font-size: 14px; color: ${G.textSec}; line-height: 1.7; }
-    .steps-connector { display: none; }
 
+    /* ─── SERVICES ─── */
     .cats { display: flex; gap: 10px; flex-wrap: wrap; margin: 40px 0 28px; }
     .cat-btn { background: ${G.card}; border: 1px solid ${G.border}; color: ${G.textSec}; padding: 9px 20px; border-radius: 30px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
     .cat-btn.active, .cat-btn:hover { background: rgba(232,114,42,0.15); border-color: ${G.accent}; color: ${G.accent}; }
@@ -174,20 +172,17 @@ export default function App() {
     .toggle-dot { position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; background: ${G.white}; border-radius: 50%; transition: transform 0.2s; }
     .toggle.on .toggle-dot { transform: translateX(20px); }
     .toggle-label { font-size: 13px; color: ${G.textSec}; font-weight: 500; }
-
     .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
     .service-card { background: ${G.card}; border: 1px solid rgba(255,255,255,0.13); border-radius: 12px; padding: 22px; cursor: pointer; transition: all 0.2s; position: relative; overflow: hidden; box-shadow: 0 2px 0 rgba(255,255,255,0.07) inset, 0 8px 24px rgba(0,0,0,0.35); }
     .service-card:hover { border-color: ${G.accent}; transform: translateY(-3px); box-shadow: 0 2px 0 rgba(255,255,255,0.1) inset, 0 16px 40px rgba(0,0,0,0.45), 0 0 0 1px ${G.accent}; }
     .service-card.popular::after { content: 'Топ'; position: absolute; top: 12px; right: 12px; background: rgba(232,114,42,0.2); color: ${G.accent}; font-size: 10px; font-weight: 800; padding: 2px 8px; border-radius: 4px; letter-spacing: 1px; }
-    .service-card-custom { background: transparent; border: 1.5px dashed rgba(255,255,255,0.22); border-radius: 12px; padding: 22px; cursor: pointer; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 160px; box-shadow: 0 2px 0 rgba(255,255,255,0.04) inset; }
+    .service-card-custom { background: transparent; border: 1.5px dashed rgba(255,255,255,0.22); border-radius: 12px; padding: 22px; cursor: pointer; transition: all 0.2s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 160px; box-shadow: 0 2px 0 rgba(255,255,255,0.04) inset; text-decoration: none; }
     .service-card-custom:hover { border-color: ${G.accent}; border-style: solid; box-shadow: 0 0 0 1px ${G.accent}, 0 12px 32px rgba(0,0,0,0.3); }
     .service-card-custom-icon { font-size: 28px; }
     .service-card-custom-label { color: ${G.textSec}; font-size: 14px; font-weight: 600; text-align: center; line-height: 1.4; }
     .service-card-custom:hover .service-card-custom-label { color: ${G.accent}; }
-    .viber-btn { background: #7360F2; color: ${G.white}; border: none; padding: 16px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; display: flex; align-items: center; gap: 10px; }
+    .viber-btn { background: #7360F2; color: ${G.white}; border: none; padding: 16px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .viber-btn:hover { background: #5f4edb; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(115,96,242,0.4); }
-    .float-viber-btn { width: 56px; height: 56px; background: #7360F2; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 8px 30px rgba(115,96,242,0.45); transition: all 0.2s; border: none; }
-    .float-viber-btn:hover { transform: scale(1.1); }
     .svc-icon { font-size: 24px; margin-bottom: 12px; display: block; }
     .svc-name { font-size: 15px; font-weight: 700; color: ${G.white}; margin-bottom: 6px; line-height: 1.3; }
     .svc-time { font-size: 12px; color: ${G.textMuted}; margin-bottom: 16px; }
@@ -198,6 +193,7 @@ export default function App() {
     .svc-book-btn:hover { background: ${G.accent}; color: ${G.white}; }
     .urgent-badge { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(232,114,42,0.1); border-top: 1px solid rgba(232,114,42,0.2); padding: 5px 12px; font-size: 11px; color: ${G.accentLight}; display: flex; align-items: center; gap: 6px; }
 
+    /* ─── TRUST ─── */
     .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 50px; }
     .trust-card { background: ${G.card}; border: 1px solid ${G.border}; border-radius: 12px; padding: 28px; transition: border-color 0.2s; }
     .trust-card:hover { border-color: rgba(232,114,42,0.3); }
@@ -205,9 +201,9 @@ export default function App() {
     .trust-title { font-size: 16px; font-weight: 700; color: ${G.white}; margin-bottom: 8px; }
     .trust-desc { font-size: 13px; color: ${G.textSec}; line-height: 1.7; }
 
+    /* ─── REVIEWS ─── */
     .reviews-track { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 50px; }
     .review-card { background: ${G.card}; border: 1px solid ${G.border}; border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
-    .review-card:hover { border-color: ${G.border}; }
     .review-stars { color: #F5A623; font-size: 14px; margin-bottom: 12px; letter-spacing: 2px; }
     .review-text { font-size: 14px; color: ${G.textSec}; line-height: 1.8; margin-bottom: 18px; font-style: italic; }
     .review-author { display: flex; align-items: center; gap: 12px; }
@@ -215,7 +211,10 @@ export default function App() {
     .review-name { font-size: 14px; font-weight: 700; color: ${G.white}; }
     .review-role { font-size: 12px; color: ${G.textMuted}; margin-top: 2px; }
     .review-svc { font-size: 11px; color: ${G.accent}; background: rgba(232,114,42,0.1); padding: 2px 8px; border-radius: 4px; margin-top: 6px; display: inline-block; }
+    .review-card-extra { }
+    .show-more-reviews { display: none; }
 
+    /* ─── CTA STRIP ─── */
     .cta-strip { background: linear-gradient(135deg, rgba(232,114,42,0.15) 0%, rgba(232,114,42,0.05) 100%); border: 1px solid rgba(232,114,42,0.2); border-radius: 20px; padding: 60px 50px; margin: 0 40px 90px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
     .cta-text .tag { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: ${G.accent}; margin-bottom: 12px; }
     .cta-text h2 { font-family: 'Poppins', sans-serif; font-size: 36px; font-weight: 800; color: ${G.white}; margin-bottom: 10px; }
@@ -224,7 +223,8 @@ export default function App() {
     .wa-btn { background: #25D366; color: ${G.white}; border: none; padding: 16px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; display: flex; align-items: center; gap: 10px; }
     .wa-btn:hover { background: #20BD5A; transform: translateY(-2px); }
 
-    .footer { border-top: 1px solid ${G.border}; padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 20px; }
+    /* ─── FOOTER ─── */
+    .footer { border-top: 1px solid ${G.border}; padding: 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
     .footer-logo { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: 900; color: ${G.white}; }
     .footer-logo span { color: ${G.accent}; }
     .footer-note { font-size: 13px; color: ${G.textMuted}; }
@@ -232,12 +232,97 @@ export default function App() {
     .footer-link { font-size: 13px; color: ${G.textSec}; text-decoration: none; cursor: pointer; transition: color 0.2s; }
     .footer-link:hover { color: ${G.accent}; }
 
-    .float-wa { position: fixed; bottom: 28px; right: 28px; z-index: 99; display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
+    /* ─── FLOATING BUTTONS ─── */
+    .float-wa { position: fixed; bottom: calc(${STICKY_H_DESKTOP}px + 20px); right: 28px; z-index: 99; display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
     .float-wa-btn { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 8px 30px rgba(37,211,102,0.4); transition: all 0.2s; border: none; }
     .float-wa-btn:hover { transform: scale(1.1); }
+    .float-viber-btn { width: 56px; height: 56px; background: #7360F2; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 8px 30px rgba(115,96,242,0.45); transition: all 0.2s; border: none; text-decoration: none; }
+    .float-viber-btn:hover { transform: scale(1.1); }
     .float-phone-btn { width: 48px; height: 48px; background: ${G.accent}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; box-shadow: 0 8px 25px rgba(232,114,42,0.4); transition: all 0.2s; border: none; }
     .float-phone-btn:hover { transform: scale(1.1); }
 
+    /* ─── STICKY BOTTOM BAR ─── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 97;
+      background: rgba(12,10,7,0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid ${G.border};
+    }
+    .sticky-bar-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: ${STICKY_H_DESKTOP}px;
+      gap: 24px;
+    }
+    .sticky-bar-logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 900;
+      color: ${G.white};
+      white-space: nowrap;
+      letter-spacing: -0.3px;
+    }
+    .sticky-bar-logo span { color: ${G.accent}; }
+    .sticky-bar-center {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: ${G.textSec};
+      flex: 1;
+      justify-content: center;
+    }
+    .sticky-bar-center .sep { color: ${G.border}; }
+    .sticky-bar-center .phone-num {
+      color: ${G.text};
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+    }
+    .sticky-bar-center .phone-num:hover { color: ${G.accentLight}; }
+    .sticky-bar-actions { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
+    .sticky-viber-btn {
+      background: rgba(115,96,242,0.15);
+      color: #9B8FD4;
+      border: 1px solid rgba(115,96,242,0.3);
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sticky-viber-btn:hover { background: rgba(115,96,242,0.3); color: #C4BCEF; }
+    .sticky-cta-btn {
+      background: ${G.accent};
+      color: ${G.white};
+      border: none;
+      padding: 9px 22px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sticky-cta-btn:hover { background: ${G.accentLight}; transform: translateY(-1px); }
+    .sticky-bar-mobile { display: none; }
+
+    /* ─── BOOKING MODAL ─── */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: center; justify-content: center; padding: 20px; }
     .modal { background: ${G.card}; border: 1px solid ${G.border}; border-radius: 20px; width: 100%; max-width: 520px; overflow: hidden; }
     .modal-header { padding: 24px 28px; border-bottom: 1px solid ${G.border}; display: flex; align-items: center; justify-content: space-between; }
@@ -265,33 +350,138 @@ export default function App() {
     .success-detail { background: rgba(76,175,122,0.08); border: 1px solid rgba(76,175,122,0.2); border-radius: 10px; padding: 16px 20px; font-size: 14px; color: ${G.textSec}; line-height: 2; }
     .success-detail strong { color: ${G.white}; }
 
-    .gallery-section { padding: 90px 40px; max-width: 1200px; margin: 0 auto; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 50px; }
-    .gallery-item { border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; aspect-ratio: 1; border: 1px solid ${G.border}; transition: border-color 0.2s; }
-    .gallery-item:first-child { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
-    .gallery-item:hover { border-color: rgba(232,114,42,0.4); }
-    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s; }
-    .gallery-item:hover img { transform: scale(1.06); }
-    .gallery-item-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 14px; background: linear-gradient(transparent, rgba(12,10,7,0.85)); font-size: 12px; font-weight: 500; color: ${G.textSec}; opacity: 0; transition: opacity 0.2s; }
-    .gallery-item:hover .gallery-item-label { opacity: 1; }
-
+    /* ════════════════════════════════════
+       MOBILE OVERRIDES  (max-width: 768px)
+       ════════════════════════════════════ */
     @media (max-width: 768px) {
-      .navbar { padding: 14px 20px; } .navbar.scrolled { padding: 10px 20px; }
+      body { padding-bottom: calc(${STICKY_H_MOBILE}px + env(safe-area-inset-bottom, 0px)); }
+
+      /* Navbar */
+      .navbar { padding: 14px 20px; }
+      .navbar.scrolled { padding: 10px 20px; }
       .nav-links { display: none; }
-      .hero { padding: 100px 20px 60px; }
+
+      /* Hero — compact */
+      .hero {
+        min-height: auto;
+        padding: 110px 20px 36px;
+        align-items: flex-start;
+      }
       .hero-logo-wrap { display: none; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .section { padding: 60px 20px; }
-      .gallery-section { padding: 60px 20px; }
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-      .gallery-item:first-child { grid-column: span 2; grid-row: span 1; }
-      .cta-strip { padding: 40px 28px; margin: 0 20px 60px; }
+      .hero-badge { margin-bottom: 18px; font-size: 12px; padding: 5px 13px; }
+      .hero-title { font-size: clamp(34px, 9vw, 48px); margin-bottom: 14px; }
+      .hero-sub { font-size: 15px; margin-bottom: 24px; }
+      .hero-actions { margin-bottom: 28px; gap: 10px; }
+      .btn-primary { padding: 14px 24px; font-size: 15px; }
+      .btn-secondary { padding: 14px 20px; font-size: 14px; }
+      .hero-stats { gap: 20px; }
+      .stat-num { font-size: 22px; }
+      .hero-stat-hide { display: none; }
+
+      /* Sections */
+      .section { padding: 55px 20px; }
+
+      /* Steps */
+      .steps-grid { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+      .step-card { padding: 22px; }
+      .step-num { font-size: 48px; }
+
+      /* Trust — hide last card on mobile */
+      .trust-grid { gap: 12px; margin-top: 32px; }
+      .trust-card { padding: 20px; }
+      .trust-card:nth-child(4) { display: none; }
+
+      /* Reviews — show 2 by default, "Виж още" button */
+      .reviews-track { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+      .review-card-extra { display: none; }
+      .review-card-extra.visible { display: block; }
+      .show-more-reviews {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        margin-top: 16px;
+        background: ${G.card};
+        border: 1px solid ${G.border};
+        color: ${G.textSec};
+        padding: 13px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: 'Inter', sans-serif;
+        transition: all 0.2s;
+      }
+      .show-more-reviews:hover { border-color: ${G.accent}; color: ${G.accent}; }
+
+      /* CTA strip */
+      .cta-strip { padding: 28px 20px; margin: 0 16px 60px; }
+      .cta-text h2 { font-size: 24px; }
+      .cta-text p { font-size: 14px; }
+
+      /* Footer */
       .footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
-      .hero-stats { gap: 24px; }
+
+      /* Floating buttons — hide on mobile (sticky bar handles it) */
+      .float-wa { display: none !important; }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .service-card { padding: 14px; }
+      .svc-price { font-size: 18px; }
+      .svc-name { font-size: 13px; }
+      .service-card-custom { min-height: 120px; }
+
+      /* Sticky bar — mobile layout */
+      .sticky-bar-desktop { display: none; }
+      .sticky-bar-mobile {
+        display: flex;
+        align-items: stretch;
+        height: ${STICKY_H_MOBILE}px;
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .sticky-mobile-btn {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.15s;
+        letter-spacing: 0.3px;
+      }
+      .sticky-mobile-btn:active { opacity: 0.75; }
+      .sticky-mobile-btn-icon { font-size: 20px; line-height: 1; }
+      .sticky-mobile-phone {
+        background: #141210;
+        color: ${G.textSec};
+        border-right: 1px solid ${G.border};
+      }
+      .sticky-mobile-viber {
+        background: #161228;
+        color: #9B8FD4;
+        border-right: 1px solid ${G.border};
+      }
+      .sticky-mobile-book {
+        background: ${G.accent};
+        color: ${G.white};
+        flex: 1.4;
+      }
     }
   `;
 
   const finalPrice = selectedService ? Math.round(selectedService.price * urgentMultiplier) : 0;
+
+  const scrollToServices = () => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <>
@@ -301,11 +491,11 @@ export default function App() {
       <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
         <div className="logo">Handyman<span>Sofia</span></div>
         <div className="nav-links">
-          <span className="nav-link" onClick={() => document.getElementById("services")?.scrollIntoView({behavior:"smooth"})}>Услуги</span>
-          <span className="nav-link" onClick={() => document.getElementById("how")?.scrollIntoView({behavior:"smooth"})}>Как работи</span>
-          <span className="nav-link" onClick={() => document.getElementById("reviews")?.scrollIntoView({behavior:"smooth"})}>Отзиви</span>
-          <span className="phone-link">📞 0888 123 456</span>
-          <button className="nav-cta" onClick={() => document.getElementById("services")?.scrollIntoView({behavior:"smooth"})}>Резервирай</button>
+          <span className="nav-link" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>Услуги</span>
+          <span className="nav-link" onClick={() => document.getElementById("how")?.scrollIntoView({ behavior: "smooth" })}>Как работи</span>
+          <span className="nav-link" onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" })}>Отзиви</span>
+          <a href="tel:+359889182749" className="phone-link">📞 +359 889 182 749</a>
+          <button className="nav-cta" onClick={scrollToServices}>Резервирай</button>
         </div>
       </nav>
 
@@ -321,17 +511,22 @@ export default function App() {
             Резервирай онлайн в под 60 секунди. Без изненади, без чакане.
           </p>
           <div className="hero-actions">
-            <button className="btn-primary" onClick={() => document.getElementById("services")?.scrollIntoView({behavior:"smooth"})}>
-              ⚡ Резервирай сега
-            </button>
-            <button className="btn-secondary" onClick={() => document.getElementById("how")?.scrollIntoView({behavior:"smooth"})}>
-              Как работи?
-            </button>
+            <button className="btn-primary" onClick={scrollToServices}>⚡ Резервирай сега</button>
+            <button className="btn-secondary" onClick={() => document.getElementById("how")?.scrollIntoView({ behavior: "smooth" })}>Как работи?</button>
           </div>
           <div className="hero-stats">
-            <div className="stat"><div className="stat-num">4.9★</div><div className="stat-label">среден рейтинг</div></div>
-            <div className="stat"><div className="stat-num">500+</div><div className="stat-label">изпълнени задачи</div></div>
-            <div className="stat"><div className="stat-num">30 дни</div><div className="stat-label">гаранция на труда</div></div>
+            <div className="stat">
+              <div className="stat-num">4.9★</div>
+              <div className="stat-label">среден рейтинг</div>
+            </div>
+            <div className="stat hero-stat-hide">
+              <div className="stat-num">500+</div>
+              <div className="stat-label">изпълнени задачи</div>
+            </div>
+            <div className="stat">
+              <div className="stat-num">30 дни</div>
+              <div className="stat-label">гаранция на труда</div>
+            </div>
           </div>
         </div>
         <div className="hero-logo-wrap">
@@ -382,7 +577,7 @@ export default function App() {
 
         {urgent && (
           <div style={{ background: "rgba(232,114,42,0.08)", border: `1px solid rgba(232,114,42,0.2)`, borderRadius: "8px", padding: "12px 18px", marginBottom: "20px", fontSize: "13px", color: G.accentLight }}>
-            ⚡ Спешна услуга (до 24 ч., след 18 ч. или уикенд) — добавена е 50% надценка. Вдъхновено от MrFix.nl.
+            ⚡ Спешна услуга (до 24 ч., след 18 ч. или уикенд) — добавена е 50% надценка.
           </div>
         )}
 
@@ -395,7 +590,7 @@ export default function App() {
               <div className="svc-time">⏱ {svc.time} · {svc.unit}</div>
               <div className="svc-footer">
                 <div>
-                  <div className="svc-price">{Math.round(svc.price * urgentMultiplier)} €</div>
+                  <div className="svc-price">{Math.round(svc.price * urgentMultiplier)} лв.</div>
                   <div className="svc-price-label">само труд · без части</div>
                 </div>
                 <button className="svc-book-btn">Резервирай →</button>
@@ -405,7 +600,7 @@ export default function App() {
           <a href="viber://chat?number=%2B359889182749" className="service-card-custom">
             <span className="service-card-custom-icon">🔍</span>
             <span className="service-card-custom-label">Друга услуга<br />по запитване</span>
-            <span style={{fontSize:"12px", color:"#7360F2", fontWeight:700}}>Пиши във Viber →</span>
+            <span style={{ fontSize: "12px", color: "#7360F2", fontWeight: 700 }}>Пиши във Viber →</span>
           </a>
         </div>
       </div>
@@ -427,23 +622,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* GALLERY */}
-      <div style={{ background: G.card, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}` }}>
-        <div className="gallery-section">
-          <div className="section-label">Нашата работа</div>
-          <div className="section-title">Резултати,<br />не обещания.</div>
-          <p className="section-sub">Реални снимки от реални поръчки в София.</p>
-          <div className="gallery-grid">
-            {GALLERY.map((item, i) => (
-              <div className="gallery-item" key={i}>
-                <img src={item.src} alt={item.label} loading={i < 3 ? "eager" : "lazy"} />
-                <div className="gallery-item-label">{item.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* REVIEWS */}
       <div id="reviews" />
       <div className="section">
@@ -451,7 +629,10 @@ export default function App() {
         <div className="section-title">Казват го<br />нашите клиенти.</div>
         <div className="reviews-track">
           {REVIEWS.map((r, i) => (
-            <div className="review-card" key={i}>
+            <div
+              className={`review-card${i >= 2 ? ` review-card-extra${showAllReviews ? " visible" : ""}` : ""}`}
+              key={i}
+            >
               <div className="review-stars">{"★".repeat(r.stars)}</div>
               <div className="review-text">"{r.text}"</div>
               <div className="review-author">
@@ -465,6 +646,11 @@ export default function App() {
             </div>
           ))}
         </div>
+        {!showAllReviews && (
+          <button className="show-more-reviews" onClick={() => setShowAllReviews(true)}>
+            + Виж всички отзиви ({REVIEWS.length})
+          </button>
+        )}
       </div>
 
       {/* CTA STRIP */}
@@ -472,18 +658,18 @@ export default function App() {
         <div className="cta-text">
           <div className="tag">Готов? Резервирай сега</div>
           <h2>Твоят майстор е<br />на едно повикване.</h2>
-          <p>HandymanSofia.com · София · 0888 123 456</p>
+          <p>HandymanSofia.com · София · +359 889 182 749</p>
         </div>
         <div className="cta-actions">
-          <button className="btn-primary" onClick={() => document.getElementById("services")?.scrollIntoView({behavior:"smooth"})}>⚡ Избери услуга</button>
-          <a href="https://wa.me/359889182749?text=Здравейте%2C%20интересувам%20се%20от%20услуга." target="_blank" rel="noopener noreferrer" className="wa-btn">💬 WhatsApp</a>
+          <button className="btn-primary" onClick={scrollToServices}>⚡ Избери услуга</button>
+          <button className="wa-btn">💬 WhatsApp</button>
           <a href="viber://chat?number=%2B359889182749" className="viber-btn">🟣 Viber</a>
         </div>
       </div>
 
       {/* FOOTER */}
       <footer className="footer">
-        <div className="footer-logo">Handyman<span>Sofia</span><span style={{fontSize:"11px", color: G.textMuted, fontFamily:"Inter", fontWeight:400, marginLeft:10}}>.com</span></div>
+        <div className="footer-logo">Handyman<span>Sofia</span><span style={{ fontSize: "11px", color: G.textMuted, fontFamily: "Inter", fontWeight: 400, marginLeft: 10 }}>.com</span></div>
         <div className="footer-links">
           <span className="footer-link">Услуги</span>
           <span className="footer-link">За нас</span>
@@ -493,11 +679,47 @@ export default function App() {
         <div className="footer-note">© 2026 HandymanSofia.com · ЕИК 000000000</div>
       </footer>
 
-      {/* FLOATING BUTTONS */}
+      {/* FLOATING BUTTONS — desktop only (hidden on mobile via CSS) */}
       <div className="float-wa">
         <a href="viber://chat?number=%2B359889182749" className="float-viber-btn" title="Viber" aria-label="Viber">🟣</a>
-        <a href="https://wa.me/359889182749?text=Здравейте%2C%20интересувам%20се%20от%20услуга." target="_blank" rel="noopener noreferrer" className="float-wa-btn" title="WhatsApp" aria-label="WhatsApp">💬</a>
+        <button className="float-wa-btn" title="WhatsApp" aria-label="WhatsApp">💬</button>
         <button className="float-phone-btn" title="Телефон" aria-label="Телефон">📞</button>
+      </div>
+
+      {/* ─── STICKY BOTTOM BAR ─── */}
+      <div className="sticky-bar">
+
+        {/* Desktop layout */}
+        <div className="sticky-bar-desktop">
+          <div className="sticky-bar-logo">Handyman<span>Sofia</span></div>
+          <div className="sticky-bar-center">
+            <a href="tel:+359889182749" className="phone-num">📞 +359 889 182 749</a>
+            <span className="sep">·</span>
+            <span>Работим 08:00–21:00, всеки ден</span>
+            <span className="sep">·</span>
+            <span>Гаранция 30 дни</span>
+          </div>
+          <div className="sticky-bar-actions">
+            <a href="viber://chat?number=%2B359889182749" className="sticky-viber-btn">🟣 Viber</a>
+            <button className="sticky-cta-btn" onClick={scrollToServices}>⚡ Резервирай сега</button>
+          </div>
+        </div>
+
+        {/* Mobile layout */}
+        <div className="sticky-bar-mobile">
+          <a href="tel:+359889182749" className="sticky-mobile-btn sticky-mobile-phone">
+            <span className="sticky-mobile-btn-icon">📞</span>
+            <span>Обади се</span>
+          </a>
+          <a href="viber://chat?number=%2B359889182749" className="sticky-mobile-btn sticky-mobile-viber">
+            <span className="sticky-mobile-btn-icon">🟣</span>
+            <span>Viber</span>
+          </a>
+          <button className="sticky-mobile-btn sticky-mobile-book" onClick={scrollToServices}>
+            <span className="sticky-mobile-btn-icon">⚡</span>
+            <span>Резервирай</span>
+          </button>
+        </div>
       </div>
 
       {/* BOOKING MODAL */}
@@ -519,25 +741,22 @@ export default function App() {
                       <div className="modal-svc-note">⏱ {selectedService.time} · само труд</div>
                     </div>
                     <div style={{ textAlign: "right" }}>
-                      <div className="modal-svc-price">{finalPrice} €</div>
+                      <div className="modal-svc-price">{finalPrice} лв.</div>
                       {urgent && <div style={{ fontSize: "11px", color: G.accentLight }}>+50% спешно</div>}
                     </div>
                   </div>
-
                   <div className="modal-label">Избери дата</div>
                   <div className="dates-grid">
                     {dates.map(d => (
                       <button key={d} className={`date-btn${selectedDate === d ? " sel" : ""}`} onClick={() => setSelectedDate(d)}>{d}</button>
                     ))}
                   </div>
-
                   <div className="modal-label">Избери час</div>
                   <div className="hours-grid">
                     {hours.map(h => (
                       <button key={h} className={`hour-btn${selectedHour === h ? " sel" : ""}`} onClick={() => setSelectedHour(h)}>{h}</button>
                     ))}
                   </div>
-
                   <button className="modal-confirm" disabled={!selectedDate || !selectedHour} onClick={confirmBooking}>
                     {selectedDate && selectedHour ? `✔ Потвърди за ${selectedDate} в ${selectedHour}` : "Избери дата и час"}
                   </button>
@@ -550,7 +769,7 @@ export default function App() {
                   <div className="success-detail">
                     <div><strong>Услуга:</strong> {selectedService.name}</div>
                     <div><strong>Дата:</strong> {selectedDate}, {selectedHour} ч.</div>
-                    <div><strong>Цена:</strong> {finalPrice} € (само труд)</div>
+                    <div><strong>Цена:</strong> {finalPrice} лв. (само труд)</div>
                     <div><strong>Гаранция:</strong> 30 дни на труда</div>
                   </div>
                   <button className="modal-confirm" style={{ marginTop: "20px" }} onClick={() => setShowModal(false)}>Затвори</button>
