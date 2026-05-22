@@ -590,7 +590,7 @@ export default function App() {
               <div className="svc-time">⏱ {svc.time} · {svc.unit}</div>
               <div className="svc-footer">
                 <div>
-                  <div className="svc-price">{Math.round(svc.price * urgentMultiplier)} лв.</div>
+                  <div className="svc-price">{Math.round(svc.price * urgentMultiplier)} €</div>
                   <div className="svc-price-label">само труд · без части</div>
                 </div>
                 <button className="svc-book-btn">Резервирай →</button>
@@ -741,7 +741,7 @@ export default function App() {
                       <div className="modal-svc-note">⏱ {selectedService.time} · само труд</div>
                     </div>
                     <div style={{ textAlign: "right" }}>
-                      <div className="modal-svc-price">{finalPrice} лв.</div>
+                      <div className="modal-svc-price">{finalPrice} €</div>
                       {urgent && <div style={{ fontSize: "11px", color: G.accentLight }}>+50% спешно</div>}
                     </div>
                   </div>
@@ -769,7 +769,7 @@ export default function App() {
                   <div className="success-detail">
                     <div><strong>Услуга:</strong> {selectedService.name}</div>
                     <div><strong>Дата:</strong> {selectedDate}, {selectedHour} ч.</div>
-                    <div><strong>Цена:</strong> {finalPrice} лв. (само труд)</div>
+                    <div><strong>Цена:</strong> {finalPrice} € (само труд)</div>
                     <div><strong>Гаранция:</strong> 30 дни на труда</div>
                   </div>
                   <button className="modal-confirm" style={{ marginTop: "20px" }} onClick={() => setShowModal(false)}>Затвори</button>
