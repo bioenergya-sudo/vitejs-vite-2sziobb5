@@ -2,32 +2,32 @@
 // Route: /za-nas
 
 const G = {
-    bg: "#0C0A07",
-    card: "#161410",
-    border: "#2A2520",
-    accent: "#E8722A",
-    accentLight: "#FF9A5C",
-    text: "#F5F0E8",
-    textSec: "#9A8F82",
-    textMuted: "#5A5047",
-    white: "#FEFCF8",
+    bg: '#0C0A07',
+    card: '#161410',
+    border: '#2A2520',
+    accent: '#E8722A',
+    accentLight: '#FF9A5C',
+    text: '#F5F0E8',
+    textSec: '#9A8F82',
+    textMuted: '#5A5047',
+    white: '#FEFCF8',
   };
   
   const VALUES = [
-    { icon: "🛡️", title: "Ясни цени", desc: "Без скрити такси и неприятни изненади след ремонта." },
-    { icon: "⏰", title: "Точен час", desc: "Уважаваме времето ти и идваме в уговорения интервал." },
-    { icon: "✔️", title: "Проверени майстори", desc: "Работим само с хора, на които бихме поверили собствения си дом." },
-    { icon: "🧾", title: "Професионално отношение", desc: "Коректна комуникация, фактура и гаранция за извършената работа." },
+    { icon: '🛡️', title: 'Ясни цени', desc: 'Без скрити такси и неприятни изненади след ремонта.' },
+    { icon: '⏰', title: 'Точен час', desc: 'Уважаваме времето ти и идваме в уговорения интервал.' },
+    { icon: '✔️', title: 'Проверени майстори', desc: 'Работим само с хора, на които бихме поверили собствения си дом.' },
+    { icon: '🧾', title: 'Професионално отношение', desc: 'Коректна комуникация, фактура и гаранция за извършената работа.' },
   ];
   
   const HOW = [
-    { n: "01", title: "Избери услуга", desc: "Виждаш цената предварително и избираш удобно време за посещение." },
-    { n: "02", title: "Потвърждаваме заявката", desc: "Получаваш бърз отговор и точен час — без „ще дойдем някога днес"." },
-    { n: "03", title: "Майсторът идва", desc: "Работим чисто, коректно и с внимание към детайла." },
+    { n: '01', title: 'Избери услуга', desc: 'Виждаш цената предварително и избираш удобно време за посещение.' },
+    { n: '02', title: 'Потвърждаваме заявката', desc: 'Получаваш бърз отговор и точен час - без да чакаш.' },   
+    { n: '03', title: 'Майсторът идва', desc: 'Работим чисто, коректно и с внимание към детайла.' },
   ];
   
   export default function ZaNas() {
-    const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   
     const css = `
       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
@@ -219,58 +219,58 @@ const G = {
       }
     `;
   
-    const goHome = () => { window.location.href = "/"; };
+    const goHome = () => { window.location.href = '/'; };
   
     return (
       <>
         <style dangerouslySetInnerHTML={{ __html: css }} />
-        <div className="zn-hero-bg" />
+        <div className='zn-hero-bg' />
   
         {/* NAVBAR */}
-        <nav className="zn-navbar">
-          <div className="zn-logo" onClick={goHome}>Handyman<span>Sofia</span></div>
-          <div className="zn-nav-links">
-            <span className="zn-nav-link" onClick={goHome}>Начало</span>
-            <span className="zn-nav-link" onClick={() => { goHome(); setTimeout(() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" }), 300); }}>Услуги</span>
-            <span className="zn-nav-link active">За нас</span>
-            <a href="tel:+359889182749" className="zn-nav-link">📞 +359 889 182 749</a>
-            <span className="zn-nav-cta" onClick={goHome}>Резервирай</span>
+        <nav className='zn-navbar'>
+          <div className='zn-logo' onClick={goHome}>Handyman<span>Sofia</span></div>
+          <div className='zn-nav-links'>
+            <span className='zn-nav-link' onClick={goHome}>Начало</span>
+            <span className='zn-nav-link' onClick={() => { goHome(); setTimeout(() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }), 300); }}>Услуги</span>
+            <span className='zn-nav-link active'>За нас</span>
+            <a href='tel:+359889182749' className='zn-nav-link'>📞 +359 889 182 749</a>
+            <span className='zn-nav-cta' onClick={goHome}>Резервирай</span>
           </div>
         </nav>
   
         {/* HERO */}
-        <div className="zn-hero">
-          <div className="zn-label">За нас</div>
-          <h1 className="zn-hero-title">
+        <div className='zn-hero'>
+          <div className='zn-label'>За нас</div>
+          <h1 className='zn-hero-title'>
             Създадохме услугата,<br />
             която <em>самите ние</em><br />
             искахме да съществува.
           </h1>
-          <p className="zn-hero-lead">
+          <p className='zn-hero-lead'>
             HandymanSofia е модерен сервиз за дребни ремонти и монтажи в София.
             Създадохме го, защото хората са уморени от <strong>неясни цени</strong>, <strong>чакане с дни</strong> и липса на коректност.
           </p>
-          <div className="zn-divider" />
+          <div className='zn-divider' />
         </div>
   
         {/* MISSION */}
-        <div className="zn-section" style={{ paddingTop: 0 }}>
-          <div className="zn-label">Нашата история</div>
-          <div className="zn-mission">
-            <div className="zn-mission-text">
+        <div className='zn-section' style={{ paddingTop: 0 }}>
+          <div className='zn-label'>Нашата история</div>
+          <div className='zn-mission'>
+            <div className='zn-mission-text'>
               <p>Ние създадохме HandymanSofia, защото вярваме, че домашните ремонти не трябва да означават изгубено време, неясни цени и чакане с часове.</p>
               <p>Клиентите в София искат нещо много по-просто — <strong>коректна услуга, точен час, ясна цена</strong> и човек, на когото могат да се доверят. Именно това изграждаме всеки ден.</p>
               <p>Работим с проверени майстори, фиксирани цени и ясна организация от заявката до завършения ремонт.</p>
             </div>
           </div>
   
-          <div className="zn-no-list">
-            <div className="zn-no-item"><span className="zn-no-x">✗</span> Без „ще видим на място"</div>
-            <div className="zn-no-item"><span className="zn-no-x">✗</span> Без изгубени дни в чакане</div>
-            <div className="zn-no-item"><span className="zn-no-x">✗</span> Без неприятни изненади</div>
+          <div className='zn-no-list'>
+          <div className='zn-no-item'><span className='zn-no-x'>✗</span> Без чакане с часове</div>
+            <div className='zn-no-item'><span className='zn-no-x'>✗</span> Без изгубени дни в чакане</div>
+            <div className='zn-no-item'><span className='zn-no-x'>✗</span> Без неприятни изненади</div>
           </div>
   
-          <p style={{ fontSize: "16px", color: G.textSec, lineHeight: 1.8, maxWidth: "680px", marginTop: "24px" }}>
+          <p style={{ fontSize: '16px', color: G.textSec, lineHeight: 1.8, maxWidth: '680px', marginTop: '24px' }}>
             Новото при нас е подходът — съчетаваме удобството на модерните онлайн услуги с реална майсторска работа на място.
             Резервираш лесно, виждаш цената предварително и получаваш услуга, която е <strong style={{ color: G.text }}>подредена, предвидима и изпълнена с внимание към детайла.</strong>
           </p>
@@ -278,15 +278,15 @@ const G = {
   
         {/* HOW IT WORKS */}
         <div style={{ background: G.card, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}` }}>
-          <div className="zn-section">
-            <div className="zn-label">Как работи</div>
-            <div className="zn-section-title">Подреден процес.<br />Без излишно губене на време.</div>
-            <div className="zn-how-grid">
+          <div className='zn-section'>
+            <div className='zn-label'>Как работи</div>
+            <div className='zn-section-title'>Подреден процес.<br />Без излишно губене на време.</div>
+            <div className='zn-how-grid'>
               {HOW.map(h => (
-                <div className="zn-how-card" key={h.n}>
-                  <div className="zn-how-num">{h.n}</div>
-                  <div className="zn-how-title">{h.title}</div>
-                  <div className="zn-how-desc">{h.desc}</div>
+                <div className='zn-how-card' key={h.n}>
+                  <div className='zn-how-num'>{h.n}</div>
+                  <div className='zn-how-title'>{h.title}</div>
+                  <div className='zn-how-desc'>{h.desc}</div>
                 </div>
               ))}
             </div>
@@ -294,16 +294,16 @@ const G = {
         </div>
   
         {/* VALUES */}
-        <div className="zn-section">
-          <div className="zn-label">Защо ни избират отново</div>
-          <div className="zn-section-title">Нашите ценности</div>
-          <div className="zn-values-grid">
+        <div className='zn-section'>
+          <div className='zn-label'>Защо ни избират отново</div>
+          <div className='zn-section-title'>Нашите ценности</div>
+          <div className='zn-values-grid'>
             {VALUES.map((v, i) => (
-              <div className="zn-value-card" key={i}>
-                <div className="zn-value-icon">{v.icon}</div>
+              <div className='zn-value-card' key={i}>
+                <div className='zn-value-icon'>{v.icon}</div>
                 <div>
-                  <div className="zn-value-title">{v.title}</div>
-                  <div className="zn-value-desc">{v.desc}</div>
+                  <div className='zn-value-title'>{v.title}</div>
+                  <div className='zn-value-desc'>{v.desc}</div>
                 </div>
               </div>
             ))}
@@ -311,45 +311,45 @@ const G = {
         </div>
   
         {/* CTA */}
-        <div className="zn-cta">
+        <div className='zn-cta'>
           <div>
-            <div className="zn-cta-title">Нужен ти е майстор?<br />Ние ще се погрижим.</div>
-            <div className="zn-cta-sub">Резервирай услуга още днес и получи бързо, коректно и професионално обслужване.</div>
+            <div className='zn-cta-title'>Нужен ти е майстор?<br />Ние ще се погрижим.</div>
+            <div className='zn-cta-sub'>Резервирай услуга още днес и получи бързо, коректно и професионално обслужване.</div>
           </div>
-          <div className="zn-cta-actions">
-            <span className="zn-btn-primary" onClick={goHome}>⚡ Избери услуга</span>
-            <a href="viber://chat?number=%2B359889182749" className="zn-btn-viber">🟣 Viber</a>
+          <div className='zn-cta-actions'>
+            <span className='zn-btn-primary' onClick={goHome}>⚡ Избери услуга</span>
+            <a href='viber://chat?number=%2B359889182749' className='zn-btn-viber'>🟣 Viber</a>
           </div>
         </div>
   
         {/* FOOTER */}
-        <footer className="zn-footer">
-          <div className="zn-footer-logo">Handyman<span>Sofia</span><span style={{ fontSize: "11px", color: G.textMuted, fontFamily: "Inter", fontWeight: 400, marginLeft: 8 }}>.com</span></div>
-          <div className="zn-footer-note">© 2026 HandymanSofia.com</div>
+        <footer className='zn-footer'>
+          <div className='zn-footer-logo'>Handyman<span>Sofia</span><span style={{ fontSize: '11px', color: G.textMuted, fontFamily: 'Inter', fontWeight: 400, marginLeft: 8 }}>.com</span></div>
+          <div className='zn-footer-note'>© 2026 HandymanSofia.com</div>
         </footer>
   
         {/* STICKY BAR */}
-        <div className="zn-sticky">
-          <div className="zn-sticky-inner">
-            <div className="zn-sticky-logo">Handyman<span>Sofia</span></div>
-            <div className="zn-sticky-center">
-              <a href="tel:+359889182749" className="zn-sticky-phone">📞 +359 889 182 749</a>
-              <span className="zn-sep">·</span>
+        <div className='zn-sticky'>
+          <div className='zn-sticky-inner'>
+            <div className='zn-sticky-logo'>Handyman<span>Sofia</span></div>
+            <div className='zn-sticky-center'>
+              <a href='tel:+359889182749' className='zn-sticky-phone'>📞 +359 889 182 749</a>
+              <span className='zn-sep'>·</span>
               <span>Работим 08:00–21:00, всеки ден</span>
             </div>
-            <div className="zn-sticky-actions">
-              <a href="viber://chat?number=%2B359889182749" className="zn-sticky-viber">🟣 Viber</a>
-              <span className="zn-sticky-cta" onClick={goHome}>⚡ Резервирай сега</span>
+            <div className='zn-sticky-actions'>
+              <a href='viber://chat?number=%2B359889182749' className='zn-sticky-viber'>🟣 Viber</a>
+              <span className='zn-sticky-cta' onClick={goHome}>⚡ Резервирай сега</span>
             </div>
           </div>
-          <div className="zn-sticky-mobile">
-            <a href="tel:+359889182749" className="zn-sticky-mob-btn zn-smob-phone">
+          <div className='zn-sticky-mobile'>
+            <a href='tel:+359889182749' className='zn-sticky-mob-btn zn-smob-phone'>
               <span>📞</span><span>Обади се</span>
             </a>
-            <a href="viber://chat?number=%2B359889182749" className="zn-sticky-mob-btn zn-smob-viber">
+            <a href='viber://chat?number=%2B359889182749' className='zn-sticky-mob-btn zn-smob-viber'>
               <span>🟣</span><span>Viber</span>
             </a>
-            <span className="zn-sticky-mob-btn zn-smob-book" onClick={goHome}>
+            <span className='zn-sticky-mob-btn zn-smob-book' onClick={goHome}>
               <span>⚡</span><span>Резервирай</span>
             </span>
           </div>
