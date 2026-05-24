@@ -494,6 +494,7 @@ export default function App() {
           <span className="nav-link" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>Услуги</span>
           <span className="nav-link" onClick={() => document.getElementById("how")?.scrollIntoView({ behavior: "smooth" })}>Как работи</span>
           <span className="nav-link" onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" })}>Отзиви</span>
+          <span className="nav-link" onClick={() => window.location.href="/za-nas"}>За нас</span>
           <a href="tel:+359889182749" className="phone-link">📞 +359 889 182 749</a>
           <button className="nav-cta" onClick={scrollToServices}>Резервирай</button>
         </div>
@@ -672,7 +673,7 @@ export default function App() {
         <div className="footer-logo">Handyman<span>Sofia</span><span style={{ fontSize: "11px", color: G.textMuted, fontFamily: "Inter", fontWeight: 400, marginLeft: 10 }}>.com</span></div>
         <div className="footer-links">
           <span className="footer-link">Услуги</span>
-          <span className="footer-link">За нас</span>
+          <span className="footer-link" onClick={() => window.location.href="/za-nas"}>За нас</span>
           <span className="footer-link">Условия</span>
           <span className="footer-link">Контакти</span>
         </div>
