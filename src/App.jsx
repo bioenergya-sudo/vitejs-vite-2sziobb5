@@ -193,6 +193,17 @@ export default function App() {
     .svc-book-btn:hover { background: ${G.accent}; color: ${G.white}; }
     .urgent-badge { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(232,114,42,0.1); border-top: 1px solid rgba(232,114,42,0.2); padding: 5px 12px; font-size: 11px; color: ${G.accentLight}; display: flex; align-items: center; gap: 6px; }
 
+    /* ─── LANDING LINKS ─── */
+    .lp-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
+    .lp-link-card { background: ${G.card}; border: 1px solid ${G.border}; border-radius: 12px; padding: 28px 24px; text-decoration: none; display: flex; flex-direction: column; gap: 10px; transition: all 0.2s; }
+    .lp-link-card:hover { border-color: ${G.accent}; transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
+    .lp-link-icon { font-size: 28px; }
+    .lp-link-title { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: 700; color: ${G.white}; line-height: 1.3; }
+    .lp-link-desc { font-size: 13px; color: ${G.textSec}; line-height: 1.5; flex: 1; }
+    .lp-link-cta { font-size: 13px; font-weight: 700; color: ${G.accent}; margin-top: 4px; }
+    .lp-link-card:hover .lp-link-cta { color: ${G.accentLight}; }
+    @media (max-width: 640px) { .lp-links-grid { grid-template-columns: 1fr; } }
+
     /* ─── TRUST ─── */
     .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 50px; }
     .trust-card { background: ${G.card}; border: 1px solid ${G.border}; border-radius: 12px; padding: 28px; transition: border-color 0.2s; }
@@ -602,6 +613,32 @@ export default function App() {
             <span className="service-card-custom-icon">🔍</span>
             <span className="service-card-custom-label">Друга услуга<br />по запитване</span>
             <span style={{ fontSize: "12px", color: "#7360F2", fontWeight: 700 }}>Пиши във Viber →</span>
+          </a>
+        </div>
+      </div>
+
+      {/* LANDING PAGE LINKS */}
+      <div className="section" style={{ paddingTop: 0 }}>
+        <div className="section-label">Специализирани услуги</div>
+        <div className="section-title">Виж повече за<br />всяка услуга</div>
+        <div className="lp-links-grid">
+          <a href="/montaj-osvetlenie" className="lp-link-card">
+            <span className="lp-link-icon">💡</span>
+            <div className="lp-link-title">Монтаж на осветление</div>
+            <div className="lp-link-desc">Лампи, спотове, полилеи. Фиксирана цена, идваме до 2 часа.</div>
+            <span className="lp-link-cta">Цени и детайли →</span>
+          </a>
+          <a href="/sglobyavane-mebeli" className="lp-link-card">
+            <span className="lp-link-icon">🪑</span>
+            <div className="lp-link-title">Сглобяване на мебели</div>
+            <div className="lp-link-desc">IKEA, Jysk и всички марки. Бързо, чисто, без бъркотия.</div>
+            <span className="lp-link-cta">Цени и детайли →</span>
+          </a>
+          <a href="/drebni-remonti" className="lp-link-card">
+            <span className="lp-link-icon">🔧</span>
+            <div className="lp-link-title">Дребни ремонти</div>
+            <div className="lp-link-desc">Течове, бойлери, монтажи — всичко на едно обаждане. Идваме в същия ден.</div>
+            <span className="lp-link-cta">Цени и детайли →</span>
           </a>
         </div>
       </div>
