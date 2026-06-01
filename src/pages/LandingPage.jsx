@@ -20,6 +20,22 @@ const G = {
 const PHONE       = "+359889182749";
 const PHONE_LABEL = "0889 182 749";
 const CURR        = "€";
+const LANG_SWITCH = {
+  bg: {
+    vik:           "/en/plumbing-repairs-sofia",
+    dovarshitelni: "/en/home-finishing-sofia",
+    montaji:       "/en/appliance-installation-sofia",
+    mebeli:        "/en/furniture-assembly-sofia",
+    elektro:       "/en/electrical-installation-sofia",
+  },
+  en: {
+    vik:           "/vik-remonti",
+    dovarshitelni: "/dovarshitelni",
+    montaji:       "/montaji",
+    mebeli:        "/mebeli",
+    elektro:       "/elektro",
+  },
+};
 
 const SERVICE_DATA = {
 
@@ -110,7 +126,7 @@ const SERVICE_DATA = {
 
   mebeli: {
     heroTitle:  <>Сглобяване<br />на <em>мебели</em><br />в София</>,
-    heroSub:    "IKEA, Jysk и всички марки. Бързо, чисто, без бъркотия — фиксирана цена от 20€.",
+    heroSub:    "IKEA, Jysk и всички марки. Бързо, чисто, без бъркотия — цени от 20€.",
     badge:      "🪑 IKEA, Jysk и всички марки",
     icon:       "🪑",
     priceLabel: "Мебели & Монтаж",
@@ -261,6 +277,8 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
     .lp-nav-r { display: flex; align-items: center; gap: 20px; }
     .lp-nav-phone { font-size: 14px; font-weight: 700; color: ${G.text}; text-decoration: none; }
     .lp-nav-phone:hover { color: ${G.accent}; }
+    .lp-lang-btn { background: none; border: 1px solid ${G.border}; color: ${G.textSec}; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; text-decoration: none; transition: all 0.2s; }
+.lp-lang-btn:hover { border-color: ${G.accent}; color: ${G.text}; }
     .lp-nav-btn { background: ${G.accent}; color: ${G.white}; border: none; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; text-decoration: none; transition: all 0.2s; }
     .lp-nav-btn:hover { background: ${G.accentLight}; }
 
@@ -378,7 +396,10 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
           <a href="/" className="lp-logo">Handyman<span>Sofia</span></a>
           <div className="lp-nav-r">
             <a href={`tel:${PHONE}`} className="lp-nav-phone">📞 {PHONE_LABEL}</a>
-            <a href={`viber://chat?number=${PHONE}`} className="lp-nav-btn">{u.viber}</a>
+            <a href={LANG_SWITCH[lang][service]} className="lp-lang-btn">
+  {lang === "bg" ? "🇬🇧 EN" : "🇧🇬 BG"}
+</a>
+<a href={`viber://chat?number=${PHONE}`} className="lp-nav-btn">{u.viber}</a>
           </div>
         </nav>
 
