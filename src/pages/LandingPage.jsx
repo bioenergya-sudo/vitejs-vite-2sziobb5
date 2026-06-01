@@ -1,5 +1,4 @@
 // src/pages/LandingPage.jsx
-// Routes: /montaj-osvetlenie · /sglobyavane-mebeli · /drebni-remonti
 
 import { useState, useEffect } from "react";
 
@@ -40,16 +39,16 @@ const SERVICE_DATA = {
       { name: "Ремонт на теч (подмяна уплътнение)", price: 22, unit: "фикс." },
     ],
     gallery: [
-      { src: "/Монтаж_смесител.jpg", alt: "Смяна смесител",      label: "Смяна смесител · София" },
-      { src: "/Монтаж_сифон.jpg",    alt: "Монтаж сифон",        label: "Монтаж сифон"           },
-      { src: "/Монтаж_миялна.jpg",   alt: "Монтаж миялна",       label: "Монтаж миялна"          },
-      { src: "/Монтаж_пералня.jpg",  alt: "Монтаж пералня",      label: "Монтаж пералня"         },
+      { src: "/Монтаж_смесител.jpg", alt: "Смяна смесител",  label: "Смяна смесител · София" },
+      { src: "/Монтаж_сифон.jpg",    alt: "Монтаж сифон",    label: "Монтаж сифон"           },
+      { src: "/Монтаж_миялна.jpg",   alt: "Монтаж миялна",   label: "Монтаж миялна"          },
+      { src: "/Монтаж_пералня.jpg",  alt: "Монтаж пералня",  label: "Монтаж пералня"         },
     ],
     faq: [
-      { q: "Идвате ли в същия ден?",          a: "В повечето случаи — да. При спешност се стараем до 2–3 часа след обаждането." },
-      { q: "Носите ли резервни части?",        a: "Носим най-честите части (уплътнения, сифони, аванси). По-специфични части се уточняват предварително." },
-      { q: "Колко струва посещението за оглед?", a: "Огледът е безплатен при поръчка на услуга. Само оглед без работа — 10€ транспорт." },
-      { q: "Давате ли гаранция?",              a: "Да — 6 месеца гаранция на всяка извършена услуга. При проблем — идваме безплатно." },
+      { q: "Идвате ли в същия ден?",             a: "В повечето случаи — да. При спешност се стараем до 2–3 часа след обаждането." },
+      { q: "Носите ли резервни части?",           a: "Носим най-честите части (уплътнения, сифони, аванси). По-специфични части се уточняват предварително." },
+      { q: "Колко струва посещението за оглед?",  a: "Огледът е безплатен при поръчка на услуга. Само оглед без работа — 10€ транспорт." },
+      { q: "Давате ли гаранция?",                 a: "Да — 6 месеца гаранция на всяка извършена услуга. При проблем — идваме безплатно." },
     ],
   },
 
@@ -72,15 +71,15 @@ const SERVICE_DATA = {
       { name: "Дребни ремонти (по договаряне)", price: 15, unit: "час" },
     ],
     gallery: [
-      { src: "/лепене_тапети.jpg",   alt: "Лепене тапети",  label: "Лепене тапети · София" },
-      { src: "/Монтаж_мебели1.jpg",  alt: "Довършителни",   label: "Довършителни работи"   },
-      { src: "/Монтаж_спалня1.jpg",  alt: "Ремонт стая",    label: "Ремонт стая"           },
+      { src: "/лепене_тапети.jpg",  alt: "Лепене тапети", label: "Лепене тапети · София" },
+      { src: "/Монтаж_мебели1.jpg", alt: "Довършителни",  label: "Довършителни работи"   },
+      { src: "/Монтаж_спалня1.jpg", alt: "Ремонт стая",   label: "Ремонт стая"           },
     ],
     faq: [
-      { q: "Работите ли с малки площи?",         a: "Да — специализираме в малки обеми. Нямаме минимум на поръчката." },
-      { q: "Носите ли материали?",               a: "Трудът е включен в цената. Материали (боя, лепило, фуги) се доплащат по реална цена без надценка." },
-      { q: "Боядисвате ли тавани?",              a: "Да. Таванът се изчислява на кв.м. по същата тарифа като стена." },
-      { q: "Колко трае лепенето на тапети?",     a: "Зависи от площта и модела на тапета. Уточняваме при записването." },
+      { q: "Работите ли с малки площи?",     a: "Да — специализираме в малки обеми. Нямаме минимум на поръчката." },
+      { q: "Носите ли материали?",           a: "Трудът е включен в цената. Материали (боя, лепило, фуги) се доплащат по реална цена без надценка." },
+      { q: "Боядисвате ли тавани?",          a: "Да. Таванът се изчислява на кв.м. по същата тарифа като стена." },
+      { q: "Колко трае лепенето на тапети?", a: "Зависи от площта и модела на тапета. Уточняваме при записването." },
     ],
   },
 
@@ -92,9 +91,9 @@ const SERVICE_DATA = {
     priceLabel: "Монтаж на уреди",
     priceColor: "#E8722A",
     prices: [
-      { name: "Монтаж на аспиратор",      price: 60, unit: "фикс." },
-      { name: "Монтаж на миялна машина",  price: 90, unit: "фикс." },
-      { name: "Монтаж на бойлер",         price: 95, unit: "фикс." },
+      { name: "Монтаж на аспиратор",     price: 60, unit: "фикс." },
+      { name: "Монтаж на миялна машина", price: 90, unit: "фикс." },
+      { name: "Монтаж на бойлер",        price: 95, unit: "фикс." },
     ],
     gallery: [
       { src: "/Монтаж_миялна.jpg",  alt: "Монтаж миялна",  label: "Монтаж миялна · София" },
@@ -102,10 +101,10 @@ const SERVICE_DATA = {
       { src: "/Монтаж_сифон.jpg",   alt: "Монтаж сифон",   label: "ВиК връзки"            },
     ],
     faq: [
-      { q: "Включва ли монтажът ВиК и ел. връзки?",   a: "Да — включва всички необходими връзки. При нужда от нова инсталация се уточнява предварително." },
-      { q: "Трябва ли да е доставен уредът предварително?", a: "Да, трябва да е на място преди нашето посещение." },
-      { q: "Давате ли гаранция на монтажа?",          a: "Да — 6 месеца гаранция на труда. При проблем идваме безплатно." },
-      { q: "Монтирате ли всички марки?",              a: "Да — всички марки и модели. Носим стандартни маркучи и накрайници." },
+      { q: "Включва ли монтажът ВиК и ел. връзки?",          a: "Да — включва всички необходими връзки. При нужда от нова инсталация се уточнява предварително." },
+      { q: "Трябва ли да е доставен уредът предварително?",  a: "Да, трябва да е на място преди нашето посещение." },
+      { q: "Давате ли гаранция на монтажа?",                 a: "Да — 6 месеца гаранция на труда. При проблем идваме безплатно." },
+      { q: "Монтирате ли всички марки?",                     a: "Да — всички марки и модели. Носим стандартни маркучи и накрайници." },
     ],
   },
 
@@ -117,11 +116,11 @@ const SERVICE_DATA = {
     priceLabel: "Мебели & Монтаж",
     priceColor: "#4CAF7A",
     prices: [
-      { name: "Сглобяване на шкаф/легло",           price: 30, unit: "фикс." },
-      { name: "Сглобяване на гардероб (плъзгащи)",  price: 60, unit: "фикс." },
-      { name: "Монтаж на рафт/етажерка",            price: 20, unit: "фикс." },
-      { name: "Монтаж на TV стойка/конзола",        price: 20, unit: "фикс." },
-      { name: "Монтаж на корниз",                   price: 13, unit: "фикс." },
+      { name: "Сглобяване на шкаф/легло",          price: 30, unit: "фикс." },
+      { name: "Сглобяване на гардероб (плъзгащи)", price: 60, unit: "фикс." },
+      { name: "Монтаж на рафт/етажерка",           price: 20, unit: "фикс." },
+      { name: "Монтаж на TV стойка/конзола",       price: 20, unit: "фикс." },
+      { name: "Монтаж на корниз",                  price: 13, unit: "фикс." },
     ],
     gallery: [
       { src: "/Монтаж_мебели1.jpg", alt: "Сглобяване мебели", label: "Сглобяване мебели · София" },
@@ -163,15 +162,78 @@ const SERVICE_DATA = {
 
 };
 
-
 const REVIEWS = [
   { name: "Мартин Г.", role: "Software Engineer @ Telerik", text: "Резервирах за монтаж в 11 ч. вечерта, на следващия ден в 10 ч. майсторът беше тук. Точно на часа, чисто след себе си, фактура на имейла.", stars: 5 },
   { name: "Ива Д.",    role: "UX Designer, Sofia",          text: "Накрая платформа, която знае колко струва услугата ПРЕДИ да дойде майсторът. Никакви изненади. Препоръчвам на всички сама живеещи.", stars: 5 },
   { name: "Надя Т.",   role: "Product Manager",             text: "Проблемът се появи в петък вечерта. Резервирах за събота сутрин. Всичко мина гладко. Ще ползвам пак.", stars: 5 },
 ];
 
-export default function LandingPage({ service = "vik" }) {
+const UI = {
+  bg: {
+    prices:     "Прозрачни цени",
+    pricesH:    "Фиксирани цени,",
+    pricesSub:  "без скрити такси",
+    pricesDesc: "Казваме цената преди да дойдем. Без изненади на място.",
+    gallery:    "Нашата работа",
+    galleryH:   "Резултати,",
+    gallerySub: "не обещания",
+    galleryDesc:"Реални снимки от реални клиенти в София.",
+    reviews:    "Отзиви",
+    reviewsH:   "Казват го",
+    reviewsH2:  "нашите клиенти.",
+    faq:        "Чести въпроси",
+    faqH:       "Имаш въпрос?",
+    faqH2:      "Отговаряме честно.",
+    cta:        "Готов? Обади се сега",
+    ctaH:       "Твоят майстор е",
+    ctaH2:      "на едно повикване.",
+    ctaBtn:     "Обади се сега",
+    viber:      "Viber / WhatsApp",
+    from:       "от",
+    labour:     "само труд",
+    rating:     "среден рейтинг",
+    jobs:       "изпълнени задачи",
+    guarantee:  "гаранция на труда",
+    home:       "Начало",
+    services:   "Услуги",
+    contacts:   "Контакти",
+    phone:      "Телефон",
+  },
+  en: {
+    prices:     "Transparent pricing",
+    pricesH:    "Fixed prices,",
+    pricesSub:  "no hidden fees",
+    pricesDesc: "We quote before we arrive. No surprises on site.",
+    gallery:    "Our work",
+    galleryH:   "Results,",
+    gallerySub: "not promises",
+    galleryDesc:"Real photos from real clients in Sofia.",
+    reviews:    "Reviews",
+    reviewsH:   "What our",
+    reviewsH2:  "clients say.",
+    faq:        "FAQ",
+    faqH:       "Got a question?",
+    faqH2:      "We answer honestly.",
+    cta:        "Ready? Call us now",
+    ctaH:       "Your handyman is",
+    ctaH2:      "one call away.",
+    ctaBtn:     "Call us now",
+    viber:      "Viber / WhatsApp",
+    from:       "from",
+    labour:     "labour only",
+    rating:     "average rating",
+    jobs:       "jobs completed",
+    guarantee:  "labour guarantee",
+    home:       "Home",
+    services:   "Services",
+    contacts:   "Contact",
+    phone:      "Phone",
+  },
+};
+
+export default function LandingPage({ service = "vik", lang = "bg" }) {
   const data = SERVICE_DATA[service];
+  const u    = UI[lang];
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq]   = useState(null);
 
@@ -184,9 +246,8 @@ export default function LandingPage({ service = "vik" }) {
   if (!data) return null;
 
   const minPrice = Math.min(...data.prices.map(p => p.price));
-
-  // Gallery layout: first item spans 2 rows if 4+ images, otherwise simple grid
-  const hasLargeGallery = data.gallery.length >= 4;
+  const galClass = data.gallery.length >= 5 ? "lp-gal-5" :
+                   data.gallery.length >= 4 ? "lp-gal-4" : "lp-gal-3";
 
   const css = `
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap');
@@ -307,9 +368,6 @@ export default function LandingPage({ service = "vik" }) {
     }
   `;
 
-  const galClass = data.gallery.length >= 5 ? "lp-gal-5" :
-                   data.gallery.length >= 4 ? "lp-gal-4" : "lp-gal-3";
-
   return (
     <>
       <style>{css}</style>
@@ -320,7 +378,7 @@ export default function LandingPage({ service = "vik" }) {
           <a href="/" className="lp-logo">Handyman<span>Sofia</span></a>
           <div className="lp-nav-r">
             <a href={`tel:${PHONE}`} className="lp-nav-phone">📞 {PHONE_LABEL}</a>
-            <a href={`viber://chat?number=${PHONE}`} className="lp-nav-btn">Viber / WhatsApp</a>
+            <a href={`viber://chat?number=${PHONE}`} className="lp-nav-btn">{u.viber}</a>
           </div>
         </nav>
 
@@ -336,12 +394,12 @@ export default function LandingPage({ service = "vik" }) {
             <p className="lp-sub">{data.heroSub}</p>
             <div className="lp-actions">
               <a href={`tel:${PHONE}`} className="btn-p">📞 {PHONE_LABEL}</a>
-              <a href={`viber://chat?number=${PHONE}`} className="btn-v">🟣 Viber / WhatsApp</a>
+              <a href={`viber://chat?number=${PHONE}`} className="btn-v">🟣 {u.viber}</a>
             </div>
             <div className="lp-stats">
-              <div><div className="lp-sn">4.9★</div><div className="lp-sl">среден рейтинг</div></div>
-              <div><div className="lp-sn">500+</div><div className="lp-sl">изпълнени задачи</div></div>
-              <div><div className="lp-sn">30 дни</div><div className="lp-sl">гаранция на труда</div></div>
+              <div><div className="lp-sn">4.9★</div><div className="lp-sl">{u.rating}</div></div>
+              <div><div className="lp-sn">500+</div><div className="lp-sl">{u.jobs}</div></div>
+              <div><div className="lp-sn">30 дни</div><div className="lp-sl">{u.guarantee}</div></div>
             </div>
           </div>
           <div className="lp-img-wrap">
@@ -352,15 +410,15 @@ export default function LandingPage({ service = "vik" }) {
         {/* PRICES */}
         <div style={{ background: G.card, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}` }}>
           <div className="lp-sec">
-            <div className="lp-lbl">Прозрачни цени</div>
-            <div className="lp-ttl">Фиксирани цени,<br />без скрити такси</div>
-            <p className="lp-desc">Казваме цената преди да дойдем. Без изненади на място.</p>
+            <div className="lp-lbl">{u.prices}</div>
+            <div className="lp-ttl">{u.pricesH}<br />{u.pricesSub}</div>
+            <p className="lp-desc">{u.pricesDesc}</p>
             <div className="lp-price-table">
               <div className="lp-ph">
                 <span className="lp-ph-icon">{data.icon}</span>
                 <div>
                   <div className="lp-ph-title">{data.priceLabel}</div>
-                  <div className="lp-ph-from">от {minPrice}{CURR} · само труд</div>
+                  <div className="lp-ph-from">{u.from} {minPrice}{CURR} · {u.labour}</div>
                 </div>
               </div>
               {data.prices.map((item, i) => (
@@ -376,11 +434,11 @@ export default function LandingPage({ service = "vik" }) {
           </div>
         </div>
 
-        {/* GALLERY — реални снимки */}
+        {/* GALLERY */}
         <div className="lp-sec">
-          <div className="lp-lbl">Нашата работа</div>
-          <div className="lp-ttl">Резултати,<br />не обещания</div>
-          <p className="lp-desc">Реални снимки от реални клиенти в София.</p>
+          <div className="lp-lbl">{u.gallery}</div>
+          <div className="lp-ttl">{u.galleryH}<br />{u.gallerySub}</div>
+          <p className="lp-desc">{u.galleryDesc}</p>
           <div className={galClass}>
             {data.gallery.map((item, i) => (
               <div className="lp-gi" key={i}>
@@ -394,8 +452,8 @@ export default function LandingPage({ service = "vik" }) {
         {/* REVIEWS */}
         <div style={{ background: G.card, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}` }}>
           <div className="lp-sec">
-            <div className="lp-lbl">Отзиви</div>
-            <div className="lp-ttl">Казват го<br />нашите клиенти.</div>
+            <div className="lp-lbl">{u.reviews}</div>
+            <div className="lp-ttl">{u.reviewsH}<br />{u.reviewsH2}</div>
             <div className="lp-rv">
               {REVIEWS.map((r, i) => (
                 <div className="lp-rc" key={i}>
@@ -416,8 +474,8 @@ export default function LandingPage({ service = "vik" }) {
 
         {/* FAQ */}
         <div className="lp-sec">
-          <div className="lp-lbl">Чести въпроси</div>
-          <div className="lp-ttl">Имаш въпрос?<br />Отговаряме честно.</div>
+          <div className="lp-lbl">{u.faq}</div>
+          <div className="lp-ttl">{u.faqH}<br />{u.faqH2}</div>
           <div className="lp-faq">
             {data.faq.map((item, i) => (
               <div className={`lp-fi${openFaq === i ? " open" : ""}`} key={i}>
@@ -434,12 +492,12 @@ export default function LandingPage({ service = "vik" }) {
         {/* CTA */}
         <div className="lp-cta">
           <div>
-            <div className="lp-cta-tag">Готов? Обади се сега</div>
-            <h2 className="lp-cta-title">Твоят майстор е<br />на едно повикване.</h2>
+            <div className="lp-cta-tag">{u.cta}</div>
+            <h2 className="lp-cta-title">{u.ctaH}<br />{u.ctaH2}</h2>
             <p className="lp-cta-sub">HandymanSofia.com · София · {PHONE_LABEL}</p>
           </div>
           <div className="lp-cta-acts">
-            <a href={`tel:${PHONE}`} className="btn-p">📞 Обади се сега</a>
+            <a href={`tel:${PHONE}`} className="btn-p">📞 {u.ctaBtn}</a>
             <a href={`viber://chat?number=${PHONE}`} className="btn-v">🟣 Viber</a>
           </div>
         </div>
@@ -450,9 +508,9 @@ export default function LandingPage({ service = "vik" }) {
             <span style={{ fontSize: 11, color: G.textMuted, fontFamily: "Inter", fontWeight: 400, marginLeft: 8 }}>.com</span>
           </a>
           <div className="lp-foot-links">
-            <a href="/" className="lp-foot-link">Начало</a>
-            <span className="lp-foot-link">Услуги</span>
-            <span className="lp-foot-link">Контакти</span>
+            <a href="/" className="lp-foot-link">{u.home}</a>
+            <span className="lp-foot-link">{u.services}</span>
+            <span className="lp-foot-link">{u.contacts}</span>
           </div>
           <div className="lp-foot-note">© 2026 HandymanSofia.com · ЕИК 000000000</div>
         </footer>
@@ -461,7 +519,7 @@ export default function LandingPage({ service = "vik" }) {
         <div className="lp-float">
           <a href={`viber://chat?number=${PHONE}`} className="lp-fv" title="Viber">🟣</a>
           <button className="lp-fw" title="WhatsApp">💬</button>
-          <a href={`tel:${PHONE}`} className="lp-fp" title="Телефон">📞</a>
+          <a href={`tel:${PHONE}`} className="lp-fp" title={u.phone}>📞</a>
         </div>
 
       </div>
