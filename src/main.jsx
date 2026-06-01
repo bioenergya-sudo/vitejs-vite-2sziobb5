@@ -9,11 +9,22 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/montaj-osvetlenie" element={<LandingPage service="osvetlenie" />} />
-        <Route path="/sglobyavane-mebeli" element={<LandingPage service="mebeli" />} />
-        <Route path="/drebni-remonti" element={<LandingPage service="remonti" />} />
-        <Route path="/za-nas" element={<ZaNas />} />
+        {/* Bulgarian */}
+        <Route path="/"                element={<App />} />
+        <Route path="/vik-remonti"     element={<LandingPage service="vik" />} />
+        <Route path="/dovarshitelni"   element={<LandingPage service="dovarshitelni" />} />
+        <Route path="/montaji"         element={<LandingPage service="montaji" />} />
+        <Route path="/mebeli"          element={<LandingPage service="mebeli" />} />
+        <Route path="/elektro"         element={<LandingPage service="elektro" />} />
+        <Route path="/za-nas"          element={<ZaNas />} />
+
+        {/* English */}
+        <Route path="/en"                              element={<App lang="en" />} />
+        <Route path="/en/plumbing-repairs-sofia"       element={<LandingPage service="vik" lang="en" />} />
+        <Route path="/en/home-finishing-sofia"         element={<LandingPage service="dovarshitelni" lang="en" />} />
+        <Route path="/en/appliance-installation-sofia" element={<LandingPage service="montaji" lang="en" />} />
+        <Route path="/en/furniture-assembly-sofia"     element={<LandingPage service="mebeli" lang="en" />} />
+        <Route path="/en/electrical-installation-sofia" element={<LandingPage service="elektro" lang="en" />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -3,16 +3,36 @@ import { useState, useEffect, useRef } from "react";
 const logoImg = "/FrontPage-logo.webp";
 
 const SERVICES = [
-  { id: 1, cat: "⚡ Електро", icon: "⚡", name: "Монтаж на полюлей", price: 50, unit: "фикс.", time: "1 ч", popular: true },
-  { id: 2, cat: "⚡ Електро", icon: "⚡", name: "Смяна на контакт / ключ", price: 25, unit: "фикс.", time: "30 мин", popular: false },
-  { id: 3, cat: "⚡ Електро", icon: "⚡", name: "Монтаж на климатик", price: 120, unit: "фикс.", time: "2-3 ч", popular: true },
-  { id: 4, cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на казанче", price: 60, unit: "фикс.", time: "1 ч", popular: true },
-  { id: 5, cat: "🔧 ВиК", icon: "🔧", name: "Монтаж миялна машина", price: 100, unit: "фикс.", time: "1.5 ч", popular: true },
-  { id: 6, cat: "🔧 ВиК", icon: "🔧", name: "Смяна на смесител", price: 60, unit: "фикс.", time: "1 ч", popular: false },
-  { id: 7, cat: "🏠 Монтаж", icon: "🏠", name: "Сглобяване мебели IKEA", price: 80, unit: "фикс.", time: "2-4 ч", popular: true },
-  { id: 8, cat: "🏠 Монтаж", icon: "🏠", name: "Закачване на рафтове", price: 35, unit: "фикс.", time: "30 мин", popular: false },
-  { id: 9, cat: "🚗 Гуми", icon: "🚗", name: "Смяна гуми до адрес 15\"", price: 65, unit: "4 гуми", time: "30 мин", popular: true },
-  { id: 10, cat: "🚗 Гуми", icon: "🚗", name: "Смяна гуми до адрес 17\"", price: 90, unit: "4 гуми", time: "45 мин", popular: false },
+  // 🔧 ВиК
+  { id: 1,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на смесител (кухня/баня)", price: 30, unit: "фикс.", popular: true },
+  { id: 2,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на тоалетна чиния/моноблок", price: 55, unit: "фикс.", popular: false },
+  { id: 3,  cat: "🔧 ВиК", icon: "🔧", name: "Отпушване на мивка/канал", price: 30, unit: "фикс.", popular: false },
+  { id: 4,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на сифон под мивка", price: 25, unit: "фикс.", popular: true },
+  { id: 5,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на тоалетно казанче", price: 55, unit: "фикс.", popular: true },
+  { id: 6,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на теч (уплътнение)", price: 22, unit: "фикс.", popular: false },
+  // 🏠 Довършителни
+  { id: 7,  cat: "🏠 Довършителни", icon: "🏠", name: "Боядисване на стена (латекс)", price: 7,  unit: "кв.м.", popular: false },
+  { id: 8,  cat: "🏠 Довършителни", icon: "🏠", name: "Шпакловка на пукнатина/дупка", price: 10, unit: "бр.",   popular: false },
+  { id: 9,  cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на тапети", price: 7,  unit: "кв.м.", popular: true },
+  { id: 10, cat: "🏠 Довършителни", icon: "🏠", name: "Смяна на брава/ключалка", price: 25, unit: "фикс.", popular: false },
+  { id: 11, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на ламинат", price: 7,  unit: "кв.м.", popular: false },
+  { id: 12, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на первази", price: 3,  unit: "л.м.",  popular: false },
+  { id: 13, cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на фаянс (малък обем)", price: 30, unit: "кв.м.", popular: false },
+  { id: 14, cat: "🏠 Довършителни", icon: "🏠", name: "Фугиране на плочки", price: 7,  unit: "кв.м.", popular: false },
+  { id: 15, cat: "🏠 Довършителни", icon: "🏠", name: "Дребни ремонти (по договаряне)", price: 15, unit: "час",  popular: true }, // НОВО
+  // 🔩 Монтажи
+  { id: 16, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на аспиратор", price: 60, unit: "фикс.", popular: false },
+  { id: 17, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на миялна машина", price: 90, unit: "фикс.", popular: false },
+  { id: 18, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на бойлер", price: 95, unit: "фикс.", popular: true },
+  // 🪑 Мебели
+  { id: 19, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на шкаф/легло", price: 30, unit: "фикс.", popular: true },
+  { id: 20, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на гардероб (плъзгащи)", price: 60, unit: "фикс.", popular: false },
+  { id: 21, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на рафт/етажерка", price: 20, unit: "фикс.", popular: false },
+  { id: 22, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на TV стойка/конзола", price: 20, unit: "фикс.", popular: true },
+  { id: 23, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на корниз", price: 19, unit: "л.м.", popular: false }, // НОВО
+  // 💡 Електро
+  { id: 24, cat: "💡 Електро", icon: "💡", name: "Монтаж на полилей/осветително тяло", price: 45, unit: "фикс.", popular: true },
+  { id: 25, cat: "💡 Електро", icon: "💡", name: "Смяна на контакт/ключ", price: 19, unit: "фикс.", popular: true },
 ];
 
 const REVIEWS = [
@@ -35,7 +55,7 @@ const TRUST = [
   { icon: "⏰", title: "Точен час", desc: "Не 'между 9 и 17 ч.' - идваме в точния уговорен час." },
 ];
 
-const CATS = ["Всички", "⚡ Електро", "🔧 ВиК", "🏠 Монтаж", "🚗 Гуми"];
+const CATS = ["Всички", "🔧 ВиК", "🏠 Довършителни", "🔩 Монтажи", "🪑 Мебели", "💡 Електро"];
 
 // Heights: desktop sticky bar = 54px, mobile sticky bar = 64px + safe-area
 const STICKY_H_DESKTOP = 54;
@@ -52,6 +72,7 @@ export default function App() {
   const [showModal, setShowModal] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showAllReviews, setShowAllReviews] = useState(false);
+  const [showPriceInfo, setShowPriceInfo] = useState(false);
   const bookRef = useRef(null);
 
   useEffect(() => {
@@ -69,6 +90,7 @@ export default function App() {
     setBooked(false);
     setSelectedDate(null);
     setSelectedHour(null);
+    setShowPriceInfo(false);
     setShowModal(true);
   };
 
@@ -345,6 +367,11 @@ export default function App() {
     .modal-svc-name { font-size: 15px; font-weight: 700; color: ${G.white}; }
     .modal-svc-price { font-family: 'Poppins', sans-serif; font-size: 24px; font-weight: 800; color: ${G.accent}; }
     .modal-svc-note { font-size: 11px; color: ${G.textMuted}; margin-top: 2px; }
+    .price-info-toggle { width: 100%; background: none; border: 1px dashed ${G.border}; color: ${G.textSec}; padding: 11px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; transition: all 0.15s; }
+    .price-info-toggle:hover { border-color: ${G.accent}; color: ${G.text}; }
+    .price-info-box { background: ${G.bg}; border: 1px solid ${G.border}; border-radius: 8px; padding: 14px 16px; margin-bottom: 20px; font-size: 12.5px; color: ${G.textSec}; line-height: 1.7; }
+    .price-info-box p { margin: 0 0 8px; }
+    .price-info-box p:last-child { margin-bottom: 0; }
     .modal-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: ${G.textSec}; margin-bottom: 12px; }
     .dates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 24px; }
     .date-btn { background: ${G.bg}; border: 1px solid ${G.border}; color: ${G.textSec}; padding: 10px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; text-align: center; transition: all 0.15s; }
@@ -783,6 +810,15 @@ export default function App() {
                       {urgent && <div style={{ fontSize: "11px", color: G.accentLight }}>+50% спешно</div>}
                     </div>
                   </div>
+                  <button className="price-info-toggle" onClick={() => setShowPriceInfo(v => !v)}>
+                    ℹ️ Какво включва цената? <span>{showPriceInfo ? "−" : "+"}</span>
+                  </button>
+                  {showPriceInfo && (
+                    <div className="price-info-box">
+                      <p>Цената е валидна при стандартни условия на работа и свободен достъп до зоната за ремонт или монтаж.</p>
+                      <p>При необходимост от разместване на мебели, освобождаване на пространство, труден достъп или допълнително време е възможно допълнително таксуване — само след предварително потвърждение от теб.</p>
+                    </div>
+                  )}
                   <div className="modal-label">Избери дата</div>
                   <div className="dates-grid">
                     {dates.map(d => (
