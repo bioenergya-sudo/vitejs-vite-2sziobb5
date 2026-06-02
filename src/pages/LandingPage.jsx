@@ -40,143 +40,266 @@ const LANG_SWITCH = {
 const SERVICE_DATA = {
 
   vik: {
-    heroTitle:  <>ВиК ремонти<br />от <em>майстор</em><br />в София</>,
-    heroSub:    "Течове, запушвания, казанчета, смесители. Идваме в същия ден — фиксирана цена, без изненади.",
-    badge:      "🔧 Идваме в същия ден",
-    icon:       "🔧",
-    priceLabel: "ВиК ремонти",
-    priceColor: "#5B9CF6",
-    prices: [
-      { name: "Смяна на смесител (кухня/баня)",    price: 30, unit: "фикс." },
-      { name: "Смяна на тоалетна чиния/моноблок",  price: 55, unit: "фикс." },
-      { name: "Отпушване на мивка/канал",           price: 30, unit: "фикс." },
-      { name: "Смяна на сифон под мивка",           price: 25, unit: "фикс." },
-      { name: "Ремонт на тоалетно казанче",         price: 55, unit: "фикс." },
-      { name: "Ремонт на теч (подмяна уплътнение)", price: 22, unit: "фикс." },
-    ],
-    gallery: [
-      { src: "/Монтаж_смесител.jpg", alt: "Смяна смесител",  label: "Смяна смесител · София" },
-      { src: "/Монтаж_сифон.jpg",    alt: "Монтаж сифон",    label: "Монтаж сифон"           },
-      { src: "/Монтаж_миялна.jpg",   alt: "Монтаж миялна",   label: "Монтаж миялна"          },
-      { src: "/Монтаж_пералня.jpg",  alt: "Монтаж пералня",  label: "Монтаж пералня"         },
-    ],
-    faq: [
-      { q: "Идвате ли в същия ден?",             a: "В повечето случаи — да. При спешност се стараем до 2–3 часа след обаждането." },
-      { q: "Носите ли резервни части?",           a: "Носим най-честите части (уплътнения, сифони, аванси). По-специфични части се уточняват предварително." },
-      { q: "Колко струва посещението за оглед?",  a: "Огледът е безплатен при поръчка на услуга. Само оглед без работа — 10€ транспорт." },
-      { q: "Давате ли гаранция?",                 a: "Да — 6 месеца гаранция на всяка извършена услуга. При проблем — идваме безплатно." },
-    ],
+    bg: {
+      heroTitle:  <>ВиК ремонти<br />от <em>майстор</em><br />в София</>,
+      heroSub:    "Течове, запушвания, казанчета, смесители. Идваме в същия ден — фиксирана цена, без изненади.",
+      badge:      "🔧 Идваме в същия ден",
+      icon: "🔧", priceLabel: "ВиК ремонти", priceColor: "#5B9CF6",
+      prices: [
+        { name: "Смяна на смесител (кухня/баня)",    price: 30, unit: "фикс." },
+        { name: "Смяна на тоалетна чиния/моноблок",  price: 55, unit: "фикс." },
+        { name: "Отпушване на мивка/канал",           price: 30, unit: "фикс." },
+        { name: "Смяна на сифон под мивка",           price: 25, unit: "фикс." },
+        { name: "Ремонт на тоалетно казанче",         price: 55, unit: "фикс." },
+        { name: "Ремонт на теч (подмяна уплътнение)", price: 22, unit: "фикс." },
+      ],
+      gallery: [
+        { src: "/Монтаж_смесител.jpg", alt: "Смяна смесител", label: "Смяна смесител · София" },
+        { src: "/Монтаж_сифон.jpg",    alt: "Монтаж сифон",   label: "Монтаж сифон"           },
+        { src: "/Монтаж_миялна.jpg",   alt: "Монтаж миялна",  label: "Монтаж миялна"          },
+        { src: "/Монтаж_пералня.jpg",  alt: "Монтаж пералня", label: "Монтаж пералня"         },
+      ],
+      faq: [
+        { q: "Идвате ли в същия ден?",            a: "В повечето случаи — да. При спешност се стараем до 2–3 часа след обаждането." },
+        { q: "Носите ли резервни части?",          a: "Носим най-честите части (уплътнения, сифони, аванси). По-специфични части се уточняват предварително." },
+        { q: "Колко струва посещението за оглед?", a: "Огледът е безплатен при поръчка на услуга. Само оглед без работа — 10€ транспорт." },
+        { q: "Давате ли гаранция?",                a: "Да — 6 месеца гаранция на всяка извършена услуга. При проблем — идваме безплатно." },
+      ],
+    },
+    en: {
+      heroTitle:  <>Plumbing repairs<br />by a <em>professional</em><br />in Sofia</>,
+      heroSub:    "Leaks, blockages, cisterns, taps. Same-day service — fixed price, no surprises.",
+      badge:      "🔧 Same-day service",
+      icon: "🔧", priceLabel: "Plumbing repairs", priceColor: "#5B9CF6",
+      prices: [
+        { name: "Tap / mixer replacement (kitchen or bathroom)", price: 30, unit: "fixed" },
+        { name: "Toilet bowl / monoblock replacement",           price: 55, unit: "fixed" },
+        { name: "Sink / drain unblocking",                       price: 30, unit: "fixed" },
+        { name: "Under-sink trap replacement",                   price: 25, unit: "fixed" },
+        { name: "Toilet cistern repair",                         price: 55, unit: "fixed" },
+        { name: "Leak repair (seal replacement)",                price: 22, unit: "fixed" },
+      ],
+      gallery: [
+        { src: "/Монтаж_смесител.jpg", alt: "Tap replacement",   label: "Tap replacement · Sofia" },
+        { src: "/Монтаж_сифон.jpg",    alt: "Trap replacement",  label: "Trap replacement"        },
+        { src: "/Монтаж_миялна.jpg",   alt: "Appliance install", label: "Appliance install"       },
+        { src: "/Монтаж_пералня.jpg",  alt: "Washer install",    label: "Washer install"          },
+      ],
+      faq: [
+        { q: "Can you come the same day?",        a: "In most cases yes. For urgent jobs we aim to arrive within 2–3 hours of your call." },
+        { q: "Do you carry spare parts?",         a: "We carry the most common parts (seals, traps, connectors). More specific parts are arranged in advance." },
+        { q: "Is the inspection visit free?",     a: "Free with any booked job. Inspection only with no work — €10 travel fee." },
+        { q: "Do you offer a guarantee?",         a: "Yes — 6-month guarantee on all work. Any issue after the job — we come back for free." },
+      ],
+    },
   },
 
   dovarshitelni: {
-    heroTitle:  <>Довършителни<br /><em>ремонти</em><br />в София</>,
-    heroSub:    "Боядисване, шпакловка, тапети, ламинат, фаянс. Малки обеми без фирма — качество на занаятчия.",
-    badge:      "🏠 Малки обеми, голямо качество",
-    icon:       "🏠",
-    priceLabel: "Довършителни работи",
-    priceColor: "#4CAF7A",
-    prices: [
-      { name: "Боядисване на стена (латекс)", price: 7,  unit: "кв.м." },
-      { name: "Шпакловка на пукнатина/дупка", price: 10, unit: "бр."   },
-      { name: "Лепене на тапети",             price: 7,  unit: "кв.м." },
-      { name: "Смяна на брава/ключалка",      price: 25, unit: "фикс." },
-      { name: "Поставяне на ламинат",         price: 7,  unit: "кв.м." },
-      { name: "Поставяне на первази",         price: 3,  unit: "л.м."  },
-      { name: "Лепене на фаянс (малък обем)", price: 30, unit: "кв.м." },
-      { name: "Фугиране на плочки",           price: 7,  unit: "кв.м." },
-      { name: "Дребни ремонти (по договаряне)", price: 15, unit: "час" },
-    ],
-    gallery: [
-      { src: "/лепене_тапети.jpg",  alt: "Лепене тапети", label: "Лепене тапети · София" },
-      { src: "/Монтаж_мебели1.jpg", alt: "Довършителни",  label: "Довършителни работи"   },
-      { src: "/Монтаж_спалня1.jpg", alt: "Ремонт стая",   label: "Ремонт стая"           },
-    ],
-    faq: [
-      { q: "Работите ли с малки площи?",     a: "Да — специализираме в малки обеми. Нямаме минимум на поръчката." },
-      { q: "Носите ли материали?",           a: "Трудът е включен в цената. Материали (боя, лепило, фуги) се доплащат по реална цена без надценка." },
-      { q: "Боядисвате ли тавани?",          a: "Да. Таванът се изчислява на кв.м. по същата тарифа като стена." },
-      { q: "Колко трае лепенето на тапети?", a: "Зависи от площта и модела на тапета. Уточняваме при записването." },
-    ],
+    bg: {
+      heroTitle:  <>Довършителни<br /><em>ремонти</em><br />в София</>,
+      heroSub:    "Боядисване, шпакловка, тапети, ламинат, фаянс. Малки обеми без фирма — качество на занаятчия.",
+      badge:      "🏠 Малки обеми, голямо качество",
+      icon: "🏠", priceLabel: "Довършителни работи", priceColor: "#4CAF7A",
+      prices: [
+        { name: "Боядисване на стена (латекс)",   price: 7,  unit: "кв.м." },
+        { name: "Шпакловка на пукнатина/дупка",   price: 10, unit: "бр."   },
+        { name: "Лепене на тапети",               price: 7,  unit: "кв.м." },
+        { name: "Смяна на брава/ключалка",        price: 25, unit: "фикс." },
+        { name: "Поставяне на ламинат",           price: 7,  unit: "кв.м." },
+        { name: "Поставяне на первази",           price: 3,  unit: "л.м."  },
+        { name: "Лепене на фаянс (малък обем)",   price: 30, unit: "кв.м." },
+        { name: "Фугиране на плочки",             price: 7,  unit: "кв.м." },
+        { name: "Дребни ремонти (по договаряне)", price: 15, unit: "час"   },
+      ],
+      gallery: [
+        { src: "/лепене_тапети.jpg",  alt: "Лепене тапети", label: "Лепене тапети · София" },
+        { src: "/Монтаж_мебели1.jpg", alt: "Довършителни",  label: "Довършителни работи"   },
+        { src: "/Монтаж_спалня1.jpg", alt: "Ремонт стая",   label: "Ремонт стая"           },
+      ],
+      faq: [
+        { q: "Работите ли с малки площи?",     a: "Да — специализираме в малки обеми. Нямаме минимум на поръчката." },
+        { q: "Носите ли материали?",           a: "Трудът е включен в цената. Материали (боя, лепило, фуги) се доплащат по реална цена без надценка." },
+        { q: "Боядисвате ли тавани?",          a: "Да. Таванът се изчислява на кв.м. по същата тарифа като стена." },
+        { q: "Колко трае лепенето на тапети?", a: "Зависи от площта и модела на тапета. Уточняваме при записването." },
+      ],
+    },
+    en: {
+      heroTitle:  <>Home finishing<br /><em>& repairs</em><br />in Sofia</>,
+      heroSub:    "Painting, plastering, wallpaper, laminate, tiles. Small jobs welcome — craftsman quality, no contractor overhead.",
+      badge:      "🏠 Small jobs, high quality",
+      icon: "🏠", priceLabel: "Finishing works", priceColor: "#4CAF7A",
+      prices: [
+        { name: "Wall painting (emulsion)",     price: 7,  unit: "sq.m." },
+        { name: "Crack / hole filling",         price: 10, unit: "pc."   },
+        { name: "Wallpaper hanging",            price: 7,  unit: "sq.m." },
+        { name: "Lock / door lock replacement", price: 25, unit: "fixed" },
+        { name: "Laminate flooring",            price: 7,  unit: "sq.m." },
+        { name: "Skirting board installation",  price: 3,  unit: "lin.m."},
+        { name: "Wall tiling (small area)",     price: 30, unit: "sq.m." },
+        { name: "Tile grouting",                price: 7,  unit: "sq.m." },
+        { name: "General repairs (negotiable)", price: 15, unit: "hr."   },
+      ],
+      gallery: [
+        { src: "/лепене_тапети.jpg",  alt: "Wallpaper hanging", label: "Wallpaper hanging · Sofia" },
+        { src: "/Монтаж_мебели1.jpg", alt: "Finishing works",   label: "Finishing works"           },
+        { src: "/Монтаж_спалня1.jpg", alt: "Room renovation",   label: "Room renovation"           },
+      ],
+      faq: [
+        { q: "Do you take small jobs?",          a: "Yes — we specialise in small volumes. No minimum order." },
+        { q: "Do you supply materials?",         a: "Labour is included in the price. Materials (paint, adhesive, grout) are charged at cost with no markup." },
+        { q: "Do you paint ceilings too?",       a: "Yes. Ceilings are priced per sq.m. at the same rate as walls." },
+        { q: "How long does wallpapering take?", a: "Depends on the area and pattern. We'll confirm timing when you book." },
+      ],
+    },
   },
 
   montaji: {
-    heroTitle:  <>Монтаж на<br /><em>уреди</em><br />в София</>,
-    heroSub:    "Аспиратори, миялни, бойлери — правилен монтаж от сертифициран майстор. Гаранция на труда.",
-    badge:      "🔩 Сертифициран монтаж",
-    icon:       "🔩",
-    priceLabel: "Монтаж на уреди",
-    priceColor: "#E8722A",
-    prices: [
-      { name: "Монтаж на аспиратор",     price: 60, unit: "фикс." },
-      { name: "Монтаж на миялна машина", price: 90, unit: "фикс." },
-      { name: "Монтаж на бойлер",        price: 95, unit: "фикс." },
-    ],
-    gallery: [
-      { src: "/Монтаж_миялна.jpg",  alt: "Монтаж миялна",  label: "Монтаж миялна · София" },
-      { src: "/Монтаж_пералня.jpg", alt: "Монтаж пералня", label: "Монтаж пералня"        },
-      { src: "/Монтаж_сифон.jpg",   alt: "Монтаж сифон",   label: "ВиК връзки"            },
-    ],
-    faq: [
-      { q: "Включва ли монтажът ВиК и ел. връзки?",          a: "Да — включва всички необходими връзки. При нужда от нова инсталация се уточнява предварително." },
-      { q: "Трябва ли да е доставен уредът предварително?",  a: "Да, трябва да е на място преди нашето посещение." },
-      { q: "Давате ли гаранция на монтажа?",                 a: "Да — 6 месеца гаранция на труда. При проблем идваме безплатно." },
-      { q: "Монтирате ли всички марки?",                     a: "Да — всички марки и модели. Носим стандартни маркучи и накрайници." },
-    ],
+    bg: {
+      heroTitle:  <>Монтаж на<br /><em>уреди</em><br />в София</>,
+      heroSub:    "Аспиратори, миялни, бойлери — правилен монтаж от сертифициран майстор. Гаранция на труда.",
+      badge:      "🔩 Сертифициран монтаж",
+      icon: "🔩", priceLabel: "Монтаж на уреди", priceColor: "#E8722A",
+      prices: [
+        { name: "Монтаж на аспиратор",     price: 60, unit: "фикс." },
+        { name: "Монтаж на миялна машина", price: 90, unit: "фикс." },
+        { name: "Монтаж на бойлер",        price: 95, unit: "фикс." },
+      ],
+      gallery: [
+        { src: "/Монтаж_миялна.jpg",  alt: "Монтаж миялна",  label: "Монтаж миялна · София" },
+        { src: "/Монтаж_пералня.jpg", alt: "Монтаж пералня", label: "Монтаж пералня"        },
+        { src: "/Монтаж_сифон.jpg",   alt: "Монтаж сифон",   label: "ВиК връзки"            },
+      ],
+      faq: [
+        { q: "Включва ли монтажът ВиК и ел. връзки?",         a: "Да — включва всички необходими връзки. При нужда от нова инсталация се уточнява предварително." },
+        { q: "Трябва ли да е доставен уредът предварително?", a: "Да, трябва да е на място преди нашето посещение." },
+        { q: "Давате ли гаранция на монтажа?",                a: "Да — 6 месеца гаранция на труда. При проблем идваме безплатно." },
+        { q: "Монтирате ли всички марки?",                    a: "Да — всички марки и модели. Носим стандартни маркучи и накрайници." },
+      ],
+    },
+    en: {
+      heroTitle:  <>Appliance<br /><em>installation</em><br />in Sofia</>,
+      heroSub:    "Cooker hoods, dishwashers, boilers — correct installation by a certified technician. Labour guaranteed.",
+      badge:      "🔩 Certified installation",
+      icon: "🔩", priceLabel: "Appliance installation", priceColor: "#E8722A",
+      prices: [
+        { name: "Cooker hood installation",          price: 60, unit: "fixed" },
+        { name: "Dishwasher installation",           price: 90, unit: "fixed" },
+        { name: "Boiler / water heater installation",price: 95, unit: "fixed" },
+      ],
+      gallery: [
+        { src: "/Монтаж_миялна.jpg",  alt: "Dishwasher install",    label: "Dishwasher install · Sofia" },
+        { src: "/Монтаж_пералня.jpg", alt: "Washer install",        label: "Washer install"             },
+        { src: "/Монтаж_сифон.jpg",   alt: "Plumbing connections",  label: "Plumbing connections"       },
+      ],
+      faq: [
+        { q: "Does installation include plumbing and electrical connections?", a: "Yes — all necessary connections included. If new pipework or wiring is needed, we'll advise in advance." },
+        { q: "Does the appliance need to be delivered first?",                 a: "Yes, it should be on site before we arrive." },
+        { q: "Do you guarantee the installation?",                             a: "Yes — 6-month labour guarantee. Any issue — we come back for free." },
+        { q: "Do you install all brands?",                                     a: "Yes — all brands and models. We carry standard hoses and fittings." },
+      ],
+    },
   },
 
   mebeli: {
-    heroTitle:  <>Сглобяване<br />на <em>мебели</em><br />в София</>,
-    heroSub:    "IKEA, Jysk и всички марки. Бързо, чисто, без бъркотия — цени от 20€.",
-    badge:      "🪑 IKEA, Jysk и всички марки",
-    icon:       "🪑",
-    priceLabel: "Мебели & Монтаж",
-    priceColor: "#4CAF7A",
-    prices: [
-      { name: "Сглобяване на шкаф/легло",          price: 30, unit: "фикс." },
-      { name: "Сглобяване на гардероб (плъзгащи)", price: 60, unit: "фикс." },
-      { name: "Монтаж на рафт/етажерка",           price: 20, unit: "фикс." },
-      { name: "Монтаж на TV стойка/конзола",       price: 20, unit: "фикс." },
-      { name: "Монтаж на корниз",                  price: 13, unit: "фикс." },
-    ],
-    gallery: [
-      { src: "/Монтаж_мебели1.jpg", alt: "Сглобяване мебели", label: "Сглобяване мебели · София" },
-      { src: "/Монтаж_спалня1.jpg", alt: "Монтаж спалня",     label: "Монтаж спалня"             },
-      { src: "/Монтаж_спалня2.jpg", alt: "Сглобяване легло",  label: "Сглобяване легло"          },
-    ],
-    faq: [
-      { q: "Сглобявате ли всички марки?",                        a: "Да — IKEA, Jysk, Praktiker, Mr. Bricolage и всякакви. Ако имаш инструкция — сглобяваме." },
-      { q: "Трябва ли да е доставена мебелта преди да дойдете?", a: "Да, трябва да е доставена и разопакована. Ние се занимаваме само със сглобяването." },
-      { q: "Изнасяте ли картоните след себе си?",                a: "Сгъваме и наредждаме картоните до изхода на входа. Чисто след нас — гарантирано." },
-      { q: "Монтирате ли TV стойки на бетонна стена?",           a: "Да — с подходящи дюбели и бормашина. Уточнете материала на стената при резервацията." },
-    ],
+    bg: {
+      heroTitle:  <>Сглобяване<br />на <em>мебели</em><br />в София</>,
+      heroSub:    "IKEA, Jysk и всички марки. Бързо, чисто, без бъркотия — цени от 20€.",
+      badge:      "🪑 IKEA, Jysk и всички марки",
+      icon: "🪑", priceLabel: "Мебели & Монтаж", priceColor: "#4CAF7A",
+      prices: [
+        { name: "Сглобяване на шкаф/легло",          price: 30, unit: "фикс." },
+        { name: "Сглобяване на гардероб (плъзгащи)", price: 60, unit: "фикс." },
+        { name: "Монтаж на рафт/етажерка",           price: 20, unit: "фикс." },
+        { name: "Монтаж на TV стойка/конзола",       price: 20, unit: "фикс." },
+        { name: "Монтаж на корниз",                  price: 13, unit: "фикс." },
+      ],
+      gallery: [
+        { src: "/Монтаж_мебели1.jpg", alt: "Сглобяване мебели", label: "Сглобяване мебели · София" },
+        { src: "/Монтаж_спалня1.jpg", alt: "Монтаж спалня",     label: "Монтаж спалня"             },
+        { src: "/Монтаж_спалня2.jpg", alt: "Сглобяване легло",  label: "Сглобяване легло"          },
+      ],
+      faq: [
+        { q: "Сглобявате ли всички марки?",                        a: "Да — IKEA, Jysk, Praktiker, Mr. Bricolage и всякакви. Ако имаш инструкция — сглобяваме." },
+        { q: "Трябва ли да е доставена мебелта преди да дойдете?", a: "Да, трябва да е доставена и разопакована. Ние се занимаваме само със сглобяването." },
+        { q: "Изнасяте ли картоните след себе си?",                a: "Сгъваме и наредждаме картоните до изхода на входа. Чисто след нас — гарантирано." },
+        { q: "Монтирате ли TV стойки на бетонна стена?",           a: "Да — с подходящи дюбели и бормашина. Уточнете материала на стената при резервацията." },
+      ],
+    },
+    en: {
+      heroTitle:  <>Furniture<br /><em>assembly</em><br />in Sofia</>,
+      heroSub:    "IKEA, Jysk and all brands. Fast, clean, no mess — prices from €20.",
+      badge:      "🪑 IKEA, Jysk & all brands",
+      icon: "🪑", priceLabel: "Furniture & Assembly", priceColor: "#4CAF7A",
+      prices: [
+        { name: "Cabinet / bed assembly",         price: 30, unit: "fixed" },
+        { name: "Sliding wardrobe assembly",      price: 60, unit: "fixed" },
+        { name: "Shelf / shelving unit mounting", price: 20, unit: "fixed" },
+        { name: "TV bracket / wall mount",        price: 20, unit: "fixed" },
+        { name: "Curtain rail mounting",          price: 13, unit: "fixed" },
+      ],
+      gallery: [
+        { src: "/Монтаж_мебели1.jpg", alt: "Furniture assembly", label: "Furniture assembly · Sofia" },
+        { src: "/Монтаж_спалня1.jpg", alt: "Bedroom assembly",   label: "Bedroom assembly"           },
+        { src: "/Монтаж_спалня2.jpg", alt: "Bed assembly",       label: "Bed assembly"               },
+      ],
+      faq: [
+        { q: "Do you assemble all brands?",                    a: "Yes — IKEA, Jysk, Praktiker, Mr. Bricolage and any other brand. If it has instructions, we'll build it." },
+        { q: "Does the furniture need to be delivered first?", a: "Yes, it should be delivered and unpacked before we arrive. We handle assembly only." },
+        { q: "Do you clean up the cardboard afterwards?",      a: "We fold and stack all cardboard by the building entrance. Always clean after us — guaranteed." },
+        { q: "Can you mount a TV bracket on a concrete wall?", a: "Yes — with appropriate plugs and a hammer drill. Please mention the wall type when booking." },
+      ],
+    },
   },
 
   elektro: {
-    heroTitle:  <>Електро<br /><em>монтаж</em><br />в София</>,
-    heroSub:    "Полилеи, осветителни тела, контакти и ключове. Верифициран електротехник — фиксирана цена.",
-    badge:      "💡 Верифициран електротехник",
-    icon:       "💡",
-    priceLabel: "Електро услуги",
-    priceColor: "#E8722A",
-    prices: [
-      { name: "Монтаж на полилей/осветително тяло", price: 45, unit: "фикс." },
-      { name: "Смяна на контакт/ключ",              price: 19, unit: "фикс." },
-    ],
-    gallery: [
-      { src: "/Монтаж_полюлей.jpg",  alt: "Монтаж полилей",   label: "Монтаж полилей · София" },
-      { src: "/Монтаж_полюлей1.jpg", alt: "Монтаж полилей 2", label: "Монтаж полилей"         },
-      { src: "/Монтаж_контакт.jpg",  alt: "Смяна контакт",    label: "Смяна контакт"          },
-      { src: "/Монтаж_контакт1.jpg", alt: "Монтаж контакт",   label: "Монтаж контакт"         },
-    ],
-    faq: [
-      { q: "Нужен ли е разрешителен за монтаж на осветление?", a: "За стандартен монтаж на лампи и контакти — не. При по-сложни ел. инсталации ще те информираме предварително." },
-      { q: "Носите ли материали?",                             a: "Трудът е включен в цената. Материали (кабели, конзоли) се доплащат по реална цена без надценка." },
-      { q: "Работите ли в събота и неделя?",                   a: "Да — 7 дни в седмицата от 08:00 до 21:00. Без доплащане за уикенд." },
-      { q: "Можете ли да монтирате smart осветление?",         a: "Да — Philips Hue, IKEA Tradfri и повечето smart системи. Уточнете модела при резервацията." },
-    ],
+    bg: {
+      heroTitle:  <>Електро<br /><em>монтаж</em><br />в София</>,
+      heroSub:    "Полилеи, осветителни тела, контакти и ключове. Верифициран електротехник — фиксирана цена.",
+      badge:      "💡 Верифициран електротехник",
+      icon: "💡", priceLabel: "Електро услуги", priceColor: "#E8722A",
+      prices: [
+        { name: "Монтаж на полилей/осветително тяло", price: 45, unit: "фикс." },
+        { name: "Смяна на контакт/ключ",              price: 19, unit: "фикс." },
+      ],
+      gallery: [
+        { src: "/Монтаж_полюлей.jpg",  alt: "Монтаж полилей",   label: "Монтаж полилей · София" },
+        { src: "/Монтаж_полюлей1.jpg", alt: "Монтаж полилей 2", label: "Монтаж полилей"         },
+        { src: "/Монтаж_контакт.jpg",  alt: "Смяна контакт",    label: "Смяна контакт"          },
+        { src: "/Монтаж_контакт1.jpg", alt: "Монтаж контакт",   label: "Монтаж контакт"         },
+      ],
+      faq: [
+        { q: "Нужен ли е разрешителен за монтаж на осветление?", a: "За стандартен монтаж на лампи и контакти — не. При по-сложни ел. инсталации ще те информираме предварително." },
+        { q: "Носите ли материали?",                             a: "Трудът е включен в цената. Материали (кабели, конзоли) се доплащат по реална цена без надценка." },
+        { q: "Работите ли в събота и неделя?",                   a: "Да — 7 дни в седмицата от 08:00 до 21:00. Без доплащане за уикенд." },
+        { q: "Можете ли да монтирате smart осветление?",         a: "Да — Philips Hue, IKEA Tradfri и повечето smart системи. Уточнете модела при резервацията." },
+      ],
+    },
+    en: {
+      heroTitle:  <>Electrical<br /><em>installation</em><br />in Sofia</>,
+      heroSub:    "Chandeliers, light fixtures, sockets and switches. Verified electrician — fixed price.",
+      badge:      "💡 Verified electrician",
+      icon: "💡", priceLabel: "Electrical services", priceColor: "#E8722A",
+      prices: [
+        { name: "Chandelier / light fixture installation", price: 45, unit: "fixed" },
+        { name: "Socket / switch replacement",             price: 19, unit: "fixed" },
+      ],
+      gallery: [
+        { src: "/Монтаж_полюлей.jpg",  alt: "Chandelier install",    label: "Chandelier install · Sofia" },
+        { src: "/Монтаж_полюлей1.jpg", alt: "Light fixture install", label: "Light fixture install"      },
+        { src: "/Монтаж_контакт.jpg",  alt: "Socket replacement",    label: "Socket replacement"         },
+        { src: "/Монтаж_контакт1.jpg", alt: "Socket installation",   label: "Socket installation"        },
+      ],
+      faq: [
+        { q: "Do I need a permit for light fixture installation?", a: "For standard lamp and socket work — no permit needed. For complex wiring we'll advise in advance." },
+        { q: "Do you supply materials?",                           a: "Labour is included in the price. Materials (cables, brackets) are charged at cost with no markup." },
+        { q: "Do you work on weekends?",                           a: "Yes — 7 days a week, 08:00–21:00. No surcharge for weekends." },
+        { q: "Can you install smart lighting?",                    a: "Yes — Philips Hue, IKEA Tradfri and most smart systems. Please mention the model when booking." },
+      ],
+    },
   },
 
 };
+
 
 const REVIEWS = [
   { name: "Мартин Г.", role: "Software Engineer @ Telerik", text: "Резервирах за монтаж в 11 ч. вечерта, на следващия ден в 10 ч. майсторът беше тук. Точно на часа, чисто след себе си, фактура на имейла.", stars: 5 },
@@ -248,7 +371,7 @@ const UI = {
 };
 
 export default function LandingPage({ service = "vik", lang = "bg" }) {
-  const data = SERVICE_DATA[service];
+  const data = SERVICE_DATA[service][lang];
   const u    = UI[lang];
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq]   = useState(null);

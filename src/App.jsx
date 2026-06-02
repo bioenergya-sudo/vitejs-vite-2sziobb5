@@ -140,6 +140,8 @@ export default function App() {
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-link { font-size: 14px; color: ${G.textSec}; text-decoration: none; cursor: pointer; transition: color 0.2s; font-weight: 500; }
     .nav-link:hover { color: ${G.text}; }
+    .nav-lang-btn { background: none; border: 1px solid ${G.border}; color: ${G.textSec}; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+    .nav-lang-btn:hover { border-color: ${G.accent}; color: ${G.text}; }
     .nav-cta { background: ${G.accent}; color: ${G.white}; border: none; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
     .nav-cta:hover { background: ${G.accentLight}; transform: translateY(-1px); }
     .phone-link { font-size: 14px; color: ${G.text}; font-weight: 600; letter-spacing: 0.5px; }
@@ -534,7 +536,8 @@ export default function App() {
           <span className="nav-link" onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" })}>Отзиви</span>
           <a href="/za-nas" className="nav-link">За нас</a>
           <a href="tel:+359889182749" className="phone-link">📞 +359 889 182 749</a>
-          <button className="nav-cta" onClick={scrollToServices}>Резервирай</button>
+          <a href="/en" className="nav-lang-btn">🇬🇧 EN</a>
+                    <button className="nav-cta" onClick={scrollToServices}>Резервирай</button>
         </div>
       </nav>
 
@@ -626,7 +629,7 @@ export default function App() {
               {urgent && <div className="urgent-badge">⚡ Спешна цена</div>}
               <span className="svc-icon">{svc.icon}</span>
               <div className="svc-name">{svc.name}</div>
-              <div className="svc-time">⏱ {svc.time} · {svc.unit}</div>
+              <div className="svc-time">· {svc.unit}</div>
               <div className="svc-footer">
                 <div>
                   <div className="svc-price">{Math.round(svc.price * urgentMultiplier)} €</div>
@@ -649,22 +652,22 @@ export default function App() {
         <div className="section-label">Специализирани услуги</div>
         <div className="section-title">Виж повече за<br />всяка услуга</div>
         <div className="lp-links-grid">
-          <a href="/montaj-osvetlenie" className="lp-link-card">
+         <a href="/elektro" className="lp-link-card">
             <span className="lp-link-icon">💡</span>
-            <div className="lp-link-title">Монтаж на осветление</div>
-            <div className="lp-link-desc">Лампи, спотове, полилеи. Фиксирана цена, идваме до 2 часа.</div>
+            <div className="lp-link-title">Електро монтаж</div>
+            <div className="lp-link-desc">Полилеи, контакти, ключове. Верифициран електротехник — фиксирана цена.</div>
             <span className="lp-link-cta">Цени и детайли →</span>
           </a>
-          <a href="/sglobyavane-mebeli" className="lp-link-card">
+          <a href="/mebeli" className="lp-link-card">
             <span className="lp-link-icon">🪑</span>
             <div className="lp-link-title">Сглобяване на мебели</div>
             <div className="lp-link-desc">IKEA, Jysk и всички марки. Бързо, чисто, без бъркотия.</div>
             <span className="lp-link-cta">Цени и детайли →</span>
           </a>
-          <a href="/drebni-remonti" className="lp-link-card">
+          <a href="/vik-remonti" className="lp-link-card">
             <span className="lp-link-icon">🔧</span>
-            <div className="lp-link-title">Дребни ремонти</div>
-            <div className="lp-link-desc">Течове, бойлери, монтажи — всичко на едно обаждане. Идваме в същия ден.</div>
+            <div className="lp-link-title">ВиК ремонти</div>
+            <div className="lp-link-desc">Течове, запушвания, смесители — идваме в същия ден. Фиксирана цена.</div>
             <span className="lp-link-cta">Цени и детайли →</span>
           </a>
         </div>
