@@ -720,28 +720,25 @@ export default function App({ lang = "bg" }) {
         <div className="hero-bg" />
         <div className="hero-grid" />
         <div className="hero-content">
-          <div className="hero-badge"><span className="hero-badge-dot" />Активни майстори в София</div>
-          <h1 className="hero-title">Всеки ремонт.<br /><em>Без главоболие.</em></h1>
-          <p className="hero-sub">
-            Верифицирани майстори, <strong>фиксирани цени</strong> и <strong>гаранция 30 дни</strong>.
-            Резервирай онлайн в под 60 секунди. Без изненади, без чакане.
-          </p>
+          <div className="hero-badge"><span className="hero-badge-dot" />{u.badge}</div>
+          <h1 className="hero-title">{u.heroTitle1}<br /><em>{u.heroTitle2}</em></h1>
+          <p className="hero-sub">{u.heroSub}</p>
           <div className="hero-actions">
-            <button className="btn-primary" onClick={scrollToServices}>⚡ Резервирай сега</button>
-            <button className="btn-secondary" onClick={() => document.getElementById("how")?.scrollIntoView({ behavior: "smooth" })}>Как работи?</button>
+            <button className="btn-primary" onClick={scrollToServices}>{u.heroCta}</button>
+            <button className="btn-secondary" onClick={() => document.getElementById("how")?.scrollIntoView({ behavior: "smooth" })}>{u.heroHow}</button>
           </div>
           <div className="hero-stats">
             <div className="stat">
               <div className="stat-num">4.9★</div>
-              <div className="stat-label">среден рейтинг</div>
+              <div className="stat-label">{u.rating}</div>
             </div>
             <div className="stat hero-stat-hide">
               <div className="stat-num">500+</div>
-              <div className="stat-label">изпълнени задачи</div>
+              <div className="stat-label">{u.jobs}</div>
             </div>
             <div className="stat">
               <div className="stat-num">30 дни</div>
-              <div className="stat-label">гаранция на труда</div>
+              <div className="stat-label">{u.guarantee}</div>
             </div>
           </div>
         </div>
@@ -754,9 +751,9 @@ export default function App({ lang = "bg" }) {
       <div id="how" />
       <div style={{ background: G.card, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}` }}>
         <div className="section">
-          <div className="section-label">Как работи</div>
-          <div className="section-title">Три стъпки.<br />Под 60 секунди.</div>
-          <p className="section-sub">Без обаждания, без чакане на оферти. Избираш, плащаш, майсторът идва точно в часа.</p>
+          <div className="section-label">{u.howLabel}</div>
+          <div className="section-title">{u.howTitle1}<br />{u.howTitle2}</div>
+          <p className="section-sub">{u.howSub}</p>
           <div className="steps-grid">
             {STEPS.map(s => (
               <div className="step-card" key={s.n}>
@@ -773,9 +770,9 @@ export default function App({ lang = "bg" }) {
       {/* SERVICES */}
       <div id="services" />
       <div className="section">
-        <div className="section-label">Услуги с фиксирани цени</div>
-        <div className="section-title">Виждаш цената<br />преди да резервираш.</div>
-        <p className="section-sub">Без "ще видим на място". Без изненади. Цената е финална, включва труда.</p>
+        <div className="section-label">{u.svcLabel}</div>
+        <div className="section-title">{u.svcTitle1}<br />{u.svcTitle2}</div>
+        <p className="section-sub">{u.svcSub}</p>
 
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "10px", margin: "40px 0 28px" }}>
           <div className="cats" style={{ margin: 0, flex: 1 }}>
@@ -784,7 +781,7 @@ export default function App({ lang = "bg" }) {
             ))}
           </div>
           <div className="urgent-toggle">
-            <span className="toggle-label">🚨 Спешно +50%</span>
+            <span className="toggle-label">{u.urgentLabel}</span>
             <button className={`toggle${urgent ? " on" : ""}`} onClick={() => setUrgent(!urgent)} aria-pressed={urgent}>
               <div className="toggle-dot" />
             </button>
@@ -793,56 +790,56 @@ export default function App({ lang = "bg" }) {
 
         {urgent && (
           <div style={{ background: "rgba(232,114,42,0.08)", border: `1px solid rgba(232,114,42,0.2)`, borderRadius: "8px", padding: "12px 18px", marginBottom: "20px", fontSize: "13px", color: G.accentLight }}>
-            ⚡ Спешна услуга (до 24 ч., след 18 ч. или уикенд) — добавена е 50% надценка.
+            {u.urgentInfo}
           </div>
         )}
 
         <div className="services-grid">
           {filtered.map(svc => (
             <div key={svc.id} className={`service-card${svc.popular ? " popular" : ""}`} onClick={() => openBooking(svc)}>
-              {urgent && <div className="urgent-badge">⚡ Спешна цена</div>}
+              {urgent && <div className="urgent-badge">{u.urgentBadge}</div>}
               <span className="svc-icon">{svc.icon}</span>
               <div className="svc-name">{svc.name}</div>
               <div className="svc-time">· {svc.unit}</div>
               <div className="svc-footer">
                 <div>
                   <div className="svc-price">{Math.round(svc.price * urgentMultiplier)} €</div>
-                  <div className="svc-price-label">само труд · без части</div>
+                  <div className="svc-price-label">{u.bookSub}</div>
                 </div>
-                <button className="svc-book-btn">Резервирай →</button>
+                <button className="svc-book-btn">{u.bookBtn}</button>
               </div>
             </div>
           ))}
           <a href="viber://chat?number=%2B359889182749" className="service-card-custom">
             <span className="service-card-custom-icon">🔍</span>
-            <span className="service-card-custom-label">Друга услуга<br />по запитване</span>
-            <span style={{ fontSize: "12px", color: "#7360F2", fontWeight: 700 }}>Пиши във Viber →</span>
+            <span className="service-card-custom-label">{u.customLabel}</span>
+            <span style={{ fontSize: "12px", color: "#7360F2", fontWeight: 700 }}>{u.customCta}</span>
           </a>
         </div>
       </div>
 
       {/* LANDING PAGE LINKS */}
       <div className="section" style={{ paddingTop: 0 }}>
-        <div className="section-label">Специализирани услуги</div>
-        <div className="section-title">Виж повече за<br />всяка услуга</div>
+        <div className="section-label">{u.specLabel}</div>
+        <div className="section-title">{u.specTitle1}<br />{u.specTitle2}</div>
         <div className="lp-links-grid">
-         <a href="/elektro" className="lp-link-card">
+          <a href={u.lp1Href} className="lp-link-card">
             <span className="lp-link-icon">💡</span>
-            <div className="lp-link-title">Електро монтаж</div>
-            <div className="lp-link-desc">Полилеи, контакти, ключове. Верифициран електротехник — фиксирана цена.</div>
-            <span className="lp-link-cta">Цени и детайли →</span>
+            <div className="lp-link-title">{u.lp1Title}</div>
+            <div className="lp-link-desc">{u.lp1Desc}</div>
+            <span className="lp-link-cta">{u.detailsCta}</span>
           </a>
-          <a href="/mebeli" className="lp-link-card">
+          <a href={u.lp2Href} className="lp-link-card">
             <span className="lp-link-icon">🪑</span>
-            <div className="lp-link-title">Сглобяване на мебели</div>
-            <div className="lp-link-desc">IKEA, Jysk и всички марки. Бързо, чисто, без бъркотия.</div>
-            <span className="lp-link-cta">Цени и детайли →</span>
+            <div className="lp-link-title">{u.lp2Title}</div>
+            <div className="lp-link-desc">{u.lp2Desc}</div>
+            <span className="lp-link-cta">{u.detailsCta}</span>
           </a>
-          <a href="/vik-remonti" className="lp-link-card">
+          <a href={u.lp3Href} className="lp-link-card">
             <span className="lp-link-icon">🔧</span>
-            <div className="lp-link-title">ВиК ремонти</div>
-            <div className="lp-link-desc">Течове, запушвания, смесители — идваме в същия ден. Фиксирана цена.</div>
-            <span className="lp-link-cta">Цени и детайли →</span>
+            <div className="lp-link-title">{u.lp3Title}</div>
+            <div className="lp-link-desc">{u.lp3Desc}</div>
+            <span className="lp-link-cta">{u.detailsCta}</span>
           </a>
         </div>
       </div>
@@ -850,8 +847,8 @@ export default function App({ lang = "bg" }) {
       {/* TRUST */}
       <div style={{ background: G.card, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}` }}>
         <div className="section">
-          <div className="section-label">Защо HandymanSofia</div>
-          <div className="section-title">Доверието не е опция.<br />То е стандарт.</div>
+          <div className="section-label">{u.trustLabel}</div>
+          <div className="section-title">{u.trustTitle1}<br />{u.trustTitle2}</div>
           <div className="trust-grid">
             {TRUST.map((t, i) => (
               <div className="trust-card" key={i}>
@@ -867,8 +864,8 @@ export default function App({ lang = "bg" }) {
       {/* REVIEWS */}
       <div id="reviews" />
       <div className="section">
-        <div className="section-label">Отзиви</div>
-        <div className="section-title">Казват го<br />нашите клиенти.</div>
+        <div className="section-label">{u.revLabel}</div>
+        <div className="section-title">{u.revTitle1}<br />{u.revTitle2}</div>
         <div className="reviews-track">
           {REVIEWS.map((r, i) => (
             <div
@@ -890,7 +887,7 @@ export default function App({ lang = "bg" }) {
         </div>
         {!showAllReviews && (
           <button className="show-more-reviews" onClick={() => setShowAllReviews(true)}>
-            + Виж всички отзиви ({REVIEWS.length})
+            + {u.revMore} ({REVIEWS.length})
           </button>
         )}
       </div>
@@ -898,12 +895,12 @@ export default function App({ lang = "bg" }) {
       {/* CTA STRIP */}
       <div className="cta-strip">
         <div className="cta-text">
-          <div className="tag">Готов? Резервирай сега</div>
-          <h2>Твоят майстор е<br />на едно повикване.</h2>
-          <p>HandymanSofia.com · София · +359 889 182 749</p>
+          <div className="tag">{u.ctaTag}</div>
+          <h2>{u.ctaTitle1}<br />{u.ctaTitle2}</h2>
+          <p>{u.ctaSub}</p>
         </div>
         <div className="cta-actions">
-          <button className="btn-primary" onClick={scrollToServices}>⚡ Избери услуга</button>
+          <button className="btn-primary" onClick={scrollToServices}>{u.ctaBtn}</button>
           <button className="wa-btn">💬 WhatsApp</button>
           <a href="viber://chat?number=%2B359889182749" className="viber-btn">🟣 Viber</a>
         </div>
@@ -913,45 +910,41 @@ export default function App({ lang = "bg" }) {
       <footer className="footer">
         <div className="footer-logo">Handyman<span>Sofia</span><span style={{ fontSize: "11px", color: G.textMuted, fontFamily: "Inter", fontWeight: 400, marginLeft: 10 }}>.com</span></div>
         <div className="footer-links">
-          <span className="footer-link">Услуги</span>
-          <a href="/za-nas" className="footer-link">За нас</a>
-          <span className="footer-link">Условия</span>
-          <span className="footer-link">Контакти</span>
+          <span className="footer-link">{u.footServices}</span>
+          <a href="/za-nas" className="footer-link">{u.footAbout}</a>
+          <span className="footer-link">{u.footTerms}</span>
+          <span className="footer-link">{u.footContact}</span>
         </div>
         <div className="footer-note">© 2026 HandymanSofia.com · ЕИК 000000000</div>
       </footer>
 
-      {/* FLOATING BUTTONS — desktop only (hidden on mobile via CSS) */}
+      {/* FLOATING BUTTONS */}
       <div className="float-wa">
         <a href="viber://chat?number=%2B359889182749" className="float-viber-btn" title="Viber" aria-label="Viber">🟣</a>
         <button className="float-wa-btn" title="WhatsApp" aria-label="WhatsApp">💬</button>
-        <button className="float-phone-btn" title="Телефон" aria-label="Телефон">📞</button>
+        <button className="float-phone-btn" title="Phone" aria-label="Phone">📞</button>
       </div>
 
-      {/* ─── STICKY BOTTOM BAR ─── */}
+      {/* STICKY BOTTOM BAR */}
       <div className="sticky-bar">
-
-        {/* Desktop layout */}
         <div className="sticky-bar-desktop">
           <div className="sticky-bar-logo">Handyman<span>Sofia</span></div>
           <div className="sticky-bar-center">
             <a href="tel:+359889182749" className="phone-num">📞 +359 889 182 749</a>
             <span className="sep">·</span>
-            <span>Работим 08:00–21:00, всеки ден</span>
+            <span>{u.worktime}</span>
             <span className="sep">·</span>
-            <span>Гаранция 30 дни</span>
+            <span>{u.guar30}</span>
           </div>
           <div className="sticky-bar-actions">
             <a href="viber://chat?number=%2B359889182749" className="sticky-viber-btn">🟣 Viber</a>
-            <button className="sticky-cta-btn" onClick={scrollToServices}>⚡ Резервирай сега</button>
+            <button className="sticky-cta-btn" onClick={scrollToServices}>⚡ {u.navBook}</button>
           </div>
         </div>
-
-        {/* Mobile layout */}
         <div className="sticky-bar-mobile">
           <a href="tel:+359889182749" className="sticky-mobile-btn sticky-mobile-phone">
             <span className="sticky-mobile-btn-icon">📞</span>
-            <span>Обади се</span>
+            <span>{lang === "bg" ? "Обади се" : "Call us"}</span>
           </a>
           <a href="viber://chat?number=%2B359889182749" className="sticky-mobile-btn sticky-mobile-viber">
             <span className="sticky-mobile-btn-icon">🟣</span>
@@ -959,7 +952,7 @@ export default function App({ lang = "bg" }) {
           </a>
           <button className="sticky-mobile-btn sticky-mobile-book" onClick={scrollToServices}>
             <span className="sticky-mobile-btn-icon">⚡</span>
-            <span>Резервирай</span>
+            <span>{lang === "bg" ? "Резервирай" : "Book now"}</span>
           </button>
         </div>
       </div>
@@ -970,7 +963,7 @@ export default function App({ lang = "bg" }) {
           <div className="modal">
             <div className="modal-header">
               <div className="modal-title">
-                {booked ? "🎉 Резервацията е потвърдена!" : `Резервирай · Стъпка ${bookingStep}/2`}
+                {booked ? u.bookedTitle : `${u.modalTitle} ${bookingStep}${u.modalOf}`}
               </div>
               <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
             </div>
@@ -980,50 +973,50 @@ export default function App({ lang = "bg" }) {
                   <div className="modal-svc">
                     <div>
                       <div className="modal-svc-name">{selectedService.name}</div>
-                      <div className="modal-svc-note">⏱ {selectedService.time} · само труд</div>
+                      <div className="modal-svc-note">· {u.modalNote}</div>
                     </div>
                     <div style={{ textAlign: "right" }}>
                       <div className="modal-svc-price">{finalPrice} €</div>
-                      {urgent && <div style={{ fontSize: "11px", color: G.accentLight }}>+50% спешно</div>}
+                      {urgent && <div style={{ fontSize: "11px", color: G.accentLight }}>{u.modalUrgent}</div>}
                     </div>
                   </div>
                   <button className="price-info-toggle" onClick={() => setShowPriceInfo(v => !v)}>
-                    ℹ️ Какво включва цената? <span>{showPriceInfo ? "−" : "+"}</span>
+                    {u.modalInfo} <span>{showPriceInfo ? "−" : "+"}</span>
                   </button>
                   {showPriceInfo && (
                     <div className="price-info-box">
-                      <p>Цената е валидна при стандартни условия на работа и свободен достъп до зоната за ремонт или монтаж.</p>
-                      <p>При необходимост от разместване на мебели, освобождаване на пространство, труден достъп или допълнително време е възможно допълнително таксуване — само след предварително потвърждение от теб.</p>
+                      <p>{u.modalInfoT}</p>
+                      <p>{u.modalInfoS}</p>
                     </div>
                   )}
-                  <div className="modal-label">Избери дата</div>
+                  <div className="modal-label">{u.dateLabel}</div>
                   <div className="dates-grid">
                     {dates.map(d => (
                       <button key={d} className={`date-btn${selectedDate === d ? " sel" : ""}`} onClick={() => setSelectedDate(d)}>{d}</button>
                     ))}
                   </div>
-                  <div className="modal-label">Избери час</div>
+                  <div className="modal-label">{u.hourLabel}</div>
                   <div className="hours-grid">
                     {hours.map(h => (
                       <button key={h} className={`hour-btn${selectedHour === h ? " sel" : ""}`} onClick={() => setSelectedHour(h)}>{h}</button>
                     ))}
                   </div>
                   <button className="modal-confirm" disabled={!selectedDate || !selectedHour} onClick={confirmBooking}>
-                    {selectedDate && selectedHour ? `✔ Потвърди за ${selectedDate} в ${selectedHour}` : "Избери дата и час"}
+                    {selectedDate && selectedHour ? `${u.confirmBtn} ${selectedDate} ${u.confirmAt} ${selectedHour}` : u.confirmDef}
                   </button>
                 </>
               ) : (
                 <>
                   <div className="success-check">✅</div>
-                  <div className="success-title">Резервацията е приета!</div>
-                  <p className="success-sub">Ще получиш SMS потвърждение и имейл с всички детайли.</p>
+                  <div className="success-title">{u.successTitle}</div>
+                  <p className="success-sub">{u.successSub}</p>
                   <div className="success-detail">
-                    <div><strong>Услуга:</strong> {selectedService.name}</div>
-                    <div><strong>Дата:</strong> {selectedDate}, {selectedHour} ч.</div>
-                    <div><strong>Цена:</strong> {finalPrice} € (само труд)</div>
-                    <div><strong>Гаранция:</strong> 30 дни на труда</div>
+                    <div><strong>{u.successSvc}</strong> {selectedService.name}</div>
+                    <div><strong>{u.successDate}</strong> {selectedDate}, {selectedHour}</div>
+                    <div><strong>{u.successPrice}</strong> {finalPrice} € ({u.modalNote})</div>
+                    <div><strong>{u.successGuar}</strong> {u.successGuar2}</div>
                   </div>
-                  <button className="modal-confirm" style={{ marginTop: "20px" }} onClick={() => setShowModal(false)}>Затвори</button>
+                  <button className="modal-confirm" style={{ marginTop: "20px" }} onClick={() => setShowModal(false)}>{u.successClose}</button>
                 </>
               )}
             </div>
@@ -1032,4 +1025,5 @@ export default function App({ lang = "bg" }) {
       )}
     </>
   );
+
 }
