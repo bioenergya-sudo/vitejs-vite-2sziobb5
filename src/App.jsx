@@ -4,58 +4,80 @@ const logoImg = "/FrontPage-logo.webp";
 
 const SERVICES = [
   // 🔧 ВиК
-  { id: 1,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на смесител (кухня/баня)", price: 30, unit: "фикс.", popular: true },
-  { id: 2,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на тоалетна чиния/моноблок", price: 55, unit: "фикс.", popular: false },
-  { id: 3,  cat: "🔧 ВиК", icon: "🔧", name: "Отпушване на мивка/канал", price: 30, unit: "фикс.", popular: false },
-  { id: 4,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на сифон под мивка", price: 25, unit: "фикс.", popular: true },
-  { id: 5,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на тоалетно казанче", price: 55, unit: "фикс.", popular: true },
-  { id: 6,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на теч (уплътнение)", price: 22, unit: "фикс.", popular: false },
+  { id: 1,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на смесител (кухня/баня)",      nameEn: "Tap / mixer replacement",           price: 30, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 2,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на тоалетна чиния/моноблок",    nameEn: "Toilet bowl replacement",           price: 55, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 3,  cat: "🔧 ВиК", icon: "🔧", name: "Отпушване на мивка/канал",            nameEn: "Sink / drain unblocking",           price: 30, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 4,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на сифон под мивка",            nameEn: "Under-sink trap replacement",       price: 25, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 5,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на тоалетно казанче",          nameEn: "Toilet cistern repair",             price: 55, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 6,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на теч (уплътнение)",          nameEn: "Leak repair (seal replacement)",    price: 22, unit: "фикс.", unitEn: "fixed", popular: false },
   // 🏠 Довършителни
-  { id: 7,  cat: "🏠 Довършителни", icon: "🏠", name: "Боядисване на стена (латекс)", price: 7,  unit: "кв.м.", popular: false },
-  { id: 8,  cat: "🏠 Довършителни", icon: "🏠", name: "Шпакловка на пукнатина/дупка", price: 10, unit: "бр.",   popular: false },
-  { id: 9,  cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на тапети", price: 7,  unit: "кв.м.", popular: true },
-  { id: 10, cat: "🏠 Довършителни", icon: "🏠", name: "Смяна на брава/ключалка", price: 25, unit: "фикс.", popular: false },
-  { id: 11, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на ламинат", price: 7,  unit: "кв.м.", popular: false },
-  { id: 12, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на первази", price: 3,  unit: "л.м.",  popular: false },
-  { id: 13, cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на фаянс (малък обем)", price: 30, unit: "кв.м.", popular: false },
-  { id: 14, cat: "🏠 Довършителни", icon: "🏠", name: "Фугиране на плочки", price: 7,  unit: "кв.м.", popular: false },
-  { id: 15, cat: "🏠 Довършителни", icon: "🏠", name: "Дребни ремонти (по договаряне)", price: 15, unit: "час",  popular: true }, // НОВО
+  { id: 7,  cat: "🏠 Довършителни", icon: "🏠", name: "Боядисване на стена (латекс)", nameEn: "Wall painting (emulsion)",         price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
+  { id: 8,  cat: "🏠 Довършителни", icon: "🏠", name: "Шпакловка на пукнатина/дупка", nameEn: "Crack / hole filling",             price: 10, unit: "бр.",   unitEn: "pc.",   popular: false },
+  { id: 9,  cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на тапети",             nameEn: "Wallpaper hanging",                price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: true },
+  { id: 10, cat: "🏠 Довършителни", icon: "🏠", name: "Смяна на брава/ключалка",      nameEn: "Lock replacement",                 price: 25, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 11, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на ламинат",         nameEn: "Laminate flooring",                price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
+  { id: 12, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на первази",         nameEn: "Skirting board installation",      price: 3,  unit: "л.м.",  unitEn: "lin.m.",popular: false },
+  { id: 13, cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на фаянс (малък обем)", nameEn: "Wall tiling (small area)",         price: 30, unit: "кв.м.", unitEn: "sq.m.", popular: false },
+  { id: 14, cat: "🏠 Довършителни", icon: "🏠", name: "Фугиране на плочки",           nameEn: "Tile grouting",                    price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
+  { id: 15, cat: "🏠 Довършителни", icon: "🏠", name: "Дребни ремонти (по договаряне)",nameEn: "General repairs (negotiable)",    price: 15, unit: "час",   unitEn: "hr.",   popular: true },
   // 🔩 Монтажи
-  { id: 16, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на аспиратор", price: 60, unit: "фикс.", popular: false },
-  { id: 17, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на миялна машина", price: 90, unit: "фикс.", popular: false },
-  { id: 18, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на бойлер", price: 95, unit: "фикс.", popular: true },
+  { id: 16, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на аспиратор",              nameEn: "Cooker hood installation",         price: 60, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 17, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на миялна машина",          nameEn: "Dishwasher installation",          price: 90, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 18, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на бойлер",                 nameEn: "Boiler installation",              price: 95, unit: "фикс.", unitEn: "fixed", popular: true },
   // 🪑 Мебели
-  { id: 19, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на шкаф/легло", price: 30, unit: "фикс.", popular: true },
-  { id: 20, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на гардероб (плъзгащи)", price: 60, unit: "фикс.", popular: false },
-  { id: 21, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на рафт/етажерка", price: 20, unit: "фикс.", popular: false },
-  { id: 22, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на TV стойка/конзола", price: 20, unit: "фикс.", popular: true },
-  { id: 23, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на корниз", price: 19, unit: "л.м.", popular: false }, // НОВО
+  { id: 19, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на шкаф/легло",          nameEn: "Cabinet / bed assembly",           price: 30, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 20, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на гардероб (плъзгащи)", nameEn: "Sliding wardrobe assembly",        price: 60, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 21, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на рафт/етажерка",           nameEn: "Shelf / shelving unit mounting",   price: 20, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 22, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на TV стойка/конзола",       nameEn: "TV bracket / wall mount",          price: 20, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 23, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на корниз",                  nameEn: "Curtain rail mounting",            price: 19, unit: "л.м.",  unitEn: "lin.m.",popular: false },
   // 💡 Електро
-  { id: 24, cat: "💡 Електро", icon: "💡", name: "Монтаж на полилей/осветително тяло", price: 45, unit: "фикс.", popular: true },
-  { id: 25, cat: "💡 Електро", icon: "💡", name: "Смяна на контакт/ключ", price: 19, unit: "фикс.", popular: true },
+  { id: 24, cat: "💡 Електро", icon: "💡", name: "Монтаж на полилей/осветително тяло",nameEn: "Chandelier / light fixture install",price: 45, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 25, cat: "💡 Електро", icon: "💡", name: "Смяна на контакт/ключ",             nameEn: "Socket / switch replacement",      price: 19, unit: "фикс.", unitEn: "fixed", popular: true },
 ];
 
 const REVIEWS = [
-  { name: "Мартин Г.", role: "Software Engineer @ Telerik", text: "Резервирах за монтаж на полюлей в 11 ч. вечерта, на следващия ден в 10 ч. майсторът беше тук. Точно на часа, чисто след себе си, фактура на имейла.", stars: 5, service: "Монтаж полюлей" },
-  { name: "Ива Д.", role: "UX Designer, Sofia", text: "Накрая платформа, която знае колко струва услугата ПРЕДИ да дойде майсторът. Никакви изненади. Препоръчвам на всички сама живеещи.", stars: 5, service: "Миялна машина" },
-  { name: "Александър П.", role: "CTO @ FinTech startup", text: "Смяна на гуми до офиса - не съм губил дори 5 минути работно време. Момчетата дойдоха докато аз бях в среща. Страхотно!", stars: 5, service: "Смяна на гуми" },
-  { name: "Надя Т.", role: "Product Manager", text: "Казанчето ми се счупи в петък вечерта. Резервирах за събота сутрин, платих онлайн. Всичко мина гладко. Ще ползвам пак.", stars: 5, service: "Ремонт казанче" },
+  { name: "Мартин Г.",    role: "Software Engineer @ Telerik",  text: "Резервирах за монтаж на полюлей в 11 ч. вечерта, на следващия ден в 10 ч. майсторът беше тук. Точно на часа, чисто след себе си, фактура на имейла.", stars: 5, service: "Монтаж полюлей" },
+  { name: "Ива Д.",       role: "UX Designer, Sofia",           text: "Накрая платформа, която знае колко струва услугата ПРЕДИ да дойде майсторът. Никакви изненади. Препоръчвам на всички сама живеещи.", stars: 5, service: "Миялна машина" },
+  { name: "Александър П.",role: "CTO @ FinTech startup",        text: "Наредиха услугата около работния ми график, така че почти не загубих работно време. Докато бях на среща, всичко беше свършено професионално.", stars: 5, service: "Ремонт казанче" },
+  { name: "Надя Т.",      role: "Product Manager",              text: "Казанчето ми се счупи в петък вечерта. Резервирах за събота сутрин, платих онлайн. Всичко мина гладко. Ще ползвам пак.", stars: 5, service: "Ремонт казанче" },
+];
+
+const REVIEWS_EN = [
+  { name: "Martin G.",    role: "Software Engineer @ Telerik",  text: "I booked a chandelier installation at 11pm, the next day at 10am the craftsman arrived on time. He left everything clean and tidy, and I received the invoice by email.", stars: 5, service: "Chandelier install" },
+  { name: "Iva D.",       role: "UX Designer, Sofia",           text: "Finally, a service where you know the price upfront, before the technician arrives. No surprises or hidden fees. I recommend it to anyone who lives alone.", stars: 5, service: "Appliance install" },
+  { name: "Alexander P.", role: "CTO @ FinTech Startup",        text: "They scheduled the service around my work schedule, so I hardly lost any time. While I was in a meeting, everything was handled professionally.", stars: 5, service: "Cistern repair" },
+  { name: "Nadia T.",     role: "Product Manager",              text: "My cistern broke on Friday evening. I booked for Saturday morning, paid online, and everything went smoothly. Quick response, great communication. Would use again.", stars: 5, service: "Cistern repair" },
 ];
 
 const STEPS = [
-  { n: "01", title: "Избери услуга", desc: "Виждаш цената преди да продължиш. Никакви изненади.", icon: "📋" },
-  { n: "02", title: "Избери дата и час", desc: "Виждаш реалното свободно време на верифицираните ни майстори.", icon: "📅" },
+  { n: "01", title: "Избери услуга",    desc: "Виждаш цената преди да продължиш. Никакви изненади.", icon: "📋" },
+  { n: "02", title: "Избери дата и час",desc: "Виждаш реалното свободно време на верифицираните ни майстори.", icon: "📅" },
   { n: "03", title: "Потвърди и плати", desc: "Онлайн или в брой. Майстор при теб в договорения час.", icon: "✅" },
 ];
 
-const TRUST = [
-  { icon: "🛡️", title: "30-дневна гаранция", desc: "Нещо не е наред след ремонта? Поправяме безплатно." },
-  { icon: "✔️", title: "Верифицирани майстори", desc: "Всеки майстор е лично проверен, осигурен и с рейтинг." },
-  { icon: "🧾", title: "Фактура винаги", desc: "Издаваме фактура при всяка услуга. Без сива икономика." },
-  { icon: "⏰", title: "Точен час", desc: "Не 'между 9 и 17 ч.' - идваме в точния уговорен час." },
+const STEPS_EN = [
+  { n: "01", title: "Choose a service", desc: "See the price before you continue. No surprises.", icon: "📋" },
+  { n: "02", title: "Pick a date & time",desc: "See real availability from our verified professionals.", icon: "📅" },
+  { n: "03", title: "Confirm & pay",    desc: "Online or cash. Your handyman arrives at the agreed time.", icon: "✅" },
 ];
 
-const CATS = ["Всички", "🔧 ВиК", "🏠 Довършителни", "🔩 Монтажи", "🪑 Мебели", "💡 Електро"];
+const TRUST = [
+  { icon: "🛡️", title: "30-дневна гаранция",    desc: "Нещо не е наред след ремонта? Поправяме безплатно." },
+  { icon: "✔️", title: "Верифицирани майстори", desc: "Всеки майстор е лично проверен, осигурен и с рейтинг." },
+  { icon: "🧾", title: "Фактура винаги",         desc: "Издаваме фактура при всяка услуга. Без сива икономика." },
+  { icon: "⏰", title: "Точен час",              desc: "Не 'между 9 и 17 ч.' - идваме в точния уговорен час." },
+];
+
+const TRUST_EN = [
+  { icon: "🛡️", title: "30-day guarantee",      desc: "Something not right after the repair? We fix it for free." },
+  { icon: "✔️", title: "Verified professionals",desc: "Every handyman is personally vetted, insured and rated." },
+  { icon: "🧾", title: "Invoice always",         desc: "We issue an invoice for every job. No cash-in-hand grey economy." },
+  { icon: "⏰", title: "On time, every time",    desc: "Not 'between 9 and 5' — we arrive at the exact agreed time." },
+];
+
+const CATS    = ["Всички",  "🔧 ВиК", "🏠 Довършителни", "🔩 Монтажи", "🪑 Мебели", "💡 Електро"];
+const CATS_EN = ["All",     "🔧 Plumbing", "🏠 Finishing", "🔩 Installation", "🪑 Furniture", "💡 Electrical"];
+
 
 // Heights: desktop sticky bar = 54px, mobile sticky bar = 64px + safe-area
 const STICKY_H_DESKTOP = 54;
@@ -236,6 +258,10 @@ const APP_UI = {
 
 export default function App({ lang = "bg" }) {
   const u = APP_UI[lang];
+  const cats    = lang === "en" ? CATS_EN : CATS;
+  const steps   = lang === "en" ? STEPS_EN : STEPS;
+  const trust   = lang === "en" ? TRUST_EN : TRUST;
+  const reviews = lang === "en" ? REVIEWS_EN : REVIEWS;
   const [activeCat, setActiveCat] = useState("Всички");
   const [urgent, setUrgent] = useState(false);
   const [bookingStep, setBookingStep] = useState(0);
@@ -755,7 +781,7 @@ export default function App({ lang = "bg" }) {
           <div className="section-title">{u.howTitle1}<br />{u.howTitle2}</div>
           <p className="section-sub">{u.howSub}</p>
           <div className="steps-grid">
-            {STEPS.map(s => (
+            {steps.map(s => (
               <div className="step-card" key={s.n}>
                 <div className="step-num">{s.n}</div>
                 <span className="step-icon">{s.icon}</span>
@@ -776,7 +802,7 @@ export default function App({ lang = "bg" }) {
 
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "10px", margin: "40px 0 28px" }}>
           <div className="cats" style={{ margin: 0, flex: 1 }}>
-            {CATS.map(c => (
+            {cats.map(c => (
               <button key={c} className={`cat-btn${activeCat === c ? " active" : ""}`} onClick={() => setActiveCat(c)}>{c}</button>
             ))}
           </div>
@@ -799,8 +825,8 @@ export default function App({ lang = "bg" }) {
             <div key={svc.id} className={`service-card${svc.popular ? " popular" : ""}`} onClick={() => openBooking(svc)}>
               {urgent && <div className="urgent-badge">{u.urgentBadge}</div>}
               <span className="svc-icon">{svc.icon}</span>
-              <div className="svc-name">{svc.name}</div>
-              <div className="svc-time">· {svc.unit}</div>
+              <div className="svc-name">{lang === "en" ? svc.nameEn : svc.name}</div>
+              <div className="svc-time">· {lang === "en" ? svc.unitEn : svc.unit}</div>
               <div className="svc-footer">
                 <div>
                   <div className="svc-price">{Math.round(svc.price * urgentMultiplier)} €</div>
@@ -850,7 +876,7 @@ export default function App({ lang = "bg" }) {
           <div className="section-label">{u.trustLabel}</div>
           <div className="section-title">{u.trustTitle1}<br />{u.trustTitle2}</div>
           <div className="trust-grid">
-            {TRUST.map((t, i) => (
+            {trust.map((t, i) => (
               <div className="trust-card" key={i}>
                 <span className="trust-icon">{t.icon}</span>
                 <div className="trust-title">{t.title}</div>
@@ -867,7 +893,7 @@ export default function App({ lang = "bg" }) {
         <div className="section-label">{u.revLabel}</div>
         <div className="section-title">{u.revTitle1}<br />{u.revTitle2}</div>
         <div className="reviews-track">
-          {REVIEWS.map((r, i) => (
+          {reviews.map((r, i) => (
             <div
               className={`review-card${i >= 2 ? ` review-card-extra${showAllReviews ? " visible" : ""}` : ""}`}
               key={i}
