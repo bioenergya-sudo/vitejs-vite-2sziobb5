@@ -951,7 +951,7 @@ export default function App({ lang = "bg" }) {
         </div>
         <div className="cta-actions">
           <button className="btn-primary" onClick={scrollToServices}>{u.ctaBtn}</button>
-          <a href="https://wa.me/359889182749" target="_blank" rel="noreferrer" className="wa-btn">💬 WhatsApp</a>
+          <a href="https://wa.me/359889182749" target="_blank" rel="noopener noreferrer" className="wa-btn">💬 WhatsApp</a>
           <a href="viber://chat?number=%2B359889182749" className="viber-btn">🟣 Viber</a>
         </div>
       </div>
@@ -971,7 +971,7 @@ export default function App({ lang = "bg" }) {
       {/* FLOATING BUTTONS */}
       <div className="float-wa">
         <a href="viber://chat?number=%2B359889182749" className="float-viber-btn" title="Viber" aria-label="Viber">🟣</a>
-        <a href="https://wa.me/359889182749" target="_blank" rel="noreferrer" className="float-wa-btn" title="WhatsApp" aria-label="WhatsApp">💬</a>
+        <a href="https://wa.me/359889182749" target="_blank" rel="noopener noreferrer" className="float-wa-btn" title="WhatsApp" aria-label="WhatsApp">💬</a>
         <button className="float-phone-btn" title="Phone" aria-label="Phone">📞</button>
       </div>
 
