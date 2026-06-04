@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const logoImg = "/FrontPage-logo.webp";
 
@@ -167,6 +168,12 @@ const APP_UI = {
     lp3Title:   "ВиК ремонти",
     lp3Desc:    "Течове, запушвания, смесители — идваме в същия ден. Фиксирана цена.",
     lp3Href:    "/vik-remonti",
+    lp4Title:   "Монтаж на уреди",
+    lp4Desc:    "Миялна, бойлер, аспиратор. Правилно свързване, фиксирана цена.",
+    lp4Href:    "/montaji",
+    lp5Title:   "Довършителни работи",
+    lp5Desc:    "Боядисване, шпакловка, ламинат, фаянс. Чисто и прецизно.",
+    lp5Href:    "/dovarshitelni",
   },
   en: {
     badge:      "Active handymen in Sofia",
@@ -252,6 +259,12 @@ const APP_UI = {
     lp3Title:   "Plumbing repairs",
     lp3Desc:    "Leaks, blockages, taps — same-day service. Fixed price.",
     lp3Href:    "/en/plumbing-repairs-sofia",
+    lp4Title:   "Appliance installation",
+    lp4Desc:    "Dishwasher, boiler, extractor hood. Proper connection, fixed price.",
+    lp4Href:    "/en/appliance-installation-sofia",
+    lp5Title:   "Home finishing works",
+    lp5Desc:    "Painting, plastering, laminate, tiling. Clean and precise.",
+    lp5Href:    "/en/home-finishing-sofia",
   },
 };
 
@@ -848,24 +861,36 @@ export default function App({ lang = "bg" }) {
         <div className="section-label">{u.specLabel}</div>
         <div className="section-title">{u.specTitle1}<br />{u.specTitle2}</div>
         <div className="lp-links-grid">
-          <a href={u.lp1Href} className="lp-link-card">
+          <Link to={u.lp1Href} className="lp-link-card">
             <span className="lp-link-icon">💡</span>
             <div className="lp-link-title">{u.lp1Title}</div>
             <div className="lp-link-desc">{u.lp1Desc}</div>
             <span className="lp-link-cta">{u.detailsCta}</span>
-          </a>
-          <a href={u.lp2Href} className="lp-link-card">
+          </Link>
+          <Link to={u.lp2Href} className="lp-link-card">
             <span className="lp-link-icon">🪑</span>
             <div className="lp-link-title">{u.lp2Title}</div>
             <div className="lp-link-desc">{u.lp2Desc}</div>
             <span className="lp-link-cta">{u.detailsCta}</span>
-          </a>
-          <a href={u.lp3Href} className="lp-link-card">
+          </Link>
+          <Link to={u.lp3Href} className="lp-link-card">
             <span className="lp-link-icon">🔧</span>
             <div className="lp-link-title">{u.lp3Title}</div>
             <div className="lp-link-desc">{u.lp3Desc}</div>
             <span className="lp-link-cta">{u.detailsCta}</span>
-          </a>
+          </Link>
+          <Link to={u.lp4Href} className="lp-link-card">
+            <span className="lp-link-icon">🔩</span>
+            <div className="lp-link-title">{u.lp4Title}</div>
+            <div className="lp-link-desc">{u.lp4Desc}</div>
+            <span className="lp-link-cta">{u.detailsCta}</span>
+          </Link>
+          <Link to={u.lp5Href} className="lp-link-card">
+            <span className="lp-link-icon">🏠</span>
+            <div className="lp-link-title">{u.lp5Title}</div>
+            <div className="lp-link-desc">{u.lp5Desc}</div>
+            <span className="lp-link-cta">{u.detailsCta}</span>
+          </Link>
         </div>
       </div>
 
