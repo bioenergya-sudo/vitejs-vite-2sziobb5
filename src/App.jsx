@@ -41,13 +41,12 @@ const REVIEWS = [
   { name: "Александър П.",role: "CTO @ FinTech startup",        text: "Наредиха услугата около работния ми график, така че почти не загубих работно време. Докато бях на среща, всичко беше свършено професионално.", stars: 5, service: "Ремонт казанче" },
   { name: "Надя Т.",      role: "Product Manager",              text: "Казанчето ми се счупи в петък вечерта. Резервирах за събота сутрин, платих онлайн. Всичко мина гладко. Ще ползвам пак.", stars: 5, service: "Ремонт казанче" },
 ];
-
 const REVIEWS_EN = [
-  { name: "Martin G.",    role: "Software Engineer @ Telerik",  text: "I booked a chandelier installation at 11pm, the next day at 10am the craftsman arrived on time. He left everything clean and tidy, and I received the invoice by email.", stars: 5, service: "Chandelier install" },
-  { name: "Iva D.",       role: "UX Designer, Sofia",           text: "Finally, a service where you know the price upfront, before the technician arrives. No surprises or hidden fees. I recommend it to anyone who lives alone.", stars: 5, service: "Appliance install" },
-  { name: "Alexander P.", role: "CTO @ FinTech Startup",        text: "They scheduled the service around my work schedule, so I hardly lost any time. While I was in a meeting, everything was handled professionally.", stars: 5, service: "Cistern repair" },
-  { name: "Nadia T.",     role: "Product Manager",              text: "My cistern broke on Friday evening. I booked for Saturday morning, paid online, and everything went smoothly. Quick response, great communication. Would use again.", stars: 5, service: "Cistern repair" },
+  { name: "Martin G.",    role: "Software Engineer @ Telerik",  text: "I booked a chandelier installation at 11pm — the next day at 10am the craftsman arrived on time. Clean, tidy, invoice by email.", stars: 5 },
+  { name: "Iva D.",       role: "UX Designer, Sofia",           text: "Finally a service where you know the price upfront. No surprises, no hidden fees. I recommend it to anyone living alone.", stars: 5 },
+  { name: "Nadia T.",     role: "Product Manager",              text: "My cistern broke on Friday evening. I booked for Saturday morning, paid online, everything went smoothly. Would use again.", stars: 5 },
 ];
+
 
 const STEPS = [
   { n: "01", title: "Избери услуга",    desc: "Виждаш цената преди да продължиш. Никакви изненади.", icon: "📋" },
@@ -213,7 +212,7 @@ const APP_UI = {
     navServices:"Services",
     navHow:     "How it works",
     navReviews: "Reviews",
-    navAbout:   "About us",
+    navAbout:   "",
     navBook:    "Book now",
     worktime:   "Open 08:00–21:00, every day",
     guar30:     "30-day guarantee",
@@ -734,7 +733,7 @@ export default function App({ lang = "bg" }) {
           <span className="nav-link" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>{u.navServices}</span>
           <span className="nav-link" onClick={() => document.getElementById("how")?.scrollIntoView({ behavior: "smooth" })}>{u.navHow}</span>
           <span className="nav-link" onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" })}>{u.navReviews}</span>
-          <a href="/za-nas" className="nav-link">{u.navAbout}</a>
+          {u.navAbout && <a href="/za-nas" className="nav-link">{u.navAbout}</a>}
           <a href="tel:+359889182749" className="phone-link">📞 +359 889 182 749</a>
           <a href={u.langHref} className="nav-lang-btn">{u.langBtn}</a>
           <button className="nav-cta" onClick={scrollToServices}>{u.navBook}</button>
@@ -763,7 +762,7 @@ export default function App({ lang = "bg" }) {
               <div className="stat-label">{u.jobs}</div>
             </div>
             <div className="stat">
-              <div className="stat-num">30 дни</div>
+            <div className="stat-num">{lang === "bg" ? "30 дни" : "30 days"}</div>
               <div className="stat-label">{u.guarantee}</div>
             </div>
           </div>
@@ -893,7 +892,7 @@ export default function App({ lang = "bg" }) {
         <div className="section-label">{u.revLabel}</div>
         <div className="section-title">{u.revTitle1}<br />{u.revTitle2}</div>
         <div className="reviews-track">
-          {reviews.map((r, i) => (
+          {(lang === "en" ? REVIEWS_EN : REVIEWS).map((r, i) => (
             <div
               className={`review-card${i >= 2 ? ` review-card-extra${showAllReviews ? " visible" : ""}` : ""}`}
               key={i}
@@ -913,7 +912,7 @@ export default function App({ lang = "bg" }) {
         </div>
         {!showAllReviews && (
           <button className="show-more-reviews" onClick={() => setShowAllReviews(true)}>
-            + {u.revMore} ({REVIEWS.length})
+            + {u.revMore} ({reviews.length})
           </button>
         )}
       </div>
@@ -927,7 +926,7 @@ export default function App({ lang = "bg" }) {
         </div>
         <div className="cta-actions">
           <button className="btn-primary" onClick={scrollToServices}>{u.ctaBtn}</button>
-          <button className="wa-btn">💬 WhatsApp</button>
+          <a href="https://wa.me/359889182749" target="_blank" rel="noreferrer" className="wa-btn">💬 WhatsApp</a>
           <a href="viber://chat?number=%2B359889182749" className="viber-btn">🟣 Viber</a>
         </div>
       </div>
@@ -947,7 +946,7 @@ export default function App({ lang = "bg" }) {
       {/* FLOATING BUTTONS */}
       <div className="float-wa">
         <a href="viber://chat?number=%2B359889182749" className="float-viber-btn" title="Viber" aria-label="Viber">🟣</a>
-        <button className="float-wa-btn" title="WhatsApp" aria-label="WhatsApp">💬</button>
+        <a href="https://wa.me/359889182749" target="_blank" rel="noreferrer" className="float-wa-btn" title="WhatsApp" aria-label="WhatsApp">💬</a>
         <button className="float-phone-btn" title="Phone" aria-label="Phone">📞</button>
       </div>
 
