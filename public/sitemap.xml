@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ═══ BG Homepage ═══ -->
+  <url>
+    <loc>https://handymansofia.com/</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ═══ EN Homepage ═══ -->
+  <url>
+    <loc>https://handymansofia.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ═══ BG Service Pages ═══ -->
+  <url>
+    <loc>https://handymansofia.com/elektro</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/elektro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/electrical-installation-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/elektro"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/mebeli</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/mebeli"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/furniture-assembly-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/mebeli"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/vik-remonti</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/vik-remonti"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/plumbing-repairs-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/vik-remonti"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/montaji</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/montaji"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/appliance-installation-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/montaji"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/dovarshitelni</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/dovarshitelni"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/home-finishing-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/dovarshitelni"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ═══ EN Service Pages ═══ -->
+  <url>
+    <loc>https://handymansofia.com/en/electrical-installation-sofia</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/elektro"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/electrical-installation-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/elektro"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/en/furniture-assembly-sofia</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/mebeli"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/furniture-assembly-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/mebeli"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/en/plumbing-repairs-sofia</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/vik-remonti"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/plumbing-repairs-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/vik-remonti"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/en/appliance-installation-sofia</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/montaji"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/appliance-installation-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/montaji"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/en/home-finishing-sofia</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/dovarshitelni"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/home-finishing-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/dovarshitelni"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ═══ За нас (BG only) ═══ -->
+  <url>
+    <loc>https://handymansofia.com/za-nas</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/za-nas"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/za-nas"/>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
