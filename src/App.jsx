@@ -352,6 +352,7 @@ export default function App({ lang = "bg" }) {
     .nav-links { display: flex; align-items: center; gap: 32px; }
     .nav-link { font-size: 14px; color: ${G.textSec}; text-decoration: none; cursor: pointer; transition: color 0.2s; font-weight: 500; }
     .nav-link:hover { color: ${G.text}; }
+    .nav-lang-mobile { display: none; }
     .nav-lang-btn { background: none; border: 1px solid ${G.border}; color: ${G.textSec}; padding: 8px 14px; border-radius: 6px; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; }
     .nav-lang-btn:hover { border-color: ${G.accent}; color: ${G.text}; }
     .nav-cta { background: ${G.accent}; color: ${G.white}; border: none; padding: 10px 22px; border-radius: 6px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
@@ -612,6 +613,7 @@ export default function App({ lang = "bg" }) {
       .navbar { padding: 14px 20px; }
       .navbar.scrolled { padding: 10px 20px; }
       .nav-links { display: none; }
+      .nav-lang-mobile { display: flex; }
 
       /* Hero — compact */
       .hero {
@@ -742,13 +744,20 @@ export default function App({ lang = "bg" }) {
       {/* NAVBAR */}
       <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
         <div className="logo">Handyman<span>Sofia</span></div>
+        <a href={u.langHref} className="nav-lang-btn nav-lang-mobile">
+          <img src={lang === "bg" ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/bg.png"} width="20" height="14" alt="" style={{borderRadius:"2px", verticalAlign:"middle", marginRight:"6px"}} />
+          {lang === "bg" ? "EN" : "BG"}
+        </a>
         <div className="nav-links">
           <span className="nav-link" onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}>{u.navServices}</span>
           <span className="nav-link" onClick={() => document.getElementById("how")?.scrollIntoView({ behavior: "smooth" })}>{u.navHow}</span>
           <span className="nav-link" onClick={() => document.getElementById("reviews")?.scrollIntoView({ behavior: "smooth" })}>{u.navReviews}</span>
           {u.navAbout && <a href="/za-nas" className="nav-link">{u.navAbout}</a>}
           <a href="tel:+359889182749" className="phone-link">📞 +359 889 182 749</a>
-          <a href={u.langHref} className="nav-lang-btn">{u.langBtn}</a>
+          <a href={u.langHref} className="nav-lang-btn">
+            <img src={lang === "bg" ? "https://flagcdn.com/w20/gb.png" : "https://flagcdn.com/w20/bg.png"} width="20" height="14" alt="" style={{borderRadius:"2px", verticalAlign:"middle", marginRight:"6px"}} />
+            {lang === "bg" ? "EN" : "BG"}
+          </a>
           <button className="nav-cta" onClick={scrollToServices}>{u.navBook}</button>
         </div>
       </nav>
