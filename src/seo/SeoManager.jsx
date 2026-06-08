@@ -80,14 +80,10 @@ export default function SeoManager() {
   useEffect(() => {
     const { lang, canonical, alternates } = resolve(pathname)
 
-    // 1. <html lang>
     document.documentElement.lang = lang
-
-    // 1b. Content-Language meta (ако съществува в index.html)
     const meta = document.querySelector('meta[http-equiv="Content-Language"]')
     if (meta) meta.setAttribute('content', lang)
 
-    // 2. canonical - преизползваме съществуващия, за да няма дубликат
     let c = document.querySelector('link[rel="canonical"]')
     if (!c) {
       c = document.createElement('link')
@@ -96,7 +92,6 @@ export default function SeoManager() {
     }
     c.setAttribute('href', canonical)
 
-    // 3. hreflang - махаме старите инжектирани, слагаме новите
     document.querySelectorAll('link[data-seo="hreflang"]').forEach(el => el.remove())
     alternates.forEach(a => {
       const l = document.createElement('link')
@@ -107,9 +102,16 @@ export default function SeoManager() {
       document.head.appendChild(l)
     })
 
-    // 4. og:locale (ако съществува)
     const ogLocale = document.querySelector('meta[property="og:locale"]')
     if (ogLocale) ogLocale.setAttribute('content', lang === 'en' ? 'en_US' : 'bg_BG')
+
+    // GA4 pageview при всяка навигация
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: pathname,
+        page_location: window.location.href,
+      })
+    }
   }, [pathname])
 
   return null

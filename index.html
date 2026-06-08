@@ -42,42 +42,52 @@
   <link rel="icon" type="image/webp" href="/FrontPage-logo.webp" />
   <link rel="apple-touch-icon" href="/FrontPage-logo.webp" />
 
-  <!-- Schema.org – LocalBusiness (rich snippets в Google) -->
+  <!-- Schema.org – LocalBusiness -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "HomeAndConstructionBusiness",
-      "name": "HandymanSofia",
-      "url": "https://handymansofia.com",
-      "logo": "https://handymansofia.com/FrontPage-logo.webp",
-      "image": "https://handymansofia.com/og-banner.jpg",
-      "description": "Професионални дребни ремонти, монтажи и домашни услуги в София. Верифицирани майстори, фиксирани цени, 30-дневна гаранция на труда.",
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "HandymanSofia",
+    "url": "https://handymansofia.com",
+    "logo": "https://handymansofia.com/FrontPage-logo.webp",
+    "image": "https://handymansofia.com/og-banner.jpg",
+    "description": "Професионални дребни ремонти, монтажи и домашни услуги в София. Верифицирани майстори, фиксирани цени, 30-дневна гаранция на труда.",
+    "telephone": "+359889182749",
+    "priceRange": "€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, Credit Card",
+    "areaServed": {
+      "@type": "City",
+      "name": "София"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "София",
+      "addressRegion": "София-град",
+      "addressCountry": "BG"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
       "telephone": "+359889182749",
-      "priceRange": "€€",
-      "currenciesAccepted": "EUR",
-      "paymentAccepted": "Cash, Credit Card",
-      "areaServed": {
-        "@type": "City",
-        "name": "София"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "София",
-        "addressRegion": "София-град",
-        "addressCountry": "BG"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+359889182749",
-        "contactType": "customer service",
-        "availableLanguage": ["Bulgarian", "English"],
-        "areaServed": "BG"
-      },
-      "sameAs": [
-        "https://handymansofia.com"
-      ]
-    }
-    </script>
+      "contactType": "customer service",
+      "availableLanguage": ["Bulgarian", "English"],
+      "areaServed": "BG"
+    },
+    "sameAs": [
+      "https://handymansofia.com"
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJ767WGHLF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PJ767WGHLF', { send_page_view: false });
+  </script>
+
 </head>
 <body>
   <div id="root"></div>
