@@ -114,5 +114,48 @@ export default function SeoManager() {
     }
   }, [pathname])
 
+  // Conversion events — глобален click listener
+  useEffect(() => {
+    function handleClick(e) {
+      if (!window.gtag) return
+      const t = e.target
+
+      // Резервирай бутон в сервизна карта
+      if (t.closest('.svc-book-btn')) {
+        window.gtag('event', 'booking_started', {
+          event_category: 'conversion',
+          event_label: t.closest('.service-card')?.querySelector('.svc-name')?.textContent || 'unknown',
+        })
+      }
+      // WhatsApp
+      if (t.closest('.wa-btn') || t.closest('.float-wa-btn')) {
+        window.gtag('event', 'whatsapp_click', {
+          event_category: 'conversion',
+        })
+      }
+      // Viber
+      if (t.closest('.viber-btn') || t.closest('.float-viber-btn') || t.closest('.sticky-viber-btn')) {
+        window.gtag('event', 'viber_click', {
+          event_category: 'conversion',
+        })
+      }
+      // Телефон
+      if (t.closest('.phone-link') || t.closest('.phone-num')) {
+        window.gtag('event', 'phone_click', {
+          event_category: 'conversion',
+        })
+      }
+      // CTA бутони (Book now / Резервирай горе)
+      if (t.closest('.nav-cta') || t.closest('.sticky-cta-btn') || t.closest('.btn-primary')) {
+        window.gtag('event', 'cta_click', {
+          event_category: 'conversion',
+        })
+      }
+    }
+
+    document.addEventListener('click', handleClick)
+    return () => document.removeEventListener('click', handleClick)
+  }, [])
+  
   return null
 }
