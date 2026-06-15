@@ -144,6 +144,20 @@ const APP_UI = {
     confirmBtn: "✔ Потвърди за",
     confirmAt:  "в",
     confirmDef: "Избери дата и час",
+    continueBtn:"Продължи →",
+    backBtn:    "← Назад",
+    nameLabel:  "Име",
+    namePh:     "Име и фамилия",
+    phoneLabel: "Телефон",
+    phonePh:    "0888 123 456",
+    phoneErr:   "Въведи валиден телефонен номер",
+    addrLabel:  "Адрес",
+    addrPh:     "ж.к., улица, номер, вход/етаж/ап.",
+    noteLabel:  "Бележка (по избор)",
+    notePh:     "Опиши накратко проблема или достъпа",
+    submitBtn:  "Потвърди заявката",
+    submitDef:  "Попълни данните",
+    sumWhen:    "Кога:",
     successTitle:"Резервацията е приета!",
     successSub: "Ще получиш SMS потвърждение и имейл с всички детайли.",
     successSvc: "Услуга:",
@@ -235,6 +249,20 @@ const APP_UI = {
     confirmBtn: "✔ Confirm for",
     confirmAt:  "at",
     confirmDef: "Choose date and time",
+    continueBtn:"Continue →",
+    backBtn:    "← Back",
+    nameLabel:  "Name",
+    namePh:     "Full name",
+    phoneLabel: "Phone",
+    phonePh:    "+359 88 123 4567",
+    phoneErr:   "Enter a valid phone number",
+    addrLabel:  "Address",
+    addrPh:     "district, street, no., entrance/floor/apt",
+    noteLabel:  "Note (optional)",
+    notePh:     "Briefly describe the issue or access",
+    submitBtn:  "Confirm booking",
+    submitDef:  "Fill in your details",
+    sumWhen:    "When:",
     successTitle:"Booking confirmed!",
     successSub: "You'll receive an SMS confirmation and email with all the details.",
     successSvc: "Service:",
@@ -280,6 +308,10 @@ export default function App({ lang = "bg" }) {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedHour, setSelectedHour] = useState(null);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [note, setNote] = useState("");
   const [booked, setBooked] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -303,11 +335,44 @@ export default function App({ lang = "bg" }) {
     setSelectedDate(null);
     setSelectedHour(null);
     setShowPriceInfo(false);
+    setName("");
+    setPhone("");
+    setAddress("");
+    setNote("");
     setShowModal(true);
   };
 
-  const dates = ["Днес", "Утре", "Ср 18", "Чет 19", "Пет 20", "Съб 21"];
-  const hours = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+  const WD_BG = ["Нд", "Пн", "Вт", "Ср", "Чет", "Пет", "Съб"];
+  const WD_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const buildDates = () => {
+    const out = [];
+    const now = new Date();
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(now);
+      d.setDate(now.getDate() + i);
+      const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+      const labelBg = i === 0 ? "Днес" : i === 1 ? "Утре" : `${WD_BG[d.getDay()]} ${d.getDate()}`;
+      const labelEn = i === 0 ? "Today" : i === 1 ? "Tomorrow" : `${WD_EN[d.getDay()]} ${d.getDate()}`;
+      out.push({ key: iso, iso, labelBg, labelEn, isToday: i === 0 });
+    }
+    return out;
+  };
+
+  const computeHours = (sel) => {
+    const base = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+    if (!sel || !sel.isToday) return base;
+    const lead = new Date().getHours() + 2;
+    return base.filter(h => parseInt(h, 10) > lead);
+  };
+
+  const isValidPhone = (v) => /^(\+359|0)\d{8,9}$/.test((v || "").replace(/[\s\-()]/g, ""));
+
+  const dates = buildDates();
+  const hours = computeHours(selectedDate);
+  const dateLabel = selectedDate ? (lang === "en" ? selectedDate.labelEn : selectedDate.labelBg) : "";
+  const phoneOk = isValidPhone(phone);
+  const contactOk = name.trim().length >= 2 && phoneOk && address.trim().length >= 5;
 
   const confirmBooking = () => {
     setBooked(true);
@@ -597,6 +662,18 @@ export default function App({ lang = "bg" }) {
     .modal-confirm { width: 100%; background: ${G.accent}; color: ${G.white}; border: none; padding: 16px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; }
     .modal-confirm:hover:not(:disabled) { background: ${G.accentLight}; }
     .modal-confirm:disabled { opacity: 0.4; cursor: not-allowed; }
+    .modal-field { margin-bottom: 16px; }
+    .modal-field label { display: block; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: ${G.textSec}; margin-bottom: 8px; }
+    .modal-input { width: 100%; background: ${G.bg}; border: 1px solid ${G.border}; color: ${G.text}; padding: 13px 14px; border-radius: 8px; font-size: 15px; font-family: 'Inter', sans-serif; transition: border-color 0.15s; }
+    .modal-input::placeholder { color: ${G.textMuted}; }
+    .modal-input:focus { outline: none; border-color: ${G.accent}; }
+    .modal-input.invalid { border-color: #E25C4A; }
+    .modal-input-err { font-size: 11.5px; color: #E25C4A; margin-top: 6px; }
+    textarea.modal-input { resize: vertical; min-height: 64px; }
+    .modal-back { background: none; border: none; color: ${G.textSec}; font-size: 13px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; padding: 0; margin-bottom: 16px; }
+    .modal-back:hover { color: ${G.text}; }
+    .modal-summary { background: ${G.bg}; border: 1px solid ${G.border}; border-radius: 8px; padding: 12px 14px; margin-bottom: 20px; font-size: 13px; line-height: 1.6; color: ${G.textSec}; }
+    .modal-summary strong { color: ${G.text}; }
     .success-check { font-size: 56px; text-align: center; margin-bottom: 16px; }
     .success-title { font-family: 'Poppins', sans-serif; font-size: 26px; font-weight: 800; color: ${G.white}; text-align: center; margin-bottom: 10px; }
     .success-sub { font-size: 14px; color: ${G.textSec}; text-align: center; line-height: 1.7; margin-bottom: 24px; }
@@ -1027,43 +1104,79 @@ export default function App({ lang = "bg" }) {
               <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
             </div>
             <div className="modal-body">
-              {!booked ? (
-                <>
-                  <div className="modal-svc">
-                    <div>
-                      <div className="modal-svc-name">{selectedService.name}</div>
-                      <div className="modal-svc-note">· {u.modalNote}</div>
+            {!booked ? (
+                bookingStep === 1 ? (
+                  <>
+                    <div className="modal-svc">
+                      <div>
+                        <div className="modal-svc-name">{selectedService.name}</div>
+                        <div className="modal-svc-note">· {u.modalNote}</div>
+                      </div>
+                      <div style={{ textAlign: "right" }}>
+                        <div className="modal-svc-price">{finalPrice} €</div>
+                        {urgent && <div style={{ fontSize: "11px", color: G.accentLight }}>{u.modalUrgent}</div>}
+                      </div>
                     </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div className="modal-svc-price">{finalPrice} €</div>
-                      {urgent && <div style={{ fontSize: "11px", color: G.accentLight }}>{u.modalUrgent}</div>}
+                    <button className="price-info-toggle" onClick={() => setShowPriceInfo(v => !v)}>
+                      {u.modalInfo} <span>{showPriceInfo ? "−" : "+"}</span>
+                    </button>
+                    {showPriceInfo && (
+                      <div className="price-info-box">
+                        <p>{u.modalInfoT}</p>
+                        <p>{u.modalInfoS}</p>
+                      </div>
+                    )}
+                    <div className="modal-label">{u.dateLabel}</div>
+                    <div className="dates-grid">
+                      {dates.map(d => (
+                        <button
+                          key={d.key}
+                          className={`date-btn${selectedDate?.key === d.key ? " sel" : ""}`}
+                          onClick={() => { setSelectedDate(d); setSelectedHour(null); }}
+                        >
+                          {lang === "en" ? d.labelEn : d.labelBg}
+                        </button>
+                      ))}
                     </div>
-                  </div>
-                  <button className="price-info-toggle" onClick={() => setShowPriceInfo(v => !v)}>
-                    {u.modalInfo} <span>{showPriceInfo ? "−" : "+"}</span>
-                  </button>
-                  {showPriceInfo && (
-                    <div className="price-info-box">
-                      <p>{u.modalInfoT}</p>
-                      <p>{u.modalInfoS}</p>
+                    <div className="modal-label">{u.hourLabel}</div>
+                    <div className="hours-grid">
+                      {hours.map(h => (
+                        <button key={h} className={`hour-btn${selectedHour === h ? " sel" : ""}`} onClick={() => setSelectedHour(h)}>{h}</button>
+                      ))}
                     </div>
-                  )}
-                  <div className="modal-label">{u.dateLabel}</div>
-                  <div className="dates-grid">
-                    {dates.map(d => (
-                      <button key={d} className={`date-btn${selectedDate === d ? " sel" : ""}`} onClick={() => setSelectedDate(d)}>{d}</button>
-                    ))}
-                  </div>
-                  <div className="modal-label">{u.hourLabel}</div>
-                  <div className="hours-grid">
-                    {hours.map(h => (
-                      <button key={h} className={`hour-btn${selectedHour === h ? " sel" : ""}`} onClick={() => setSelectedHour(h)}>{h}</button>
-                    ))}
-                  </div>
-                  <button className="modal-confirm" disabled={!selectedDate || !selectedHour} onClick={confirmBooking}>
-                    {selectedDate && selectedHour ? `${u.confirmBtn} ${selectedDate} ${u.confirmAt} ${selectedHour}` : u.confirmDef}
-                  </button>
-                </>
+                    <button className="modal-confirm" disabled={!selectedDate || !selectedHour} onClick={() => setBookingStep(2)}>
+                      {selectedDate && selectedHour ? u.continueBtn : u.confirmDef}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button className="modal-back" onClick={() => setBookingStep(1)}>{u.backBtn}</button>
+                    <div className="modal-summary">
+                      <strong>{selectedService.name}</strong> · {finalPrice} €<br />
+                      {u.sumWhen} {dateLabel}, {selectedHour}
+                    </div>
+                    <div className="modal-field">
+                      <label>{u.nameLabel}</label>
+                      <input className="modal-input" value={name} onChange={e => setName(e.target.value)} placeholder={u.namePh} />
+                    </div>
+                    <div className="modal-field">
+                      <label>{u.phoneLabel}</label>
+                      <input className={`modal-input${phone && !phoneOk ? " invalid" : ""}`} value={phone} onChange={e => setPhone(e.target.value)} placeholder={u.phonePh} inputMode="tel" />
+                      {phone && !phoneOk && <div className="modal-input-err">{u.phoneErr}</div>}
+                    </div>
+                    <div className="modal-field">
+                      <label>{u.addrLabel}</label>
+                      <input className="modal-input" value={address} onChange={e => setAddress(e.target.value)} placeholder={u.addrPh} />
+                    </div>
+                    <div className="modal-field">
+                      <label>{u.noteLabel}</label>
+                      <textarea className="modal-input" value={note} onChange={e => setNote(e.target.value)} placeholder={u.notePh} />
+                    </div>
+                    <button className="modal-confirm" disabled={!contactOk} onClick={confirmBooking}>
+                      {contactOk ? u.submitBtn : u.submitDef}
+                    </button>
+                  </>
+                )
               ) : (
                 <>
                   <div className="success-check">✅</div>
@@ -1071,7 +1184,7 @@ export default function App({ lang = "bg" }) {
                   <p className="success-sub">{u.successSub}</p>
                   <div className="success-detail">
                     <div><strong>{u.successSvc}</strong> {selectedService.name}</div>
-                    <div><strong>{u.successDate}</strong> {selectedDate}, {selectedHour}</div>
+                    <div><strong>{u.successDate}</strong> {dateLabel}, {selectedHour}</div>
                     <div><strong>{u.successPrice}</strong> {finalPrice} € ({u.modalNote})</div>
                     <div><strong>{u.successGuar}</strong> {u.successGuar2}</div>
                   </div>
