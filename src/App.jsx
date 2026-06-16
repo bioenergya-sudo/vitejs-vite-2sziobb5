@@ -312,6 +312,10 @@ export default function App({ lang = "bg" }) {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [note, setNote] = useState("");
+  const [email, setEmail] = useState("");
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState(false);
+  const [hp, setHp] = useState("");
   const [booked, setBooked] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -339,6 +343,7 @@ export default function App({ lang = "bg" }) {
     setPhone("");
     setAddress("");
     setNote("");
+    setEmail("");
     setShowModal(true);
   };
 
@@ -367,16 +372,57 @@ export default function App({ lang = "bg" }) {
   };
 
   const isValidPhone = (v) => /^(\+359|0)\d{8,9}$/.test((v || "").replace(/[\s\-()]/g, ""));
+  const isValidEmail = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || "").trim());
+const emailOk = email.trim() === "" || isValidEmail(email);
 
   const dates = buildDates();
   const hours = computeHours(selectedDate);
   const dateLabel = selectedDate ? (lang === "en" ? selectedDate.labelEn : selectedDate.labelBg) : "";
   const phoneOk = isValidPhone(phone);
-  const contactOk = name.trim().length >= 2 && phoneOk && address.trim().length >= 5;
+  const contactOk = name.trim().length >= 2 && phoneOk && address.trim().length >= 5 && emailOk;
 
-  const confirmBooking = () => {
-    setBooked(true);
-    setBookingStep(3);
+  const WEBHOOK_URL = "https://hook.eu1.make.com/66nph7cf869ytfksugvu49uaynxqro6j";
+
+  const confirmBooking = async () => {
+    if (sending) return;
+    if (hp) { setBooked(true); setBookingStep(3); return; }
+
+    setSending(true);
+    setSendError(false);
+
+    const payload = {
+      service:    selectedService.name,
+      category:   selectedService.cat || "",
+      price:      finalPrice,
+      currency:   "EUR",
+      urgent:     urgent,
+      date:       selectedDate?.iso || "",
+      dateLabel:  dateLabel,
+      hour:       selectedHour,
+      name:       name.trim(),
+      phone:      phone.trim(),
+      address:    address.trim(),
+      note:       note.trim(),
+      email: email.trim(),
+      lang:       lang,
+      source:     "handymansofia.com",
+      submittedAt: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("Webhook error");
+      setBooked(true);
+      setBookingStep(3);
+    } catch (err) {
+      setSendError(true);
+    } finally {
+      setSending(false);
+    }
   };
 
   const G = {
@@ -1172,8 +1218,43 @@ export default function App({ lang = "bg" }) {
                       <label>{u.noteLabel}</label>
                       <textarea className="modal-input" value={note} onChange={e => setNote(e.target.value)} placeholder={u.notePh} />
                     </div>
-                    <button className="modal-confirm" disabled={!contactOk} onClick={confirmBooking}>
-                      {contactOk ? u.submitBtn : u.submitDef}
+                    <div className="modal-field">
+                      <label>{lang === "en" ? "Email (optional)" : "Имейл (по избор)"}</label>
+                      <input
+                        className={`modal-input${email && !emailOk ? " invalid" : ""}`}
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        placeholder="your@email.com"
+                        inputMode="email"
+                        autoComplete="email"
+                      />
+                      {email && !emailOk && (
+                        <div className="modal-input-err">
+                          {lang === "en" ? "Enter a valid email address" : "Въведи валиден имейл адрес"}
+                        </div>
+                      )}
+                    </div>
+                    <input
+                      type="text"
+                      value={hp}
+                      onChange={e => setHp(e.target.value)}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      style={{ position: "absolute", left: "-9999px", width: "1px", height: "1px", opacity: 0 }}
+                      aria-hidden="true"
+                    />
+                    {sendError && (
+                      <div className="modal-input-err" style={{ marginBottom: "12px", fontSize: "13px" }}>
+                        {lang === "en"
+                          ? "Something went wrong. Please call us directly:"
+                          : "Нещо се обърка. Моля, обади се директно:"}{" "}
+                        <a href="tel:+359889182749" style={{ color: G.accent, fontWeight: 700 }}>+359 889 182 749</a>
+                      </div>
+                    )}
+                    <button className="modal-confirm" disabled={!contactOk || sending} onClick={confirmBooking}>
+                      {sending
+                        ? (lang === "en" ? "Sending..." : "Изпращане...")
+                        : (contactOk ? u.submitBtn : u.submitDef)}
                     </button>
                   </>
                 )
