@@ -46,12 +46,12 @@ const SERVICE_DATA = {
       badge:      "🔧 Идваме в същия ден",
       icon: "🔧", priceLabel: "ВиК ремонти", priceColor: "#5B9CF6",
       prices: [
-        { name: "Смяна на смесител (кухня/баня)",    price: 30, unit: "фикс." },
+        { name: "Смяна на смесител (кухня/баня)",    price: 45, unit: "фикс." },
         { name: "Смяна на тоалетна чиния/моноблок",  price: 55, unit: "фикс." },
-        { name: "Отпушване на мивка/канал",           price: 30, unit: "фикс." },
-        { name: "Смяна на сифон под мивка",           price: 25, unit: "фикс." },
+        { name: "Отпушване на мивка/канал",           price: 80, unit: "фикс." },
+        { name: "Смяна на сифон под мивка",           price: 39, unit: "фикс." },
         { name: "Ремонт на тоалетно казанче",         price: 55, unit: "фикс." },
-        { name: "Ремонт на теч (подмяна уплътнение)", price: 22, unit: "фикс." },
+        { name: "Ремонт на теч (подмяна уплътнение)", price: 60, unit: "фикс." },
       ],
       gallery: [
         { src: "/Монтаж_смесител.jpg", alt: "Смяна смесител", label: "Смяна смесител · София" },
@@ -72,12 +72,12 @@ const SERVICE_DATA = {
       badge:      "🔧 Same-day service",
       icon: "🔧", priceLabel: "Plumbing repairs", priceColor: "#5B9CF6",
       prices: [
-        { name: "Tap / mixer replacement (kitchen or bathroom)", price: 30, unit: "fixed" },
+        { name: "Tap / mixer replacement (kitchen or bathroom)", price: 45, unit: "fixed" },
         { name: "Toilet bowl / monoblock replacement",           price: 55, unit: "fixed" },
-        { name: "Sink / drain unblocking",                       price: 30, unit: "fixed" },
-        { name: "Under-sink trap replacement",                   price: 25, unit: "fixed" },
+        { name: "Sink / drain unblocking",                       price: 80, unit: "fixed" },
+        { name: "Under-sink trap replacement",                   price: 39, unit: "fixed" },
         { name: "Toilet cistern repair",                         price: 55, unit: "fixed" },
-        { name: "Leak repair (seal replacement)",                price: 22, unit: "fixed" },
+        { name: "Leak repair (seal replacement)",                price: 60, unit: "fixed" },
       ],
       gallery: [
         { src: "/Монтаж_смесител.jpg", alt: "Tap replacement",   label: "Tap replacement · Sofia" },
@@ -101,15 +101,15 @@ const SERVICE_DATA = {
       badge:      "🏠 Малки обеми, голямо качество",
       icon: "🏠", priceLabel: "Довършителни работи", priceColor: "#4CAF7A",
       prices: [
-        { name: "Боядисване на стена (латекс)",   price: 7,  unit: "кв.м." },
-        { name: "Шпакловка на пукнатина/дупка",   price: 10, unit: "бр."   },
+        { name: "Боядисване на стена (латекс)",   price: 8,  unit: "кв.м." },
+        { name: "Шпакловка на пукнатина/дупка",   price: 15, unit: "бр."   },
         { name: "Лепене на тапети",               price: 7,  unit: "кв.м." },
-        { name: "Смяна на брава/ключалка",        price: 25, unit: "фикс." },
-        { name: "Поставяне на ламинат",           price: 7,  unit: "кв.м." },
+        { name: "Смяна на брава/ключалка",        price: 19, unit: "фикс." },
+        { name: "Поставяне на ламинат",           price: 5,  unit: "кв.м." },
         { name: "Поставяне на первази",           price: 3,  unit: "л.м."  },
-        { name: "Лепене на фаянс (малък обем)",   price: 30, unit: "кв.м." },
+        { name: "Лепене на фаянс (малък обем)",   price: 35, unit: "кв.м." },
         { name: "Фугиране на плочки",             price: 7,  unit: "кв.м." },
-        { name: "Дребни ремонти (по договаряне)", price: 15, unit: "час"   },
+        { name: "Дребни ремонти (по договаряне)", price: 20, unit: "час"   },
       ],
       gallery: [
         { src: "/лепене_тапети.jpg",  alt: "Лепене тапети", label: "Лепене тапети · София" },
@@ -129,15 +129,15 @@ const SERVICE_DATA = {
       badge:      "🏠 Small jobs, high quality",
       icon: "🏠", priceLabel: "Finishing works", priceColor: "#4CAF7A",
       prices: [
-        { name: "Wall painting (emulsion)",     price: 7,  unit: "sq.m." },
-        { name: "Crack / hole filling",         price: 10, unit: "pc."   },
+        { name: "Wall painting (emulsion)",     price: 8,  unit: "sq.m." },
+        { name: "Crack / hole filling",         price: 15, unit: "pc."   },
         { name: "Wallpaper hanging",            price: 7,  unit: "sq.m." },
-        { name: "Lock / door lock replacement", price: 25, unit: "fixed" },
-        { name: "Laminate flooring",            price: 7,  unit: "sq.m." },
+        { name: "Lock / door lock replacement", price: 19, unit: "fixed" },
+        { name: "Laminate flooring",            price: 5,  unit: "sq.m." },
         { name: "Skirting board installation",  price: 3,  unit: "lin.m."},
-        { name: "Wall tiling (small area)",     price: 30, unit: "sq.m." },
+        { name: "Wall tiling (small area)",     price: 35, unit: "sq.m." },
         { name: "Tile grouting",                price: 7,  unit: "sq.m." },
-        { name: "General repairs (negotiable)", price: 15, unit: "hr."   },
+        { name: "General repairs (negotiable)", price: 20, unit: "hr."   },
       ],
       gallery: [
         { src: "/лепене_тапети.jpg",  alt: "Wallpaper hanging", label: "Wallpaper hanging · Sofia" },
@@ -160,9 +160,9 @@ const SERVICE_DATA = {
       badge:      "🔩 Сертифициран монтаж",
       icon: "🔩", priceLabel: "Монтаж на уреди", priceColor: "#E8722A",
       prices: [
-        { name: "Монтаж на аспиратор",     price: 60, unit: "фикс." },
+        { name: "Монтаж на аспиратор",     price: 70, unit: "фикс." },
         { name: "Монтаж на миялна машина", price: 90, unit: "фикс." },
-        { name: "Монтаж на бойлер",        price: 95, unit: "фикс." },
+        { name: "Монтаж на бойлер",        price: 130, unit: "фикс." },
       ],
       gallery: [
         { src: "/Монтаж_миялна.jpg",  alt: "Монтаж миялна",  label: "Монтаж миялна · София" },
@@ -182,9 +182,9 @@ const SERVICE_DATA = {
       badge:      "🔩 Certified installation",
       icon: "🔩", priceLabel: "Appliance installation", priceColor: "#E8722A",
       prices: [
-        { name: "Cooker hood installation",          price: 60, unit: "fixed" },
+        { name: "Cooker hood installation",          price: 70, unit: "fixed" },
         { name: "Dishwasher installation",           price: 90, unit: "fixed" },
-        { name: "Boiler / water heater installation",price: 95, unit: "fixed" },
+        { name: "Boiler / water heater installation",price: 130, unit: "fixed" },
       ],
       gallery: [
         { src: "/Монтаж_миялна.jpg",  alt: "Dishwasher install",    label: "Dishwasher install · Sofia" },
@@ -207,11 +207,11 @@ const SERVICE_DATA = {
       badge:      "🪑 IKEA, Jysk и всички марки",
       icon: "🪑", priceLabel: "Мебели & Монтаж", priceColor: "#4CAF7A",
       prices: [
-        { name: "Сглобяване на шкаф/легло",          price: 30, unit: "фикс." },
+        { name: "Сглобяване на шкаф/легло",          price: 35, unit: "фикс." },
         { name: "Сглобяване на гардероб (плъзгащи)", price: 60, unit: "фикс." },
         { name: "Монтаж на рафт/етажерка",           price: 20, unit: "фикс." },
         { name: "Монтаж на TV стойка/конзола",       price: 20, unit: "фикс." },
-        { name: "Монтаж на корниз",                  price: 13, unit: "фикс." },
+        { name: "Монтаж на корниз",                  price: 19, unit: "л.м." },
       ],
       gallery: [
         { src: "/Монтаж_мебели1.jpg", alt: "Сглобяване мебели", label: "Сглобяване мебели · София" },
@@ -231,11 +231,11 @@ const SERVICE_DATA = {
       badge:      "🪑 IKEA, Jysk & all brands",
       icon: "🪑", priceLabel: "Furniture & Assembly", priceColor: "#4CAF7A",
       prices: [
-        { name: "Cabinet / bed assembly",         price: 30, unit: "fixed" },
+        { name: "Cabinet / bed assembly",         price: 35, unit: "fixed" },
         { name: "Sliding wardrobe assembly",      price: 60, unit: "fixed" },
         { name: "Shelf / shelving unit mounting", price: 20, unit: "fixed" },
         { name: "TV bracket / wall mount",        price: 20, unit: "fixed" },
-        { name: "Curtain rail mounting",          price: 13, unit: "fixed" },
+        { name: "Curtain rail mounting",          price: 19, unit: "lin.m." },
       ],
       gallery: [
         { src: "/Монтаж_мебели1.jpg", alt: "Furniture assembly", label: "Furniture assembly · Sofia" },
@@ -258,8 +258,8 @@ const SERVICE_DATA = {
       badge:      "💡 Верифициран електротехник",
       icon: "💡", priceLabel: "Електро услуги", priceColor: "#E8722A",
       prices: [
-        { name: "Монтаж на полилей/осветително тяло", price: 45, unit: "фикс." },
-        { name: "Смяна на контакт/ключ",              price: 19, unit: "фикс." },
+        { name: "Монтаж на полилей/осветително тяло", price: 37, unit: "фикс." },
+        { name: "Смяна на контакт/ключ",              price: 11, unit: "фикс." },
       ],
       gallery: [
         { src: "/Монтаж_полюлей.jpg",  alt: "Монтаж полилей",   label: "Монтаж полилей · София" },
@@ -280,8 +280,8 @@ const SERVICE_DATA = {
       badge:      "💡 Verified electrician",
       icon: "💡", priceLabel: "Electrical services", priceColor: "#E8722A",
       prices: [
-        { name: "Chandelier / light fixture installation", price: 45, unit: "fixed" },
-        { name: "Socket / switch replacement",             price: 19, unit: "fixed" },
+        { name: "Chandelier / light fixture installation", price: 37, unit: "fixed" },
+        { name: "Socket / switch replacement",             price: 11, unit: "fixed" },
       ],
       gallery: [
         { src: "/Монтаж_полюлей.jpg",  alt: "Chandelier install",    label: "Chandelier install · Sofia" },

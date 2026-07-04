@@ -5,35 +5,35 @@ const logoImg = "/FrontPage-logo.webp";
 
 const SERVICES = [
   // 🔧 ВиК
-  { id: 1,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на смесител (кухня/баня)",      nameEn: "Tap / mixer replacement",           price: 30, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 1,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на смесител (кухня/баня)",      nameEn: "Tap / mixer replacement",           price: 45, unit: "фикс.", unitEn: "fixed", popular: true },
   { id: 2,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на тоалетна чиния/моноблок",    nameEn: "Toilet bowl replacement",           price: 55, unit: "фикс.", unitEn: "fixed", popular: false },
-  { id: 3,  cat: "🔧 ВиК", icon: "🔧", name: "Отпушване на мивка/канал",            nameEn: "Sink / drain unblocking",           price: 30, unit: "фикс.", unitEn: "fixed", popular: false },
-  { id: 4,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на сифон под мивка",            nameEn: "Under-sink trap replacement",       price: 25, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 3,  cat: "🔧 ВиК", icon: "🔧", name: "Отпушване на мивка/канал",            nameEn: "Sink / drain unblocking",           price: 80, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 4,  cat: "🔧 ВиК", icon: "🔧", name: "Смяна на сифон под мивка",            nameEn: "Under-sink trap replacement",       price: 39, unit: "фикс.", unitEn: "fixed", popular: true },
   { id: 5,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на тоалетно казанче",          nameEn: "Toilet cistern repair",             price: 55, unit: "фикс.", unitEn: "fixed", popular: true },
-  { id: 6,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на теч (уплътнение)",          nameEn: "Leak repair (seal replacement)",    price: 22, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 6,  cat: "🔧 ВиК", icon: "🔧", name: "Ремонт на теч (уплътнение)",          nameEn: "Leak repair (seal replacement)",    price: 60, unit: "фикс.", unitEn: "fixed", popular: false },
   // 🏠 Довършителни
-  { id: 7,  cat: "🏠 Довършителни", icon: "🏠", name: "Боядисване на стена (латекс)", nameEn: "Wall painting (emulsion)",         price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
-  { id: 8,  cat: "🏠 Довършителни", icon: "🏠", name: "Шпакловка на пукнатина/дупка", nameEn: "Crack / hole filling",             price: 10, unit: "бр.",   unitEn: "pc.",   popular: false },
+  { id: 7,  cat: "🏠 Довършителни", icon: "🏠", name: "Боядисване на стена (латекс)", nameEn: "Wall painting (emulsion)",         price: 8,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
+  { id: 8,  cat: "🏠 Довършителни", icon: "🏠", name: "Шпакловка на пукнатина/дупка", nameEn: "Crack / hole filling",             price: 15, unit: "бр.",   unitEn: "pc.",   popular: false },
   { id: 9,  cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на тапети",             nameEn: "Wallpaper hanging",                price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: true },
-  { id: 10, cat: "🏠 Довършителни", icon: "🏠", name: "Смяна на брава/ключалка",      nameEn: "Lock replacement",                 price: 25, unit: "фикс.", unitEn: "fixed", popular: false },
-  { id: 11, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на ламинат",         nameEn: "Laminate flooring",                price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
+  { id: 10, cat: "🏠 Довършителни", icon: "🏠", name: "Смяна на брава/ключалка",      nameEn: "Lock replacement",                 price: 19, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 11, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на ламинат",         nameEn: "Laminate flooring",                price: 5,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
   { id: 12, cat: "🏠 Довършителни", icon: "🏠", name: "Поставяне на первази",         nameEn: "Skirting board installation",      price: 3,  unit: "л.м.",  unitEn: "lin.m.",popular: false },
-  { id: 13, cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на фаянс (малък обем)", nameEn: "Wall tiling (small area)",         price: 30, unit: "кв.м.", unitEn: "sq.m.", popular: false },
+  { id: 13, cat: "🏠 Довършителни", icon: "🏠", name: "Лепене на фаянс (малък обем)", nameEn: "Wall tiling (small area)",         price: 35, unit: "кв.м.", unitEn: "sq.m.", popular: false },
   { id: 14, cat: "🏠 Довършителни", icon: "🏠", name: "Фугиране на плочки",           nameEn: "Tile grouting",                    price: 7,  unit: "кв.м.", unitEn: "sq.m.", popular: false },
-  { id: 15, cat: "🏠 Довършителни", icon: "🏠", name: "Дребни ремонти (по договаряне)",nameEn: "General repairs (negotiable)",    price: 15, unit: "час",   unitEn: "hr.",   popular: true },
+  { id: 15, cat: "🏠 Довършителни", icon: "🏠", name: "Дребни ремонти (по договаряне)",nameEn: "General repairs (negotiable)",    price: 20, unit: "час",   unitEn: "hr.",   popular: true },
   // 🔩 Монтажи
-  { id: 16, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на аспиратор",              nameEn: "Cooker hood installation",         price: 60, unit: "фикс.", unitEn: "fixed", popular: false },
+  { id: 16, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на аспиратор",              nameEn: "Cooker hood installation",         price: 70, unit: "фикс.", unitEn: "fixed", popular: false },
   { id: 17, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на миялна машина",          nameEn: "Dishwasher installation",          price: 90, unit: "фикс.", unitEn: "fixed", popular: false },
-  { id: 18, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на бойлер",                 nameEn: "Boiler installation",              price: 95, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 18, cat: "🔩 Монтажи", icon: "🔩", name: "Монтаж на бойлер",                 nameEn: "Boiler installation",              price: 130, unit: "фикс.", unitEn: "fixed", popular: true },
   // 🪑 Мебели
-  { id: 19, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на шкаф/легло",          nameEn: "Cabinet / bed assembly",           price: 30, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 19, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на шкаф/легло",          nameEn: "Cabinet / bed assembly",           price: 35, unit: "фикс.", unitEn: "fixed", popular: true },
   { id: 20, cat: "🪑 Мебели", icon: "🪑", name: "Сглобяване на гардероб (плъзгащи)", nameEn: "Sliding wardrobe assembly",        price: 60, unit: "фикс.", unitEn: "fixed", popular: false },
   { id: 21, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на рафт/етажерка",           nameEn: "Shelf / shelving unit mounting",   price: 20, unit: "фикс.", unitEn: "fixed", popular: false },
   { id: 22, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на TV стойка/конзола",       nameEn: "TV bracket / wall mount",          price: 20, unit: "фикс.", unitEn: "fixed", popular: true },
   { id: 23, cat: "🪑 Мебели", icon: "🪑", name: "Монтаж на корниз",                  nameEn: "Curtain rail mounting",            price: 19, unit: "л.м.",  unitEn: "lin.m.",popular: false },
   // 💡 Електро
-  { id: 24, cat: "💡 Електро", icon: "💡", name: "Монтаж на полилей/осветително тяло",nameEn: "Chandelier / light fixture install",price: 45, unit: "фикс.", unitEn: "fixed", popular: true },
-  { id: 25, cat: "💡 Електро", icon: "💡", name: "Смяна на контакт/ключ",             nameEn: "Socket / switch replacement",      price: 19, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 24, cat: "💡 Електро", icon: "💡", name: "Монтаж на полилей/осветително тяло",nameEn: "Chandelier / light fixture install",price: 37, unit: "фикс.", unitEn: "fixed", popular: true },
+  { id: 25, cat: "💡 Електро", icon: "💡", name: "Смяна на контакт/ключ",             nameEn: "Socket / switch replacement",      price: 11, unit: "фикс.", unitEn: "fixed", popular: true },
 ];
 
 const REVIEWS = [
@@ -364,7 +364,7 @@ export default function App({ lang = "bg" }) {
     return out;
   };
 
-  const computeHours = (sel) => {
+const computeHours = (sel) => {
     const base = ["09:00", "10:00", "11:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
     if (!sel || !sel.isToday) return base;
     const lead = new Date().getHours() + 2;

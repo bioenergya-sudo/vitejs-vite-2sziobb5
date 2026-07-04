@@ -1,0 +1,9 @@
+# Стари URL-и -> нови категорийни страници (постоянни 301 за SEO)
+/montaj-osvetlenie /elektro 301
+/sglobyavane-mebeli /mebeli 301
+/drebni-remonti /dovarshitelni 301
+
+# ВАЖНО: без "/* /index.html 200" catch-all — той би засенчил статичните
+# категорийни страници. SPA route-овете (/za-nas, /en/*) се поемат от
+# автоматичния SPA fallback на Cloudflare Pages (работи само ако в build
+# output-а НЯМА 404.html).

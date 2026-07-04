@@ -6,7 +6,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: 'index.html',
+        main: './index.html',
+        elektro: './elektro.html',
+        'vik-remonti': './vik-remonti.html',
+        mebeli: './mebeli.html',
+        montaji: './montaji.html',
+        dovarshitelni: './dovarshitelni.html',
       }
     }
   }
