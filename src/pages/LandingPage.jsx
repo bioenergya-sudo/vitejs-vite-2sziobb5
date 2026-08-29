@@ -63,7 +63,7 @@ const SERVICE_DATA = {
         { q: "Идвате ли в същия ден?",            a: "В повечето случаи — да. При спешност се стараем до 2–3 часа след обаждането." },
         { q: "Носите ли резервни части?",          a: "Носим най-честите части (уплътнения, сифони, аванси). По-специфични части се уточняват предварително." },
         { q: "Колко струва посещението за оглед?", a: "Огледът е безплатен при поръчка на услуга. Само оглед без работа — 10€ транспорт." },
-        { q: "Давате ли гаранция?",                a: "Да — 6 месеца гаранция на всяка извършена услуга. При проблем — идваме безплатно." },
+        { q: "Давате ли гаранция?",                a: "Да — 30 дни гаранция на всяка извършена услуга. При проблем — идваме безплатно." },
       ],
     },
     en: {
@@ -89,7 +89,7 @@ const SERVICE_DATA = {
         { q: "Can you come the same day?",        a: "In most cases yes. For urgent jobs we aim to arrive within 2–3 hours of your call." },
         { q: "Do you carry spare parts?",         a: "We carry the most common parts (seals, traps, connectors). More specific parts are arranged in advance." },
         { q: "Is the inspection visit free?",     a: "Free with any booked job. Inspection only with no work — €10 travel fee." },
-        { q: "Do you offer a guarantee?",         a: "Yes — 6-month guarantee on all work. Any issue after the job — we come back for free." },
+        { q: "Do you offer a guarantee?",         a: "Yes — 30-day guarantee on all work. Any issue after the job — we come back for free." },
       ],
     },
   },
@@ -172,7 +172,7 @@ const SERVICE_DATA = {
       faq: [
         { q: "Включва ли монтажът ВиК и ел. връзки?",         a: "Да — включва всички необходими връзки. При нужда от нова инсталация се уточнява предварително." },
         { q: "Трябва ли да е доставен уредът предварително?", a: "Да, трябва да е на място преди нашето посещение." },
-        { q: "Давате ли гаранция на монтажа?",                a: "Да — 6 месеца гаранция на труда. При проблем идваме безплатно." },
+        { q: "Давате ли гаранция на монтажа?",                a: "Да — 30 дни гаранция на труда. При проблем идваме безплатно." },
         { q: "Монтирате ли всички марки?",                    a: "Да — всички марки и модели. Носим стандартни маркучи и накрайници." },
       ],
     },
@@ -194,7 +194,7 @@ const SERVICE_DATA = {
       faq: [
         { q: "Does installation include plumbing and electrical connections?", a: "Yes — all necessary connections included. If new pipework or wiring is needed, we'll advise in advance." },
         { q: "Does the appliance need to be delivered first?",                 a: "Yes, it should be on site before we arrive." },
-        { q: "Do you guarantee the installation?",                             a: "Yes — 6-month labour guarantee. Any issue — we come back for free." },
+        { q: "Do you guarantee the installation?",                             a: "Yes — 30-day labour guarantee. Any issue — we come back for free." },
         { q: "Do you install all brands?",                                     a: "Yes — all brands and models. We carry standard hoses and fittings." },
       ],
     },
@@ -541,8 +541,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
               <a href={`viber://chat?number=${PHONE}`} className="btn-v">🟣 {u.viber}</a>
             </div>
             <div className="lp-stats">
-              <div><div className="lp-sn">4.9★</div><div className="lp-sl">{u.rating}</div></div>
-              <div><div className="lp-sn">500+</div><div className="lp-sl">{u.jobs}</div></div>
+              <div><div className="lp-sn">5,0★</div><div className="lp-sl">{u.rating}</div></div>
               <div><div className="lp-sn">30 дни</div><div className="lp-sl">{u.guarantee}</div></div>
             </div>
           </div>

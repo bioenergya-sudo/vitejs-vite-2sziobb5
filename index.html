@@ -12,15 +12,19 @@
   <!-- Language -->
   <meta http-equiv="Content-Language" content="bg" />
 
-  <!-- Canonical -->
-  <link rel="canonical" href="https://handymansofia.com/" />
+  <!-- Canonical: генерира се per-route от src/seo/SeoManager.jsx.
+       Статичен таг тук НЕ се слага - той сочи всички маршрути към началната
+       страница, докато JS не се изпълни. -->
 
-  <!-- Primary Meta Tags -->
+  <!-- Primary Meta Tags: само fallback за първо зареждане.
+       SeoManager.jsx ги презаписва per-route. -->
   <title>HandymanSofia – Ремонти на едно повикване в София</title>
   <meta name="title" content="HandymanSofia – Ремонти на едно повикване в София" />
   <meta name="description" content="Майстор за дребни ремонти и монтажи в София – мебели, бойлери, осветление, корнизи и домашни ремонти. Бързо посещение и коректни цени." />
 
-  <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+  <!-- Open Graph / Facebook / WhatsApp / LinkedIn
+       og:url, og:title, og:description и twitter:* са само fallback -
+       SeoManager.jsx ги презаписва per-route. -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://handymansofia.com/" />
   <meta property="og:title" content="HandymanSofia – Ремонти на едно повикване в София" />

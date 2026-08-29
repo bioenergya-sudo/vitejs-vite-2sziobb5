@@ -36,16 +36,19 @@ const SERVICES = [
   { id: 25, cat: "💡 Електро", icon: "💡", name: "Смяна на контакт/ключ",             nameEn: "Socket / switch replacement",      price: 11, unit: "фикс.", unitEn: "fixed", popular: true },
 ];
 
+// Реални отзиви от Google Business Profile (5,0 от 24 отзива).
+// Цитирани дословно, съкратени с многоточие. Не добавяй измислени отзиви тук.
 const REVIEWS = [
-  { name: "Мартин Г.",    role: "Software Engineer @ Telerik",  text: "Резервирах за монтаж на полюлей в 11 ч. вечерта, на следващия ден в 10 ч. майсторът беше тук. Точно на часа, чисто след себе си, фактура на имейла.", stars: 5, service: "Монтаж полюлей" },
-  { name: "Ива Д.",       role: "UX Designer, Sofia",           text: "Накрая платформа, която знае колко струва услугата ПРЕДИ да дойде майсторът. Никакви изненади. Препоръчвам на всички сама живеещи.", stars: 5, service: "Миялна машина" },
-  { name: "Александър П.",role: "CTO @ FinTech startup",        text: "Наредиха услугата около работния ми график, така че почти не загубих работно време. Докато бях на среща, всичко беше свършено професионално.", stars: 5, service: "Ремонт казанче" },
-  { name: "Надя Т.",      role: "Product Manager",              text: "Казанчето ми се счупи в петък вечерта. Резервирах за събота сутрин, платих онлайн. Всичко мина гладко. Ще ползвам пак.", stars: 5, service: "Ремонт казанче" },
+  { name: "Христо Й.", role: "Google отзив · преди месец",    text: "Извиках Краси да опита да ремонтира изгорелия ми вентилатор, след токов удар. Очаквах, че няма да е възможно и пак ще си купувам нов за 200 евро… Само след 15 минути, Краси ми спести 170 евро! Дойде точно на време, носеше си всякакви материали за всеки случай.", stars: 5, service: "Ремонт на уред" },
+  { name: "Тина Л.",   role: "Google отзив · преди седмица",  text: "Обясни ми какво точно трябва да се направи и ми каза цената предварително, като в нея бяха включени и материалите. Цената беше супер разумна, особено предвид това, че за същия ремонт други майстори ми искаха над 200 евро… Оставих им ключ и се справиха изцяло сами.", stars: 5, service: "Дребен ремонт" },
+  { name: "Таня К.",   role: "Google отзив · преди седмица",  text: "Майсторът беше коректен, точен и изпълни всичко, за което се бяхме разбрали. Имахме проблем с тоалетното казанче. Направи предварителен оглед, набави необходимите материали и при възникнал проблем с една от частите дори отдели допълнително време, за да я смени.", stars: 5, service: "Ремонт казанче" },
+  { name: "Николай Н.",role: "Google отзив · преди месец",    text: "Започване в точно уговорения час. Перфектна и професионална работа по ремонта! Горещо препоръчвам! Ако се стремим към европейски ценности, точността, професионализмът и коректното отношение към клиента са част от тях.", stars: 5 },
 ];
+// Същите реални отзиви, преведени. Етикетът за превода е задължителен.
 const REVIEWS_EN = [
-  { name: "Martin G.",    role: "Software Engineer @ Telerik",  text: "I booked a chandelier installation at 11pm — the next day at 10am the craftsman arrived on time. Clean, tidy, invoice by email.", stars: 5 },
-  { name: "Iva D.",       role: "UX Designer, Sofia",           text: "Finally a service where you know the price upfront. No surprises, no hidden fees. I recommend it to anyone living alone.", stars: 5 },
-  { name: "Nadia T.",     role: "Product Manager",              text: "My cistern broke on Friday evening. I booked for Saturday morning, paid online, everything went smoothly. Would use again.", stars: 5 },
+  { name: "Hristo Y.",  role: "Google review · translated from Bulgarian", text: "I called Krasi to try to repair my fan after it burned out in a power surge. I expected it would be impossible and I'd be buying a new one for 200 euro… Just 15 minutes later, Krasi had saved me 170 euro! He arrived exactly on time, carrying every material he might need.", stars: 5, service: "Appliance repair" },
+  { name: "Tina L.",    role: "Google review · translated from Bulgarian", text: "He explained exactly what needed doing and quoted the price upfront, materials included. The price was very reasonable — other tradesmen wanted over 200 euro for the same job… I left them a key and they handled it entirely on their own.", stars: 5, service: "Small repair" },
+  { name: "Tanya K.",   role: "Google review · translated from Bulgarian", text: "Correct, punctual, and did everything we had agreed. We had a problem with the toilet cistern. He inspected it first, sourced the materials, and when one of the parts turned out to be faulty he even put in extra time to replace it.", stars: 5, service: "Cistern repair" },
 ];
 
 
@@ -899,12 +902,8 @@ const emailOk = email.trim() === "" || isValidEmail(email);
           </div>
           <div className="hero-stats">
             <div className="stat">
-              <div className="stat-num">4.9★</div>
+              <div className="stat-num">5,0★</div>
               <div className="stat-label">{u.rating}</div>
-            </div>
-            <div className="stat hero-stat-hide">
-              <div className="stat-num">500+</div>
-              <div className="stat-label">{u.jobs}</div>
             </div>
             <div className="stat">
             <div className="stat-num">{lang === "bg" ? "30 дни" : "30 days"}</div>
@@ -1061,7 +1060,7 @@ const emailOk = email.trim() === "" || isValidEmail(email);
                 <div>
                   <div className="review-name">{r.name}</div>
                   <div className="review-role">{r.role}</div>
-                  <div className="review-svc">{r.service}</div>
+                  {r.service && <div className="review-svc">{r.service}</div>}
                 </div>
               </div>
             </div>
