@@ -336,6 +336,14 @@ export default function App({ lang = "bg" }) {
   const urgentMultiplier = urgent ? 1.5 : 1;
 
   const openBooking = (svc) => {
+    // Тук, а не в глобалния click listener: модалът се отваря и при клик
+    // където и да е по картата, не само по бутона - иначе броенето е занижено.
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "booking_started", {
+        event_category: "conversion",
+        event_label: (lang === "en" ? svc?.nameEn : svc?.name) || "unknown",
+      });
+    }
     setSelectedService(svc);
     setBookingStep(1);
     setBooked(false);
@@ -419,6 +427,14 @@ const emailOk = email.trim() === "" || isValidEmail(email);
         body: JSON.stringify(payload),
       });
       if (!res.ok) throw new Error("Webhook error");
+      // Само тук. Honeypot пътят по-горе също вика setBooked(true), но той е
+      // фалшив успех за ботове и не стига до webhook-а - не е конверсия.
+      if (typeof window !== "undefined" && typeof window.gtag === "function") {
+        window.gtag("event", "booking_completed", {
+          event_category: "conversion",
+          event_label: (lang === "en" ? selectedService?.nameEn : selectedService?.name) || "unknown",
+        });
+      }
       setBooked(true);
       setBookingStep(3);
     } catch (err) {

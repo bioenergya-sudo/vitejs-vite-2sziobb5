@@ -214,35 +214,45 @@ export default function SeoManager() {
       if (!window.gtag) return
       const t = e.target
 
-      // Резервирай бутон в сервизна карта
-      if (t.closest('.svc-book-btn')) {
-        window.gtag('event', 'booking_started', {
-          event_category: 'conversion',
-          event_label: t.closest('.service-card')?.querySelector('.svc-name')?.textContent || 'unknown',
-        })
-      }
-      // WhatsApp
-      if (t.closest('.wa-btn') || t.closest('.float-wa-btn')) {
-        window.gtag('event', 'whatsapp_click', {
-          event_category: 'conversion',
-        })
-      }
-      // Viber
-      if (t.closest('.viber-btn') || t.closest('.float-viber-btn') || t.closest('.sticky-viber-btn')) {
-        window.gtag('event', 'viber_click', {
-          event_category: 'conversion',
-        })
-      }
+      // Пътят се чете при клика, не при закачането на listener-а: този useEffect
+      // има празен dependency масив и би замразил pathname от първото зареждане.
+      const page = window.location.pathname
+
+      // Контактните намерения се разпознават по href, не по клас - така всяка
+      // нова телефонна/Viber/WhatsApp връзка се брои, без да се помни клас.
+      // Проверките са взаимно изключващи се: един клик = едно събитие.
+
       // Телефон
-      if (t.closest('.phone-link') || t.closest('.phone-num')) {
+      if (t.closest('a[href^="tel:"]')) {
         window.gtag('event', 'phone_click', {
           event_category: 'conversion',
+          event_label: page,
         })
+        return
       }
-      // CTA бутони (Book now / Резервирай горе)
-      if (t.closest('.nav-cta') || t.closest('.sticky-cta-btn') || t.closest('.btn-primary')) {
+      // Viber
+      if (t.closest('a[href^="viber:"]')) {
+        window.gtag('event', 'viber_click', {
+          event_category: 'conversion',
+          event_label: page,
+        })
+        return
+      }
+      // WhatsApp
+      if (t.closest('a[href*="wa.me"]')) {
+        window.gtag('event', 'whatsapp_click', {
+          event_category: 'conversion',
+          event_label: page,
+        })
+        return
+      }
+      // CTA бутони (Book now / Резервирай горе). btn-p се ползва само от
+      // телефонни връзки, които вече излязоха горе - оставен е за бъдещи
+      // не-контактни бутони със същия клас.
+      if (t.closest('.nav-cta') || t.closest('.sticky-cta-btn') || t.closest('.btn-primary') || t.closest('.btn-p')) {
         window.gtag('event', 'cta_click', {
           event_category: 'conversion',
+          event_label: page,
         })
       }
     }
