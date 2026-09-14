@@ -12,6 +12,14 @@ export default defineConfig({
         mebeli: './mebeli.html',
         montaji: './montaji.html',
         dovarshitelni: './dovarshitelni.html',
+        // Генерирани от scripts/static-pages.mjs (npm run build ги пуска първи)
+        'za-nas': './za-nas.html',
+        en: './en.html',
+        'en/plumbing-repairs-sofia': './en/plumbing-repairs-sofia.html',
+        'en/home-finishing-sofia': './en/home-finishing-sofia.html',
+        'en/appliance-installation-sofia': './en/appliance-installation-sofia.html',
+        'en/furniture-assembly-sofia': './en/furniture-assembly-sofia.html',
+        'en/electrical-installation-sofia': './en/electrical-installation-sofia.html',
       }
     }
   }
