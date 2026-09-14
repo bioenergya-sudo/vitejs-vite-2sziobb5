@@ -4,7 +4,8 @@
   "description": "HandymanSofia.com – MVP mockup",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "node scripts/static-pages.mjs && vite build",
+    "static-pages": "node scripts/static-pages.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
