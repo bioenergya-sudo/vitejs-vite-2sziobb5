@@ -332,6 +332,34 @@ export default function App({ lang = "bg" }) {
     return () => window.removeEventListener("scroll", h);
   }, []);
 
+  // Котвата от адреса (/#services) се игнорира от браузъра, защото React монтира
+  // след неговия скок - човекът остава най-горе. Превъртаме сами след mount, и
+  // повторно след load: дотогава изображенията над секцията вземат размер и
+  // целта мърда. Второто превъртане пада, ако човекът вече е скролнал сам.
+  useEffect(() => {
+    let touched = false;
+    const jump = (behavior) => {
+      if (touched) return;
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      const el = id && document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior });
+    };
+    const onTouch = () => { touched = true; };
+    const onLoad = () => jump("auto");
+    const onHash = () => { touched = false; jump("smooth"); };
+
+    const raf = requestAnimationFrame(() => jump("auto"));
+    ["wheel", "touchstart", "keydown"].forEach(e => window.addEventListener(e, onTouch, { passive: true, once: true }));
+    if (document.readyState !== "complete") window.addEventListener("load", onLoad);
+    window.addEventListener("hashchange", onHash);
+    return () => {
+      cancelAnimationFrame(raf);
+      ["wheel", "touchstart", "keydown"].forEach(e => window.removeEventListener(e, onTouch));
+      window.removeEventListener("load", onLoad);
+      window.removeEventListener("hashchange", onHash);
+    };
+  }, []);
+
   const filtered = activeCat === "Всички" ? SERVICES : SERVICES.filter(s => s.cat === activeCat);
   const urgentMultiplier = urgent ? 1.5 : 1;
 
