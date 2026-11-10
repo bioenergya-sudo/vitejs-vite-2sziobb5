@@ -14,6 +14,7 @@ export const PAIRS = [
   { bg: '/montaji',       en: '/en/appliance-installation-sofia' },
   { bg: '/mebeli',        en: '/en/furniture-assembly-sofia' },
   { bg: '/elektro',       en: '/en/electrical-installation-sofia' },
+  { bg: '/gumi',          en: '/en/seasonal-tyre-change-sofia' },
 ]
 
 // BG-only страници (без EN близнак)
@@ -50,6 +51,10 @@ export const SEO_META = {
     title: 'Довършителни ремонти София — боядисване 8 €/кв.м.',
     description: 'Боядисване, шпакловка, тапети, ламинат, фаянс. Домашен майстор в София — стена 8 €/кв.м., ламинат 5 €/кв.м. Фиксирана цена.',
   },
+  '/gumi': {
+    title: 'Сезонна подмяна на гуми София — взимаме колата | 59 €',
+    description: 'Нямате време да смените гумите? Взимаме колата от адрес в удобно за вас време и я връщаме. 59 € такса + сервиз. София, гаранция и фактура.',
+  },
   '/za-nas': {
     title: 'За нас — домашен майстор с фиксирани цени в София',
     description: 'Кои сме, как работим и защо казваме цената преди да дойдем. Домашен майстор в София с гаранция и фактура.',
@@ -75,6 +80,10 @@ export const SEO_META = {
   '/en/appliance-installation-sofia': {
     title: 'Appliance Installation Sofia — Boiler, Dishwasher, Washer',
     description: 'Appliance installation in Sofia at a fixed price you see upfront. Boiler €130, dishwasher €90. English-speaking, guaranteed.',
+  },
+  '/en/seasonal-tyre-change-sofia': {
+    title: 'Seasonal Tyre Change Sofia — We Collect Your Car | €59',
+    description: 'No time to change your tyres? We collect your car from your address at a time that suits you and bring it back. €59 service fee + tyre shop.',
   },
   '/en/home-finishing-sofia': {
     title: 'Home Finishing & Repairs Sofia — English-Speaking Handyman',

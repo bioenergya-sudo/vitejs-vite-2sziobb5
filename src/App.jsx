@@ -34,6 +34,8 @@ const SERVICES = [
   // 💡 Електро
   { id: 24, cat: "💡 Електро", icon: "💡", name: "Монтаж на полилей/осветително тяло",nameEn: "Chandelier / light fixture install",price: 37, unit: "фикс.", unitEn: "fixed", popular: true },
   { id: 25, cat: "💡 Електро", icon: "💡", name: "Смяна на контакт/ключ",             nameEn: "Socket / switch replacement",      price: 11, unit: "фикс.", unitEn: "fixed", popular: true },
+  // 🚗 Гуми
+  { id: 26, cat: "🚗 Гуми", icon: "🚗", name: "Сезонна подмяна на гуми (взимаме и връщаме колата)", nameEn: "Seasonal tyre change (we collect and return your car)", price: 59, unit: "фикс.", unitEn: "fixed", popular: true },
 ];
 
 // Реални отзиви от Google Business Profile (5,0 от 24 отзива).
@@ -78,8 +80,8 @@ const TRUST_EN = [
   { icon: "⏰", title: "On time, every time",    desc: "Not 'between 9 and 5' — we arrive at the exact agreed time." },
 ];
 
-const CATS    = ["Всички",  "🔧 ВиК", "🏠 Довършителни", "🔩 Монтажи", "🪑 Мебели", "💡 Електро"];
-const CATS_EN = ["All",     "🔧 Plumbing", "🏠 Finishing", "🔩 Installation", "🪑 Furniture", "💡 Electrical"];
+const CATS    = ["Всички",  "🔧 ВиК", "🏠 Довършителни", "🔩 Монтажи", "🪑 Мебели", "💡 Електро", "🚗 Гуми"];
+const CATS_EN = ["All",     "🔧 Plumbing", "🏠 Finishing", "🔩 Installation", "🪑 Furniture", "💡 Electrical", "🚗 Tyres"];
 
 
 // Heights: desktop sticky bar = 54px, mobile sticky bar = 64px + safe-area
@@ -191,6 +193,9 @@ const APP_UI = {
     lp5Title:   "Довършителни работи",
     lp5Desc:    "Боядисване, шпакловка, ламинат, фаянс. Чисто и прецизно.",
     lp5Href:    "/dovarshitelni",
+    lp6Title:   "Сезонна подмяна на гуми",
+    lp6Desc:    "Нямате време да смените гумите — ние сме насреща. Взимаме колата от адрес и я връщаме.",
+    lp6Href:    "/gumi",
   },
   en: {
     badge:      "Active handymen in Sofia",
@@ -296,6 +301,9 @@ const APP_UI = {
     lp5Title:   "Home finishing works",
     lp5Desc:    "Painting, plastering, laminate, tiling. Clean and precise.",
     lp5Href:    "/en/home-finishing-sofia",
+    lp6Title:   "Seasonal tyre change",
+    lp6Desc:    "No time to change your tyres? We collect your car from your address and bring it back.",
+    lp6Href:    "/en/seasonal-tyre-change-sofia",
   },
 };
 
@@ -1064,6 +1072,12 @@ const emailOk = email.trim() === "" || isValidEmail(email);
             <span className="lp-link-icon">🏠</span>
             <div className="lp-link-title">{u.lp5Title}</div>
             <div className="lp-link-desc">{u.lp5Desc}</div>
+            <span className="lp-link-cta">{u.detailsCta}</span>
+          </Link>
+          <Link to={u.lp6Href} className="lp-link-card">
+            <span className="lp-link-icon">🚗</span>
+            <div className="lp-link-title">{u.lp6Title}</div>
+            <div className="lp-link-desc">{u.lp6Desc}</div>
             <span className="lp-link-cta">{u.detailsCta}</span>
           </Link>
         </div>

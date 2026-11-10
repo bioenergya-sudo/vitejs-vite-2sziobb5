@@ -75,6 +75,16 @@
     <priority>0.8</priority>
   </url>
 
+  <url>
+    <loc>https://handymansofia.com/gumi</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/gumi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/seasonal-tyre-change-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/en/seasonal-tyre-change-sofia"/>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ═══ EN Service Pages ═══ -->
   <url>
     <loc>https://handymansofia.com/en/electrical-installation-sofia</loc>
@@ -122,6 +132,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/home-finishing-sofia"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/en/home-finishing-sofia"/>
     <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://handymansofia.com/en/seasonal-tyre-change-sofia</loc>
+    <xhtml:link rel="alternate" hreflang="bg" href="https://handymansofia.com/gumi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://handymansofia.com/en/seasonal-tyre-change-sofia"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://handymansofia.com/en/seasonal-tyre-change-sofia"/>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

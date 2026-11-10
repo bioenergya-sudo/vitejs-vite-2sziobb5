@@ -245,6 +245,24 @@ const PAGES = [
       footer: 'Sofia. Phone: +359 889 182 749. Fixed prices, 30-day guarantee on all work.',
     },
   },
+  {
+    path: '/en/seasonal-tyre-change-sofia',
+    file: 'en/seasonal-tyre-change-sofia.html',
+    jsonld: service('en', '/en/seasonal-tyre-change-sofia', 'Seasonal tyre change - HandymanSofia',
+      'Seasonal tyre change in Sofia with collection and return of your car from your address'),
+    seo: {
+      h1: 'Seasonal tyre change in Sofia - we collect and return your car',
+      intro: 'No time to change your tyres? We collect your car from your address at a time that suits you, take it to a tyre shop and bring it back.',
+      listTitle: 'Service and price',
+      items: [
+        'Seasonal tyre change, car collected and returned - EUR 59 (our service fee)',
+        'Collection from your address at a time that suits you',
+        'Return to the same address, key handed back in person',
+        'Tyre shop fee for fitting and balancing paid separately, at cost',
+      ],
+      footer: 'Sofia. Phone: +359 889 182 749. Fixed price, 7 days a week, 08:00-21:00.',
+    },
+  },
 ]
 
 const esc = (s) => String(s)

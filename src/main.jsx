@@ -18,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/montaji"         element={<LandingPage service="montaji" />} />
         <Route path="/mebeli"          element={<LandingPage service="mebeli" />} />
         <Route path="/elektro"         element={<LandingPage service="elektro" />} />
+        <Route path="/gumi"            element={<LandingPage service="gumi" />} />
         <Route path="/za-nas"          element={<ZaNas />} />
 
         {/* English */}
@@ -27,6 +28,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/en/appliance-installation-sofia" element={<LandingPage service="montaji" lang="en" />} />
         <Route path="/en/furniture-assembly-sofia"     element={<LandingPage service="mebeli" lang="en" />} />
         <Route path="/en/electrical-installation-sofia" element={<LandingPage service="elektro" lang="en" />} />
+        <Route path="/en/seasonal-tyre-change-sofia"    element={<LandingPage service="gumi" lang="en" />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

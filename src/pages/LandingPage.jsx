@@ -27,6 +27,7 @@ const LANG_SWITCH = {
     montaji:       "/en/appliance-installation-sofia",
     mebeli:        "/en/furniture-assembly-sofia",
     elektro:       "/en/electrical-installation-sofia",
+    gumi:          "/en/seasonal-tyre-change-sofia",
   },
   en: {
     vik:           "/vik-remonti",
@@ -34,6 +35,7 @@ const LANG_SWITCH = {
     montaji:       "/montaji",
     mebeli:        "/mebeli",
     elektro:       "/elektro",
+    gumi:          "/gumi",
   },
 };
 
@@ -298,6 +300,49 @@ const SERVICE_DATA = {
     },
   },
 
+  gumi: {
+    bg: {
+      heroTitle:  <>Сезонна подмяна<br />на <em>гуми</em><br />в София</>,
+      heroSub:    "Нямате време да смените гумите — ние сме насреща. Взимаме колата от адрес в удобно за вас време, сменяме гумите в сервиз и я връщаме обратно.",
+      badge:      "🚗 Взимаме и връщаме колата",
+      icon: "🚗", priceLabel: "Сезонна подмяна на гуми", priceColor: "#5B9CF6",
+      heroImg: "/smyana-gumi.jpg",
+      heroAlt: "Майстор взима ключа на колата за сезонна подмяна на гуми в София",
+      prices: [
+        { name: "Сезонна подмяна на гуми (взимаме и връщаме колата)", price: 59, unit: "фикс." },
+      ],
+      priceNote: "59 € е цената на нашата услуга — взимане на колата от адрес в удобно за теб време, закарване до сервиз, изчакване и връщане обратно. Таксата на сервиза за самата смяна и баланс се заплаща отделно, по реална цена без надценка.",
+      gallery: [],
+      faq: [
+        { q: "Как става предаването на колата?", a: "Идваме на адреса в уговорения час, предаваш ключа и получаваш потвърждение по Viber. Колата пътува само до сервиза и обратно до същия адрес." },
+        { q: "Колко време отнема?",              a: "Обикновено 2–3 часа. Часът на взимане и очакваният час на връщане се уточняват предварително, за да не чакаш." },
+        { q: "Трябва ли да имам гуми?",          a: "Да — комплектът гуми (или джанти с гуми) трябва да е на място при взимането на колата. Ако съхранението е проблем, уточни го при заявката." },
+        { q: "Какво включва цената от 59 €?",    a: "Взимането на колата, закарването до сервиз, изчакването на смяната и връщането обратно. Самата смяна и баланс се плащат в сервиза по реална цена." },
+        { q: "Работите ли в събота и неделя?",   a: "Да — 7 дни в седмицата от 08:00 до 21:00. Удобно е точно през уикенда, когато опашките в сервизите са най-дълги." },
+      ],
+    },
+    en: {
+      heroTitle:  <>Seasonal<br /><em>tyre change</em><br />in Sofia</>,
+      heroSub:    "No time to change your tyres? We collect your car from your address at a time that suits you, swap the tyres at a tyre shop and bring it back.",
+      badge:      "🚗 We collect and return your car",
+      icon: "🚗", priceLabel: "Seasonal tyre change", priceColor: "#5B9CF6",
+      heroImg: "/smyana-gumi.jpg",
+      heroAlt: "Handyman collecting car keys for a seasonal tyre change in Sofia",
+      prices: [
+        { name: "Seasonal tyre change (we collect and return your car)", price: 59, unit: "fixed" },
+      ],
+      priceNote: "€59 covers our service — collecting your car from your address at a time that suits you, driving it to the tyre shop, waiting and bringing it back. The tyre shop's own fee for fitting and balancing is paid separately, at cost with no markup.",
+      gallery: [],
+      faq: [
+        { q: "How do you take the car?",     a: "We arrive at your address at the agreed time, you hand over the key and get a confirmation on Viber. The car only travels to the tyre shop and back to the same address." },
+        { q: "How long does it take?",       a: "Usually 2–3 hours. We agree the pick-up time and the expected return time in advance, so you are not left waiting." },
+        { q: "Do I need to have the tyres?", a: "Yes — the set of tyres (or wheels with tyres) must be on site when we collect the car. If storage is a problem, mention it when you book." },
+        { q: "What does the €59 include?",   a: "Collecting the car, driving it to the tyre shop, waiting for the change and returning it. The fitting and balancing itself is paid at the shop at cost." },
+        { q: "Do you work on weekends?",     a: "Yes — 7 days a week, 08:00–21:00. The weekend is exactly when tyre shop queues are longest, so this is when it helps most." },
+      ],
+    },
+  },
+
 };
 
 
@@ -425,6 +470,8 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
     .lp-sl { font-size: 12px; color: ${G.textMuted}; font-weight: 500; margin-top: 2px; }
     .lp-img-wrap { position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 480px; pointer-events: none; user-select: none; }
     .lp-img { width: 100%; height: auto; opacity: 0.88; filter: drop-shadow(0 0 60px rgba(232,114,42,0.25)); }
+    .lp-img-wrap.photo { width: 540px; }
+    .lp-img-photo { opacity: 1; filter: none; border-radius: 18px; border: 1px solid ${G.border}; box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
 
     .lp-sec { padding: 90px 40px; max-width: 1200px; margin: 0 auto; }
     .lp-lbl { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: ${G.accent}; margin-bottom: 12px; }
@@ -497,6 +544,8 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
 
     @media (max-width: 768px) {
       .lp-img-wrap { display: none; }
+      .lp-hero.has-photo { flex-direction: column; align-items: stretch; }
+      .lp-img-wrap.photo { display: block; position: static; transform: none; width: 100%; margin-top: 32px; }
       .lp-hero { padding: 100px 22px 60px; min-height: auto; }
       .lp-nav { padding: 16px 22px; }
       .lp-nav.sc { padding: 10px 22px; }
@@ -527,7 +576,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
         </nav>
 
         {/* HERO */}
-        <section className="lp-hero">
+        <section className={`lp-hero${data.heroImg ? " has-photo" : ""}`}>
           <div className="lp-hero-bg" />
           <div className="lp-hero-grid" />
           <div className="lp-hero-c">
@@ -545,8 +594,12 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
               <div><div className="lp-sn">30 дни</div><div className="lp-sl">{u.guarantee}</div></div>
             </div>
           </div>
-          <div className="lp-img-wrap">
-            <img src={logoImg} alt="HandymanSofia" className="lp-img" />
+          <div className={`lp-img-wrap${data.heroImg ? " photo" : ""}`}>
+            <img
+              src={data.heroImg || logoImg}
+              alt={data.heroAlt || "HandymanSofia"}
+              className={`lp-img${data.heroImg ? " lp-img-photo" : ""}`}
+            />
           </div>
         </section>
 
@@ -574,10 +627,14 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
                 </div>
               ))}
             </div>
+            {data.priceNote && (
+              <p className="lp-desc" style={{ marginTop: 18, maxWidth: 580 }}>{data.priceNote}</p>
+            )}
           </div>
         </div>
 
         {/* GALLERY */}
+        {data.gallery.length > 0 && (
         <div className="lp-sec">
           <div className="lp-lbl">{u.gallery}</div>
           <div className="lp-ttl">{u.galleryH}<br />{u.gallerySub}</div>
@@ -591,6 +648,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
             ))}
           </div>
         </div>
+        )}
 
         {/* REVIEWS */}
         <div style={{ background: G.card, borderTop: `1px solid ${G.border}`, borderBottom: `1px solid ${G.border}` }}>
