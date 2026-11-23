@@ -19,6 +19,11 @@ const G = {
 
 const PHONE       = "+359889182749";
 const PHONE_LABEL = "0889 182 749";
+const WA          = `https://wa.me/${PHONE.replace("+", "")}`;
+// Лендингите нямат собствена форма - резервацията живее на началната
+// страница. /#book-<id> отваря модала точно за тази услуга (виж App.jsx);
+// където няма една водеща услуга, пращаме към списъка с услуги.
+const BOOK_ID     = { gumi: 26 };
 const CURR        = "€";
 const LANG_SWITCH = {
   bg: {
@@ -368,11 +373,14 @@ const UI = {
     faq:        "Чести въпроси",
     faqH:       "Имаш въпрос?",
     faqH2:      "Отговаряме честно.",
-    cta:        "Готов? Обади се сега",
+    cta:        "Готов? Резервирай сега",
     ctaH:       "Твоят майстор е",
     ctaH2:      "на едно повикване.",
     ctaBtn:     "Обади се сега",
-    viber:      "Viber / WhatsApp",
+    viber:      "Viber",
+    whatsapp:   "WhatsApp",
+    book:       "Резервирай онлайн",
+    bookShort:  "Резервирай",
     from:       "от",
     labour:     "само труд",
     rating:     "среден рейтинг",
@@ -398,11 +406,14 @@ const UI = {
     faq:        "FAQ",
     faqH:       "Got a question?",
     faqH2:      "We answer honestly.",
-    cta:        "Ready? Call us now",
+    cta:        "Ready? Book now",
     ctaH:       "Your handyman is",
     ctaH2:      "one call away.",
     ctaBtn:     "Call us now",
-    viber:      "Viber / WhatsApp",
+    viber:      "Viber",
+    whatsapp:   "WhatsApp",
+    book:       "Book online",
+    bookShort:  "Book",
     from:       "from",
     labour:     "labour only",
     rating:     "average rating",
@@ -418,6 +429,7 @@ const UI = {
 export default function LandingPage({ service = "vik", lang = "bg" }) {
   const data = SERVICE_DATA[service][lang];
   const u    = UI[lang];
+  const bookHref = BOOK_ID[service] ? `/#book-${BOOK_ID[service]}` : "/#services";
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq]   = useState(null);
 
@@ -465,6 +477,10 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
     .btn-p:hover { background: ${G.accentLight}; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(232,114,42,0.35); }
     .btn-v { background: #7360F2; color: ${G.white}; border: none; padding: 16px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
     .btn-v:hover { background: #5f4edb; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(115,96,242,0.4); }
+    .btn-c { background: transparent; color: ${G.text}; border: 1px solid ${G.border}; padding: 15px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .btn-c:hover { border-color: ${G.accent}; color: ${G.white}; transform: translateY(-2px); }
+    .btn-w { background: #25D366; color: ${G.white}; border: none; padding: 16px 28px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+    .btn-w:hover { background: #20BD5A; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,0.4); }
     .lp-stats { display: flex; gap: 36px; }
     .lp-sn { font-family: 'Poppins', sans-serif; font-size: 28px; font-weight: 800; color: ${G.white}; }
     .lp-sl { font-size: 12px; color: ${G.textMuted}; font-weight: 500; margin-top: 2px; }
@@ -537,7 +553,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
     .lp-float { position: fixed; bottom: 28px; right: 28px; z-index: 99; display: flex; flex-direction: column; gap: 12px; align-items: flex-end; }
     .lp-fv { width: 56px; height: 56px; background: #7360F2; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 8px 30px rgba(115,96,242,0.45); transition: all 0.2s; border: none; text-decoration: none; }
     .lp-fv:hover { transform: scale(1.1); }
-    .lp-fw { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 8px 30px rgba(37,211,102,0.4); transition: all 0.2s; border: none; }
+    .lp-fw { width: 56px; height: 56px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; cursor: pointer; box-shadow: 0 8px 30px rgba(37,211,102,0.4); transition: all 0.2s; border: none; text-decoration: none; }
     .lp-fw:hover { transform: scale(1.1); }
     .lp-fp { width: 48px; height: 48px; background: ${G.accent}; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; cursor: pointer; box-shadow: 0 8px 25px rgba(232,114,42,0.4); transition: all 0.2s; border: none; text-decoration: none; }
     .lp-fp:hover { transform: scale(1.1); }
@@ -571,7 +587,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
             <a href={LANG_SWITCH[lang][service]} className="lp-lang-btn">
   {lang === "bg" ? "🇬🇧 EN" : "🇧🇬 BG"}
 </a>
-<a href={`viber://chat?number=${PHONE}`} className="lp-nav-btn">{u.viber}</a>
+<a href={bookHref} className="lp-nav-btn">⚡ {u.bookShort}</a>
           </div>
         </nav>
 
@@ -586,7 +602,8 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
             <h1 className="lp-h1">{data.heroTitle}</h1>
             <p className="lp-sub">{data.heroSub}</p>
             <div className="lp-actions">
-              <a href={`tel:${PHONE}`} className="btn-p">📞 {PHONE_LABEL}</a>
+              <a href={bookHref} className="btn-p">⚡ {u.book}</a>
+              <a href={`tel:${PHONE}`} className="btn-c">📞 {PHONE_LABEL}</a>
               <a href={`viber://chat?number=${PHONE}`} className="btn-v">🟣 {u.viber}</a>
             </div>
             <div className="lp-stats">
@@ -698,8 +715,9 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
             <p className="lp-cta-sub">HandymanSofia.com · София · {PHONE_LABEL}</p>
           </div>
           <div className="lp-cta-acts">
-            <a href={`tel:${PHONE}`} className="btn-p">📞 {u.ctaBtn}</a>
-            <a href={`viber://chat?number=${PHONE}`} className="btn-v">🟣 Viber</a>
+            <a href={bookHref} className="btn-p">⚡ {u.book}</a>
+            <a href={`tel:${PHONE}`} className="btn-c">📞 {u.ctaBtn}</a>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-w">💬 {u.whatsapp}</a>
           </div>
         </div>
 
@@ -710,7 +728,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
           </a>
           <div className="lp-foot-links">
             <a href="/" className="lp-foot-link">{u.home}</a>
-            <span className="lp-foot-link">{u.services}</span>
+            <a href="/#services" className="lp-foot-link">{u.services}</a>
             <span className="lp-foot-link">{u.contacts}</span>
           </div>
           <div className="lp-foot-note">© 2026 HandymanSofia.com · ЕИК 000000000</div>
@@ -719,7 +737,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
         {/* FLOATING BUTTONS */}
         <div className="lp-float">
           <a href={`viber://chat?number=${PHONE}`} className="lp-fv" title="Viber">🟣</a>
-          <button className="lp-fw" title="WhatsApp">💬</button>
+          <a href={WA} target="_blank" rel="noopener noreferrer" className="lp-fw" title="WhatsApp" aria-label="WhatsApp">💬</a>
           <a href={`tel:${PHONE}`} className="lp-fp" title={u.phone}>📞</a>
         </div>
 

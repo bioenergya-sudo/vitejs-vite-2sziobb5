@@ -394,6 +394,22 @@ export default function App({ lang = "bg" }) {
     setShowModal(true);
   };
 
+  // Лендинг страниците нямат собствена форма и сочат към /#book-<id>.
+  // Отваряме модала точно за тази услуга - иначе човекът пада тук и трябва
+  // сам да я намери в списъка, което изяжда повечето от кликовете.
+  useEffect(() => {
+    const openFromHash = () => {
+      const m = /^#book-(\d+)$/.exec(window.location.hash);
+      if (!m) return;
+      const svc = SERVICES.find((s) => String(s.id) === m[1]);
+      if (svc) openBooking(svc);
+    };
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const WD_BG = ["Нд", "Пн", "Вт", "Ср", "Чет", "Пет", "Съб"];
   const WD_EN = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 

@@ -17,6 +17,7 @@ const G = {
 
 const PHONE       = "+359889182749";
 const PHONE_LABEL = "0889 182 749";
+const WA          = `https://wa.me/${PHONE.replace("+", "")}`;
 
 const VALUES = [
   { icon: "⏱", title: "Точен час",      desc: "Идваме в уговореното време. Уважаваме деня ти." },
@@ -124,6 +125,10 @@ export default function ZaNas() {
       border-radius: 8px; font-size: 16px; font-weight: 700; text-decoration: none;
       border: 1px solid ${G.border}; transition: all 0.2s; white-space: nowrap; }
     .btn-v:hover { border-color: ${G.accent}; color: ${G.accent}; }
+    .btn-w { background: #25D366; color: ${G.white}; padding: 15px 32px;
+      border-radius: 8px; font-size: 16px; font-weight: 700; text-decoration: none;
+      transition: all 0.2s; white-space: nowrap; }
+    .btn-w:hover { background: #20BD5A; transform: translateY(-1px); }
 
     /* FOOTER */
     .zn-foot { padding: 40px; display: flex; align-items: center;
@@ -160,7 +165,7 @@ export default function ZaNas() {
           <a href="/" className="zn-logo">Handyman<span>Sofia</span></a>
           <div className="zn-nav-r">
             <a href={`tel:${PHONE}`} className="zn-nav-phone">📞 {PHONE_LABEL}</a>
-            <a href={`viber://chat?number=${PHONE}`} className="zn-nav-btn">Viber / WhatsApp</a>
+            <a href="/#services" className="zn-nav-btn">⚡ Резервирай</a>
           </div>
         </nav>
 
@@ -230,13 +235,15 @@ export default function ZaNas() {
         {/* CTA */}
         <div className="zn-cta">
           <div>
-            <div className="zn-cta-tag">Готов? Обади се сега</div>
+            <div className="zn-cta-tag">Готов? Резервирай сега</div>
             <h2 className="zn-cta-title">Твоят майстор е<br />на едно повикване.</h2>
             <p className="zn-cta-sub">HandymanSofia.com · София · {PHONE_LABEL}</p>
           </div>
           <div className="zn-cta-acts">
-            <a href={`tel:${PHONE}`} className="btn-p">📞 Обади се сега</a>
+            <a href="/#services" className="btn-p">⚡ Резервирай онлайн</a>
+            <a href={`tel:${PHONE}`} className="btn-v">📞 Обади се сега</a>
             <a href={`viber://chat?number=${PHONE}`} className="btn-v">🟣 Viber</a>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="btn-w">💬 WhatsApp</a>
           </div>
         </div>
 
@@ -247,6 +254,7 @@ export default function ZaNas() {
           </a>
           <div className="zn-foot-links">
             <a href="/" className="zn-foot-link">Начало</a>
+            <a href="/#services" className="zn-foot-link">Услуги</a>
             <a href="/za-nas" className="zn-foot-link">За нас</a>
             <a href={`tel:${PHONE}`} className="zn-foot-link">Контакти</a>
           </div>
