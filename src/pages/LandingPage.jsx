@@ -429,7 +429,10 @@ const UI = {
 export default function LandingPage({ service = "vik", lang = "bg" }) {
   const data = SERVICE_DATA[service][lang];
   const u    = UI[lang];
-  const bookHref = BOOK_ID[service] ? `/#book-${BOOK_ID[service]}` : "/#services";
+  const homeHref = lang === "en" ? "/en" : "/";
+  const bookHref = BOOK_ID[service]
+    ? `${homeHref}#book-${BOOK_ID[service]}`
+    : `${homeHref}#services`;
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq]   = useState(null);
 
@@ -581,7 +584,7 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
 
         {/* NAVBAR */}
         <nav className={`lp-nav${scrolled ? " sc" : ""}`}>
-          <a href="/" className="lp-logo">Handyman<span>Sofia</span></a>
+          <a href={homeHref} className="lp-logo">Handyman<span>Sofia</span></a>
           <div className="lp-nav-r">
             <a href={`tel:${PHONE}`} className="lp-nav-phone">📞 {PHONE_LABEL}</a>
             <a href={LANG_SWITCH[lang][service]} className="lp-lang-btn">
@@ -723,12 +726,12 @@ export default function LandingPage({ service = "vik", lang = "bg" }) {
 
         {/* FOOTER */}
         <footer className="lp-foot">
-          <a href="/" className="lp-foot-logo">Handyman<span>Sofia</span>
+          <a href={homeHref} className="lp-foot-logo">Handyman<span>Sofia</span>
             <span style={{ fontSize: 11, color: G.textMuted, fontFamily: "Inter", fontWeight: 400, marginLeft: 8 }}>.com</span>
           </a>
           <div className="lp-foot-links">
-            <a href="/" className="lp-foot-link">{u.home}</a>
-            <a href="/#services" className="lp-foot-link">{u.services}</a>
+            <a href={homeHref} className="lp-foot-link">{u.home}</a>
+            <a href={`${homeHref}#services`} className="lp-foot-link">{u.services}</a>
             <span className="lp-foot-link">{u.contacts}</span>
           </div>
           <div className="lp-foot-note">© 2026 HandymanSofia.com · ЕИК 000000000</div>
